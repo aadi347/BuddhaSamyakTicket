@@ -4,7 +4,9 @@ import Navbar from './components/Navbar'
 
 const App = () => {
   return (
-    <div>
+    <div
+      className="min-h-screen"
+      style={{ backgroundImage: 'url(/background.png)', backgroundSize: 'cover' }}>
 <Navbar />
   <Home />
     </div>

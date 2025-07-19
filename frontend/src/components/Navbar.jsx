@@ -41,7 +41,7 @@ const Navbar = () => {
       </div>
 
       {/* Lower Navbar - Navigation */}
-      <div className="md:flex justify-center items-center text-center py-2 px-4 relative bg-black text-white">
+      <div className="md:flex justify-center items-center text-center py-2 px-4 relative bg-black/90 text-white">
         {/* Hamburger (Mobile only) */}
         <div className="md:hidden absolute right-4 top-2">
           <button onClick={() => setMenuOpen(!menuOpen)}>
@@ -52,7 +52,7 @@ const Navbar = () => {
         {/* Nav Links */}
         <ul
           style={{ fontFamily: '"Playfair Display", serif' }}  
-          className={`flex-col md:flex-row md:flex gap-6 py-4 text-center md:text-left text-sm font-medium w-full md:w-auto ${
+          className={`flex-col md:flex-row md:flex gap-10 py-4 text-center md:text-left text-md font-bold w-full md:w-auto ${
             menuOpen ? 'flex ' : 'hidden md:flex py-4'
           }`}
         >
