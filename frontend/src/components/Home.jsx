@@ -41,13 +41,19 @@ const Home = () => {
       {/* Black Overlay */}
       <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10" />
       {/* Left Info Panel */}
-<div className="absolute top-70 left-0 z-20  w-full md:w-[500px] bg-black/60 backdrop-blur-md text-white p-8 flex flex-col justify-center space-y-6">
-  <h2 className="text-3xl md:text-4xl font-bold font-playfair">Welcome to Buddha Samyak Museum</h2>
-  <p className="text-sm md:text-base leading-relaxed">
+<div className="absolute top-70 left-0 z-20  w-full md:w-[500px] bg-black/60 backdrop-blur-lg text-white p-8 flex flex-col justify-center space-y-6">
+  <h2 
+  style={{ fontFamily: '"Playfair Display", serif' }}
+  className="text-3xl md:text-4xl font-bold font-playfair">Welcome to The Buddha Samyak Darshan Museum</h2>
+  <p
+  style={{ fontFamily: '"Playfair Display", serif' }}
+  className="text-sm md:text-base leading-relaxed">
     Discover the serene legacy of the Buddha through immersive exhibits, digital storytelling, and interactive experiences.
     The Samyak Darshan Museum brings ancient wisdom into the modern world with elegance and grace.
   </p>
-  <button className="w-fit bg-white text-black px-6 py-2  shadow hover:bg-gray-200 transition font-semibold">
+  <button
+  style={{ fontFamily: '"Playfair Display", serif' }}
+  className="w-fit bg-white text-black px-6 py-2  shadow hover:bg-gray-200 transition font-semibold">
     Explore More
   </button>
 </div>

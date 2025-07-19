@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { FaSearch, FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
+import React, { useState, useRef, useEffect } from "react";
+import {  FaGlobe, FaBars, FaTimes } from 'react-icons/fa';
+import LanguageDropdown from "./LanguageDropdown";
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,14 +12,7 @@ const Navbar = () => {
       <div className="flex flex-col md:flex-row items-center justify-between px-4 py-2 border-b border-gray-200">
         {/* Left Side: Search + Language */}
         <div className="flex items-center gap-2 w-full md:w-auto justify-between md:justify-start">
-          <div className="flex items-center gap-1 ml-2">
-            <FaGlobe />
-            <select className="text-sm outline-none">
-              <option>EN</option>
-              <option>HI</option>
-              <option>FR</option>
-            </select>
-          </div>
+          <LanguageDropdown />
         </div>
 
         {/* Center: Brand Name */}
