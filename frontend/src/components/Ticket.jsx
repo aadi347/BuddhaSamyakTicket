@@ -57,22 +57,6 @@ const Ticket = ({ formData }) => {
             {/* Row 1 */}
             <div className="flex justify-between gap-4">
               <div className="w-1/2">
-                <div className="text-xs text-gray-400">Number of Adults</div>
-                <div className="text-lg font-bold text-black">
-                  {formData.adults || 0}
-                </div>
-              </div>
-              <div className="w-1/2 text-right">
-                <div className="text-xs text-gray-400">Number of Children</div>
-                <div className="text-lg font-bold text-black">
-                  {formData.children || 0}
-                </div>
-              </div>
-            </div>
-
-            {/* Row 2 */}
-            <div className="flex justify-between gap-4">
-              <div className="w-1/2">
                 <div className="text-xs text-gray-400">Full Name</div>
                 <div className="text-lg font-bold text-black">
                   {formData.fullName || "Name"}
@@ -82,6 +66,22 @@ const Ticket = ({ formData }) => {
                 <div className="text-xs text-gray-400">Phone Number</div>
                 <div className="text-lg font-bold text-black">
                   {formData.phone || "Phone"}
+                </div>
+              </div>
+            </div>
+
+            {/* Row 2 */}
+            <div className="flex justify-between gap-4">
+              <div className="w-1/2">
+                <div className="text-xs text-gray-400">Number of Adults </div>
+                <div className="text-lg font-bold text-black">
+                  {formData.adults || 0} 
+                </div>
+              </div>
+              <div className="w-1/2 text-right">
+                <div className="text-xs text-gray-400">Number of Children</div>
+                <div className="text-lg font-bold text-black">
+                  {formData.children || 0}  
                 </div>
               </div>
             </div>
