@@ -185,12 +185,12 @@ const TicketBookingForm = () => {
                 {
                   id: "radio_1",
                   label: "Slot 1",
-                  value: "09:00 am - 01:00 pm",
+                  value: "Slot 1",
                 },
                 {
                   id: "radio_2",
                   label: "Slot 2",
-                  value: "01:00 pm - 05:00 pm",
+                  value: "Slot 2",
                 },
               ].map(({ id, label, value }) => (
                 <div key={id} className="relative">
