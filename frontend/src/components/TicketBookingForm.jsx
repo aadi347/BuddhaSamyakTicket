@@ -3,10 +3,12 @@ import { motion } from "framer-motion";
 import DateSelector from "./DateSelector";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Ticket from "./Ticket";
+import TicketBookingDialog from "./TicketBookingDialog";
 
 const steps = ["Personal Info", "Booking Details", "Confirm"];
 
 const TicketBookingForm = () => {
+    const [showDialog, setShowDialog] = useState(false);
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -280,6 +282,7 @@ const TicketBookingForm = () => {
             <div className="flex items-center justify-center">
               <div className="relative group">
                 <button
+                  onClick={() => setShowDialog(true)}
                   type="submit"
                   className="relative inline-block p-px font-semibold leading-6 text-white bg-neutral-900 shadow-2xl cursor-pointer rounded-2xl shadow-emerald-900 transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 hover:shadow-emerald-600"
                 >
@@ -309,6 +312,7 @@ const TicketBookingForm = () => {
           )}
         </div>
       </form>
+      {showDialog && <TicketBookingDialog onClose={() => setShowDialog(false)} />}
     </div>
   );
 };
