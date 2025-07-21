@@ -23,16 +23,11 @@ const Navbar = () => {
           {/* Right: Icons + Hamburger */}
           <div className="flex items-center gap-6 text-gray-300 text-sm font-medium">
             <LanguageDropdown />
-            <button className="flex items-center gap-1 hover:text-white">
-              <FaCartShopping />
-              Shop
-            </button>
+          
             <button className="flex items-center gap-1 hover:text-white">
               <FaMagnifyingGlass />
               Search
             </button>
-            <button className="hover:text-white">Donate</button>
-
             {/* Mobile Hamburger */}
             <div className="md:hidden block ml-4">
               <button onClick={() => setMenuOpen(!menuOpen)}>
