@@ -15,8 +15,8 @@ const TicketBookingForm = () => {
     phone: "",
     date: "",
     sessionType: "",
-    adults: "",
-    children: "",
+    adults: "0",
+    children: "0",
   });
 
   const handleNext = () => {
@@ -28,19 +28,23 @@ const TicketBookingForm = () => {
   };
 
   const handleChange = (eOrType, op) => {
-    if (typeof eOrType === "string") {
-      // Custom counter logic for adults/children
-      setFormData((prev) => {
-        const updatedValue =
-          op === "inc" ? prev[eOrType] + 1 : Math.max(0, prev[eOrType] - 1);
-        return { ...prev, [eOrType]: updatedValue };
-      });
-    } else {
-      // Input field logic
-      const { name, value } = eOrType.target;
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
-  };
+  if (typeof eOrType === "string") {
+    // Custom counter logic for adults/children
+    setFormData((prev) => {
+      const currentValue = Number(prev[eOrType]) || 0; // Ensure it's a number
+      const updatedValue =
+        op === "inc" ? currentValue + 1 : Math.max(0, currentValue - 1);
+      return { ...prev, [eOrType]: updatedValue };
+    });
+  } else {
+    // Input field logic
+    const { name, value } = eOrType.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: name === "adults" || name === "children" ? Number(value) : value,
+    }));
+  }
+};
 
   const handleSubmit = (e) => {
     e.preventDefault();
