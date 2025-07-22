@@ -2,7 +2,7 @@ import React from 'react';
 
 const TicketBookingDialog = ({ onClose }) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/30">
+    <div className="fixed inset-0 z-50 fixed flex items-center justify-center backdrop-blur-sm bg-black/30">
       <div className="bg-white rounded-3xl shadow-xl max-w-md w-full p-6 text-center relative">
         
         {/* Close Button */}

@@ -3,10 +3,15 @@ import { FaCartShopping, FaMagnifyingGlass } from "react-icons/fa6";
 import { FaBars, FaTimes } from "react-icons/fa";
 import LanguageDropdown from "./LanguageDropdown";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 
 
 const Navbar = () => {
+    const { t } = useTranslation();
+
   const [menuOpen, setMenuOpen] = useState(false);
+
 
   return (
     <nav className="w-full shadow-md bg-black text-white font-sans">
@@ -28,7 +33,7 @@ const Navbar = () => {
           
             <button className="flex items-center gap-1 hover:text-white">
               <FaMagnifyingGlass />
-              Search
+              {t('Search')}
             </button>
 
           <div className="w-full md:w-auto flex justify-end">
@@ -45,7 +50,7 @@ const Navbar = () => {
         clipRule="evenodd"
       />
     </svg>
-    Tickets
+    {t('Tickets')}
   </button>
 </Link>
         </div>
@@ -61,12 +66,12 @@ const Navbar = () => {
         {/* Nav Links (in same div but shown below icons) */}
         <div className={`transition-all duration-300 ease-in-out ${menuOpen ? 'block' : 'hidden md:block'} bg-black`}>
           <ul className="flex flex-col md:flex-row justify-end  md:gap-10 gap-4 font-semibold text-md">
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">Visit</li>
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">Exhibitions</li>
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">Collection</li>
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">Learn</li>
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">Membership</li>
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">Support us</li>
+            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">{t('Visit')}</li>
+            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">{t('Exhibitions')}</li>
+            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">{t('Collection')}</li>
+            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">{t('Learn')}</li>
+            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">{t('Membership')}</li>
+            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">{t('Support us')}</li>
           </ul>
         </div>
       </div>
