@@ -1,12 +1,14 @@
-// main.jsx
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.jsx';
-import './i18n.js'; // Import i18n configuration
+// index.js or main.jsx
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+import './index.css'; // Ensure you import your CSS file for styles
+import './i18n.js'; // Import your i18n configuration for translations
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <BrowserRouter>
     <App />
-  </StrictMode>
+  </BrowserRouter>
 );

@@ -1,39 +1,44 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Link } from "react-router-dom"
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import ParallaxLayout from './components/ParallaxLayout';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import ExhibitionsCarousel from './components/ExhibitionsCarousel';
+import ImgGrid from './components/ImgGrid';
+import Footer from './components/Footer';
+import MembershipBanner from './components/MembershipBanner';
+import VisitInformation from './components/VisitInformationCard';
+import VisitInformation2 from './components/VisitInformationCard2';
+import SignupBanner from './components/SignupBanner';
+import MuseumCollectionCarousel from './components/MuseumCollectionCarousel';
+import TicketBookingForm from "./components/TicketBookingForm";
 
-import Home from './components/Home'
-import Navbar from './components/Navbar'
-import ImgGrid from './components/ImgGrid'
-import Footer from './components/Footer'
-import TicketBooking from './pages/TicketBooking'
+const MainPage = () => (
+  <ParallaxLayout>
+    <div className="min-h-screen">
+      <Home />
+      <ExhibitionsCarousel />
+      <VisitInformation />
+      <MembershipBanner />
+      <VisitInformation2 />
+      <SignupBanner />
+      <MuseumCollectionCarousel />
+      <ImgGrid />
+      <Footer />
+    </div>
+  </ParallaxLayout>
+);
 
 const App = () => {
   return (
-    <Router>
-      <div
-        className="min-h-screen"
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/book-ticket" element={<TicketBookingForm />} />
+      </Routes>
+    </>
+  );
+};
 
-      >
-        <Navbar />
-
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Home />
-                <ImgGrid />
-              </>
-            }
-          />
-          <Route path="/book-ticket" element={<TicketBooking />} />
-        </Routes>
-
-        <Footer />
-      </div>
-    </Router>
-  )
-}
-
-export default App
+export default App;

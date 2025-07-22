@@ -24,13 +24,13 @@ const Home = () => {
   };
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden">
+    <div className="relative w-screen h-[40rem] overflow-hidden">
       {/* Background Video */}
       <video
         ref={videoRef}
         autoPlay
-        loop
         muted
+        loop
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
@@ -39,21 +39,25 @@ const Home = () => {
       </video>
 
       {/* Black Overlay */}
-      {/* <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10" /> */}
+      <div className="absolute top-0 left-0 w-full h-full  z-10" />
       {/* Left Info Panel */}
-<div className="absolute top-70 left-0 z-20  w-full md:w-[500px] bg-black/60 backdrop-blur-lg text-white p-8 flex flex-col justify-center space-y-6">
-  <h2 
-  style={{ fontFamily: '"Playfair Display", serif' }}
-  className="text-3xl md:text-4xl font-bold font-playfair">Welcome to The Buddha Samyak Darshan Museum</h2>
+<div className="absolute bottom-6 left-4 z-20 w-[300px] bg-white text-black p-5 transition duration-300 border border-black group hover:bg-black hover:text-white">
+  <h2
+    style={{ fontFamily: '"Playfair Display", serif' }}
+    className="text-xl font-bold"
+  >
+    Welcome to The Buddha Samyak Darshan Museum
+  </h2>
   <p
-  style={{ fontFamily: '"Playfair Display", serif' }}
-  className="text-sm md:text-base leading-relaxed">
-    Discover the serene legacy of the Buddha through immersive exhibits, digital storytelling, and interactive experiences.
-    The Samyak Darshan Museum brings ancient wisdom into the modern world with elegance and grace.
+    style={{ fontFamily: '"Playfair Display", serif' }}
+    className="text-xs leading-relaxed mt-2"
+  >
+    Discover the serene legacy of the Buddha through immersive exhibits and digital storytelling.
   </p>
   <button
-  style={{ fontFamily: '"Playfair Display", serif' }}
-  className="w-fit bg-white text-black px-6 py-2  shadow hover:bg-gray-200 transition font-semibold">
+    style={{ fontFamily: '"Playfair Display", serif' }}
+    className="mt-3 text-xs px-4 py-1 border border-black bg-black text-white transition group-hover:bg-white group-hover:text-black"
+  >
     Explore More
   </button>
 </div>
