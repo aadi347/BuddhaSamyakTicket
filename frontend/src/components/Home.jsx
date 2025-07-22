@@ -29,7 +29,6 @@ const Home = () => {
       <video
         ref={videoRef}
         autoPlay
-        muted
         loop
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover"
@@ -39,7 +38,7 @@ const Home = () => {
       </video>
 
       {/* Black Overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10" />
+      {/* <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10" /> */}
       {/* Left Info Panel */}
 <div className="absolute top-70 left-0 z-20  w-full md:w-[500px] bg-black/60 backdrop-blur-lg text-white p-8 flex flex-col justify-center space-y-6">
   <h2 
