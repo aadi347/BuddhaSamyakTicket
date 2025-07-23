@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import AdminLeftbar from './AdminLeftbar';
 import AdminTopNavbar from './AdminTopNavbar';
-import Render1 from './render1';
+import Render1 from './Render1';
 
 const MainAdmin = () => {
   const [activePanel, setActivePanel] = useState("Startup Profile");
