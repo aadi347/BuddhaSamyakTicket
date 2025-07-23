@@ -1,7 +1,7 @@
 // mainAdmin.jsx
 import React, { useState } from 'react';
-import AdminLeftbar from './adminLeftbar';
-import AdminTopNavbar from './adminTopNavbar';
+import AdminLeftbar from './AdminLeftbar';
+import AdminTopNavbar from './AdminTopNavbar';
 import Render1 from './render1';
 
 const MainAdmin = () => {
