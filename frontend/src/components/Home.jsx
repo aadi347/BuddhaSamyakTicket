@@ -105,10 +105,10 @@ const Home = () => {
 
   <button
     onClick={showInfo}
-    className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
+    className=" text-white  relative flex top-7 right-4 rounded-full p-3 transition"
     title="Info"
   >
-   <FaRoute size={22} />
+   <img src="/my3.svg" alt="Buddha Logo" className="size-20 flex top-20" />
 
   </button>
 </div>

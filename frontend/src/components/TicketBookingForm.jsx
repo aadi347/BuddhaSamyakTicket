@@ -6,10 +6,14 @@ import Ticket from "./Ticket";
 import TicketBookingDialog from "./TicketBookingDialog";
 import Navbar from "./Navbar";
 
+
+
 const steps = ["Personal Info", "Booking Details", "Confirm"];
 
 const TicketBookingForm = () => {
     const [showDialog, setShowDialog] = useState(false);
+    
+
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -116,6 +120,32 @@ const TicketBookingForm = () => {
                 placeholder="+91 1234567890"
                 required
               />
+            </div>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div>
+              <label className="block text-sm font-medium">Country</label>
+              <input
+                name="phone"
+                type="number"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                placeholder="+91 1234567890"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium">Email</label>
+              <input
+                name="phone"
+                type="number"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                placeholder="+91 1234567890"
+                required
+              />
+            </div>
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
