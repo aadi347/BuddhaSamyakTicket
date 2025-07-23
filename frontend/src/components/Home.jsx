@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { FaInfoCircle, FaPause, FaPlay } from 'react-icons/fa';
 import { FaRoute } from "react-icons/fa";
 import Navbar from './Navbar';
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
@@ -44,7 +45,7 @@ const Home = () => {
       {/* Black Overlay */}
       <div className="absolute top-0 left-0 w-full h-full  z-10" />
       {/* Left Info Panel */}
-<div className="absolute bottom-6 left-4 z-20 w-[300px] bg-white text-black p-5 transition duration-300 border border-black group hover:bg-black hover:text-white">
+<div className="absolute bottom-6 left-4 z-20 w-[400px] bg-white text-black p-5 transition duration-300 group hover:bg-black hover:text-white">
   <h2
     style={{ fontFamily: '"Playfair Display", serif' }}
     className="text-xl font-bold"
@@ -57,13 +58,18 @@ const Home = () => {
   >
     Discover the serene legacy of the Buddha through immersive exhibits and digital storytelling.
   </p>
+  <Link
+    to="/about-museum"  
+    >
   <button
     style={{ fontFamily: '"Playfair Display", serif' }}
     className="mt-3 text-xs px-4 py-1 border border-black bg-black text-white transition group-hover:bg-white group-hover:text-black"
   >
     Explore More
   </button>
+  </Link>
 </div>
+
 
 
       {/* Pause/Play Button */}

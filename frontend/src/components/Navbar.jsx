@@ -5,6 +5,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import LanguageDropdown from "./LanguageDropdown";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { IoMdLogIn } from "react-icons/io";
 
 
 
@@ -62,6 +63,12 @@ const Navbar = () => {
                   </svg>
                   {t('Tickets')}
                 </button>
+              </Link>
+              <Link to="/login">
+              <button className="ml-4">
+                <IoMdLogIn 
+ size={24} className="text-white hover:text-gray-300 transition" />
+              </button>
               </Link>
             </div>
             {/* Mobile Hamburger */}
