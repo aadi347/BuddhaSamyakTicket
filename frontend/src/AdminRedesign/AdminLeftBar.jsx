@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 import classNames from 'classnames';
 
-const AdminLeftbar = ({ changePanel }) => {
+const AdminLeftBar = ({ changePanel }) => {
   const [activeItem, setActiveItem] = useState('Dashboard');
 
   const menuItems = [
@@ -74,4 +74,4 @@ const AdminLeftbar = ({ changePanel }) => {
   );
 };
 
-export default AdminLeftbar;
+export default AdminLeftBar;
