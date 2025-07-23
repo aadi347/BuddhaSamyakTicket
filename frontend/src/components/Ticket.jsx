@@ -51,9 +51,7 @@ const Ticket = ({ formData }) => {
           <div className="mt-4 border-t w-full border-dashed border-gray-400"></div>
 
           <div className="mt-6 space-y-4 text-[12px] text-gray-500">
-            <p className="text-center font-extrabold border  border-gray-200 rounded-md py-1">
-              {ticketId}
-            </p>
+           
             {/* Row 1 */}
             <div className="flex justify-between gap-4">
               <div className="w-1/2">
@@ -104,10 +102,18 @@ const Ticket = ({ formData }) => {
           </div>
 
           <div className="mt-4 border-t border-dashed border-gray-400"></div>
+          <div className="mt-4 text-center">
+  <p className="text-xs text-gray-500 mb-1">Ticket Number</p>
+  <p className="text-xl font-extrabold rounded-md py-1">
+    <span>{ticketId}</span>
+  </p>
+</div>
+
         </div>
 
         <div className="relative rounded-b-3xl bg-black p-4">
-          <div className="absolute inset-0 z-0 rounded-b-3xl bg-[url('https://static.vecteezy.com/system/resources/thumbnails/000/160/821/small_2x/hamsa-pattern-wallpaper-vector.jpg')] bg-cover opacity-90"></div>
+         <div className="absolute inset-0 z-0 bg-[url('https://static.vecteezy.com/system/resources/thumbnails/000/160/821/small_2x/hamsa-pattern-wallpaper-vector.jpg')] bg-cover bg-center bg-no-repeat opacity-90 rounded-b-3xl"></div>
+
 
           <div className="relative z-10 flex items-center justify-center py-6">
             <div className="rounded-2xl bg-black/60 backdrop-blur-sm p-4">

@@ -14,6 +14,7 @@ import MuseumCollectionCarousel from './components/MuseumCollectionCarousel';
 import TicketBookingForm from "./components/TicketBookingForm";
 import AboutMuseum from './components/AboutMuseum';
 import MainAdmin from './AdminRedesign/MainAdmin';
+import Login from './pages/Login';
 
 const MainPage = () => (
   <ParallaxLayout>
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/book-ticket" element={<TicketBookingForm />} />
         <Route path="/about-museum" element={<AboutMuseum />} />
         <Route path="/admin" element={<MainAdmin />} />
+        <Route path="/login" element={<Login />} />
         {/* Add more routes as needed */}
       </Routes>
 
