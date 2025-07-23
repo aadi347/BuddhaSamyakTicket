@@ -4,6 +4,7 @@ import DateSelector from "./DateSelector";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Ticket from "./Ticket";
 import TicketBookingDialog from "./TicketBookingDialog";
+import Navbar from "./Navbar";
 
 const steps = ["Personal Info", "Booking Details", "Confirm"];
 
@@ -52,6 +53,8 @@ const TicketBookingForm = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="bg-white p-6 max-w-xl mx-auto mt-10 rounded-xl ">
       {/* Step Progress Bar */}
       <div className="relative mb-8">
@@ -318,6 +321,7 @@ const TicketBookingForm = () => {
       </form>
       {showDialog && <TicketBookingDialog onClose={() => setShowDialog(false)} />}
     </div>
+    </>
   );
 };
 

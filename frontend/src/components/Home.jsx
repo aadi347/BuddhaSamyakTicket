@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { FaInfoCircle, FaPause, FaPlay } from 'react-icons/fa';
 import { FaRoute } from "react-icons/fa";
+import Navbar from './Navbar';
 
 
 const Home = () => {
@@ -24,6 +25,8 @@ const Home = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="relative w-screen h-[40rem] overflow-hidden">
       {/* Background Video */}
       <video
@@ -105,6 +108,7 @@ const Home = () => {
 </div>
 
     </div>
+    </>
   );
 };
 
