@@ -21,17 +21,17 @@ const Navbar = () => {
       <div className="px-6 py-4 border-b border-gray-700">
         <div className="flex items-center justify-between">
           {/* Left: Logo */}
-          <Link to="/" className="flex items-center gap-4 pl-6 text-white no-underline">
+          <Link to="/" className="flex items-center gap-4 pl-6  no-underline">
             <img
-              src="/buddha.png"
+              src="/buddha3.png"
               alt="Logo"
-              className="h-20 w-auto object-contain filter invert brightness-0"
+              className="h-20 w-auto object-contain "
             />
 
             <div className="text-left font-serif">
               <h1 className="text-3xl font-light leading-none">
-                <span className="text-lg block">The</span>
                 <span className="text-4xl font-semibold">Buddha Samyak</span>
+                <span className="text-2xl block">Darshan</span>
                 <span className="text-4xl block">Museum</span>
               </h1>
             </div>

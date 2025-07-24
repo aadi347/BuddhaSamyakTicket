@@ -78,9 +78,9 @@ const Footer = () => {
         
         </div>
         <img
-          src="/buddha.png"
+          src="/buddha3.png"
           alt="Logo"
-          className="w-24 bg-white/80 rounded-full p-2"
+          className="w-24  rounded-full p-2"
         />
       </div>
     </footer>

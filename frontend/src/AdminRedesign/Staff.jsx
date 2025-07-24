@@ -1,109 +1,134 @@
 import React from "react";
-import { UserCircle } from "lucide-react";
+import {
+  Users,
+  CheckCircle,
+  XCircle,
+  PlaneTakeoff,
+} from "lucide-react";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
-const staffData = [
-  {
-    id: 1,
-    name: 'Ravi Kumar',
-    role: 'Electrician',
-    arrival: '9:00 AM',
-    departure: '5:00 PM',
-    photo: 'https://randomuser.me/api/portraits/men/32.jpg',
-  },
-  {
-    id: 2,
-    name: 'Sunita Devi',
-    role: 'Supervisor',
-    arrival: '9:30 AM',
-    departure: '5:30 PM',
-    photo: '',
-  },
-  {
-    id: 3,
-    name: 'Amit Singh',
-    role: 'Plumber',
-    arrival: '8:45 AM',
-    departure: '4:45 PM',
-    photo: 'https://randomuser.me/api/portraits/men/45.jpg',
-  },
-  {
-    id: 4,
-    name: 'Neha Verma',
-    role: 'Field Assistant',
-    arrival: '10:00 AM',
-    departure: '6:00 PM',
-    photo: '',
-  },
-  {
-    id: 5,
-    name: 'Alok Mishra',
-    role: 'Technician',
-    arrival: '9:15 AM',
-    departure: '5:15 PM',
-    photo: 'https://randomuser.me/api/portraits/men/52.jpg',
-  },
-  {
-    id: 6,
-    name: 'Pooja Sinha',
-    role: 'Office Manager',
-    arrival: '9:00 AM',
-    departure: '6:00 PM',
-    photo: '',
-  },
-  {
-    id: 7,
-    name: 'Deepak Yadav',
-    role: 'Electrician Helper',
-    arrival: '8:30 AM',
-    departure: '4:30 PM',
-    photo: 'https://randomuser.me/api/portraits/men/59.jpg',
-  },
-  {
-    id: 8,
-    name: 'Kajal Kumari',
-    role: 'Data Entry Operator',
-    arrival: '10:15 AM',
-    departure: '6:15 PM',
-    photo: '',
-  },
-];
+ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-function Staff() {
+const Staff = () => {
+  const attendanceData = {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    datasets: [
+      {
+        label: "Present",
+        data: [30, 32, 29, 35, 33, 20],
+        backgroundColor: "#22c55e",
+      },
+      {
+        label: "Absent",
+        data: [2, 3, 4, 1, 2, 5],
+        backgroundColor: "#ef4444",
+      },
+      {
+        label: "Leave",
+        data: [1, 0, 1, 0, 1, 2],
+        backgroundColor: "#facc15",
+      },
+    ],
+  };
+
+  const attendanceOptions = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom",
+      },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: {
+          precision: 0,
+        },
+      },
+    },
+  };
+
+
   return (
-    <div className="p-6 bg-gray-100 h-fit">
-      <h2 className="text-2xl font-semibold mb-6 text-center">
-        Staff Information
-      </h2>
+    <div className="p-6 bg-gray-50 min-h-screen">
+      <h1 className="text-2xl font-bold mb-6">Staff Attendance Overview</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {staffData.map((staff) => (
-          <div
-            key={staff.id}
-            className="bg-white shadow-lg hover:shadow-xl rounded-xl px-4 pt-6 pb-4 transition-transform duration-300 transform hover:scale-105 text-center border-t-1 border-gray-200"
-          >
-            <div className="flex justify-center mb-4">
-              {staff.photo ? (
-                <img
-                  src={staff.photo}
-                  alt={staff.name}
-                  className="w-20 h-20 rounded-full object-cover"
-                />
-              ) : (
-                <UserCircle className="w-20 h-20 text-gray-400" />
-              )}
-            </div>
-
-            <h3 className="text-lg font-bold">{staff.name}</h3>
-            <p className="text-sm text-gray-600">Role: {staff.role}</p>
-            <p className="text-sm text-green-600 mt-2">
-              Arrival: {staff.arrival}
-            </p>
-            <p className="text-sm text-red-600">Departure: {staff.departure}</p>
-          </div>
-        ))}
+      <div className="grid grid-cols-3 gap-4">
+  {/* Left Section - 4 Tiles in 2x2 grid */}
+  <div className="grid grid-cols-2 gap-4 col-span-2">
+    {/* Tile 1 */}
+    <div className="bg-blue-500 text-white rounded-2xl p-5 shadow-md h-40 flex flex-col justify-between">
+      <div>
+        <h3 className="text-sm">Total Employee</h3>
+        <h1 className="text-2xl font-bold">26</h1>
+      </div>
+      <div className="text-sm">
+        <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs">+15%</span>
+        <span className="ml-2">4 Employee Hiring</span>
       </div>
     </div>
+
+    {/* Tile 2 */}
+    <div className="bg-white text-black rounded-2xl p-5 shadow-md h-40 flex flex-col justify-between">
+      <div>
+        <h3 className="text-sm">Total Presents</h3>
+        <h1 className="text-2xl font-bold">4</h1>
+      </div>
+      <div className="text-sm">
+        <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs">-64%</span>
+        <span className="ml-2">Daily Attendance</span>
+      </div>
+    </div>
+
+    {/* Tile 3 */}
+    <div className="bg-white text-black rounded-2xl p-5 shadow-md h-40 flex flex-col justify-between">
+      <div>
+        <h3 className="text-sm">Total Absents</h3>
+        <h1 className="text-2xl font-bold">11</h1>
+      </div>
+      <div className="text-sm">
+        <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs">-54%</span>
+        <span className="ml-2">New Recruitment</span>
+      </div>
+    </div>
+
+    {/* Tile 4 */}
+    <div className="bg-white text-black rounded-2xl p-5 shadow-md h-40 flex flex-col justify-between">
+      <div>
+        <h3 className="text-sm">Total Leave</h3>
+        <h1 className="text-2xl font-bold">11</h1>
+      </div>
+      <div className="text-sm">
+        <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs">-54%</span>
+        <span className="ml-2">Need New Employee</span>
+      </div>
+    </div>
+  </div>
+
+  {/* Right Section - Chart or Stats */}
+  <div className="bg-white rounded-2xl shadow-md p-5 col-span-1 h-[336px]">
+    <div className="flex justify-between items-center mb-4">
+      <h2 className="text-lg font-semibold">Daily attendance statistic</h2>
+      <span className="text-sm text-gray-500">IT Student</span>
+    </div>
+    {/* Your chart goes here */}
+    <div className="h-full flex items-center justify-center text-gray-400">
+      {/* Placeholder */}
+     <Bar data={attendanceData} options={attendanceOptions} />
+    </div>
+  </div>
+</div>
+
+    </div>
   );
-}
+};
 
 export default Staff;
