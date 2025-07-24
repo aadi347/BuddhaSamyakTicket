@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AdminLeftbar from './AdminLeftbar';
+import AdminLeftBar from './AdminLeftBar';
 import AdminTopNavbar from './AdminTopNavbar';
 import Render1 from './Render1';
 
@@ -29,7 +29,7 @@ const MainAdmin = () => {
             isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
-          <AdminLeftbar changePanel={handlePanelChange} />
+          <AdminLeftBar changePanel={handlePanelChange} />
         </div>
 
         {/* Content */}
