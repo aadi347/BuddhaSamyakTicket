@@ -26,27 +26,17 @@ export default function DateSelector({ value, onChange }) {
     setIsCalendarOpen((prev) => !prev);
   };
 
-const handleDayClick = (day) => {
+ const handleDayClick = (day) => {
   const clickedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
   clickedDate.setHours(0, 0, 0, 0);
 
   if (clickedDate >= today) {
     setSelectedDate(clickedDate);
 
-    // ✅ Format date as dd/mm/yy
-    const dd = String(clickedDate.getDate()).padStart(2, '0');
-    const mm = String(clickedDate.getMonth() + 1).padStart(2, '0');
-    const yy = String(clickedDate.getFullYear()).slice(-2);
-
-    const formattedDate = `${dd}/${mm}/${yy}`;
-
-    // ✅ Call the onChange prop with the formatted date
-    onChange?.(formattedDate);
-
-    setIsCalendarOpen(false);
+    const localDateString = `${clickedDate.getFullYear()}-${String(clickedDate.getMonth() + 1).padStart(2, '0')}-${String(clickedDate.getDate()).padStart(2, '0')}`;
+    onChange?.(localDateString);
   }
 };
-
 
 
   const handlePrevMonth = () => {

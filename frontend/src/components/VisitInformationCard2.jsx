@@ -3,7 +3,7 @@ import React from "react";
 // Card Component
 const VisitInformationCard = ({ title, description, imageUrl }) => (
   <div className="bg-white hover:bg-black hover:text-white transition-all duration-300 border border-gray-300 group rounded-lg overflow-hidden shadow-md">
-    <div className="h-52 w-full overflow-hidden">
+    <div className="h-52 sm:h-60 md:h-64 w-full overflow-hidden">
       <img
         src={imageUrl}
         alt={title}
@@ -52,9 +52,11 @@ const VisitInformation = () => {
 
   return (
     <div className="bg-black w-full py-16">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-white mb-10">What’s Online</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-white mb-10 text-center">
+          What’s Online
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {visitOptions.map((opt, idx) => (
             <VisitInformationCard
               key={idx}

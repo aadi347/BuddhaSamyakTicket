@@ -19,23 +19,27 @@ const Navbar = () => {
     <nav className="w-full shadow-md bg-black text-white font-sans">
       {/* Main Top Section */}
       <div className="px-6 py-4 border-b border-gray-700">
-        <div className="flex items-center justify-between">
+        
+        <div className="flex items-center justify-between bg-red-500">
           {/* Left: Logo */}
-          <Link to="/" className="flex items-center gap-4 pl-6  no-underline">
-            <img
-              src="/buddha3.png"
-              alt="Logo"
-              className="h-20 w-auto object-contain "
-            />
+          <div className="flex items-center justify-between h-[100px]">
+  <Link to="/" className="flex items-center gap-4 pl-6 no-underline h-full">
+    <div className="flex items-center h-full">
+      <img
+        src="/buddha3.png"
+        alt="Logo"
+        className="h-20 w-auto object-contain"
+      />
+    </div>
 
-            <div className="text-left font-serif">
-              <h1 className="text-3xl font-light leading-none">
-                <span className="text-4xl font-semibold">Buddha Samyak</span>
-                <span className="text-2xl block">Darshan Museum</span>
-
-              </h1>
-            </div>
-          </Link>
+    <div className="flex flex-col justify-center h-full font-serif leading-none">
+      <h1 className="text-3xl font-light">
+        <span className="text-4xl font-semibold">Buddha Samyak</span>
+        <span className="text-2xl block">Darshan Museum</span>
+      </h1>
+    </div>
+  </Link>
+</div>
 
 
           {/* Right: Icons + Hamburger */}

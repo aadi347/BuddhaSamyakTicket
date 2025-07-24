@@ -45,7 +45,7 @@ const Home = () => {
       {/* Black Overlay */}
       <div className="absolute top-0 left-0 w-full h-full  z-10" />
       {/* Left Info Panel */}
-<div className="absolute bottom-6 left-4 z-20 w-[400px] bg-white text-black p-5 transition duration-300 group hover:bg-black hover:text-white">
+<div className="absolute bottom-6 left-4 z-20 w-[380px] bg-white text-black px-6 py-8 transition duration-300 group hover:bg-black hover:text-white ">
   <h2
     style={{ fontFamily: '"Playfair Display", serif' }}
     className="text-xl font-bold"
@@ -54,21 +54,20 @@ const Home = () => {
   </h2>
   <p
     style={{ fontFamily: '"Playfair Display", serif' }}
-    className="text-xs leading-relaxed mt-2"
+    className="text-sm leading-relaxed mt-4"
   >
     Discover the serene legacy of the Buddha through immersive exhibits and digital storytelling.
   </p>
-  <Link
-    to="/about-museum"  
+  <Link to="/about-museum">
+    <button
+      style={{ fontFamily: '"Playfair Display", serif' }}
+      className="mt-5 text-sm px-5 py-2 border border-black bg-black text-white transition group-hover:bg-white group-hover:text-black"
     >
-  <button
-    style={{ fontFamily: '"Playfair Display", serif' }}
-    className="mt-3 text-xs px-4 py-1 border border-black bg-black text-white transition group-hover:bg-white group-hover:text-black"
-  >
-    Explore More
-  </button>
+      Explore More
+    </button>
   </Link>
 </div>
+
 
 
 
@@ -105,10 +104,10 @@ const Home = () => {
 
   <button
     onClick={showInfo}
-    className=" text-white  relative flex top-7 right-4 rounded-full p-3 transition"
+    className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
     title="Info"
   >
-   <img src="/my3.svg" alt="Buddha Logo" className="size-20 flex top-20" />
+   <FaRoute size={22} />
 
   </button>
 </div>

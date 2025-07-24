@@ -15,7 +15,8 @@ import TicketBookingForm from "./components/TicketBookingForm";
 import AboutMuseum from './components/AboutMuseum';
 import MainAdmin from './AdminRedesign/MainAdmin';
 import Login from './pages/Login';
-import Test from './components/Test';
+import ExhibitionPage from './components/ExhibitionPage'; // ✅ NEW IMPORT
+import AllCollectionPage from './components/AllCollectionPage';
 
 const MainPage = () => (
   <ParallaxLayout>
@@ -36,6 +37,7 @@ const MainPage = () => (
 const App = () => {
   return (
     <>
+   
 
       <Routes>
         <Route path="/" element={<MainPage />} />
@@ -43,10 +45,9 @@ const App = () => {
         <Route path="/about-museum" element={<AboutMuseum />} />
         <Route path="/admin" element={<MainAdmin />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/test" element={<Test />} />
-        {/* Add more routes as needed */}
+        <Route path="/exhibitions" element={<ExhibitionPage />} /> {/* ✅ NEW ROUTE */}
+        <Route path="/collection" element={<AllCollectionPage />} /> {/* ✅ NEW ROUTE */}
       </Routes>
-
     </>
   );
 };

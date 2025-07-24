@@ -1,20 +1,23 @@
 import React from "react";
 import { FaClock, FaTicketAlt } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 const exhibitions = [
     {
         title: "Hiroshige",
         subtitle: "artist of the open road",
+        description: "Experience Edo-period Japan through Hiroshige’s iconic landscapes.",
         date: "1 May – 7 September 2025",
         image: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/705435/1582576/main-image",
     },
     {
         title: "Ancient India",
         subtitle: "living traditions",
+        description: "Explore the enduring cultural practices and sacred art of India.",
         date: "22 May – 19 October 2025",
         image: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/38615/1331596/main-image",
     },
 ];
+
 
 const MuseumShowcase = () => {
     return (
@@ -28,30 +31,37 @@ const MuseumShowcase = () => {
 
                     </h1>
                 </div>
-                <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2">
-                        <FaTicketAlt className="text-lg" />
-                        <span>
-                            Free entry – <u>book online</u>
-                        </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <FaClock className="text-lg" />
-                        <span>Open today: 10.00–17.00</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <FaClock className="text-lg" />
-                        <span>Last entry: 16.45</span>
-                    </div>
-                </div>
+                <div className="space-y-3 text-base md:text-lg text-white font-medium">
+  {/* Ticket Info */}
+  <div className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
+    <FaTicketAlt className="text-xl group-hover:rotate-[-10deg] transition-transform duration-300" />
+    <span className="cursor-pointer">
+      Free entry – <span className="font-semibold">book online</span>
+    </span>
+  </div>
+
+  {/* Open Time */}
+  <div className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
+    <FaClock className="text-xl group-hover:rotate-[10deg] transition-transform duration-300" />
+    <span>Open today: <strong>10.00–17.00</strong></span>
+  </div>
+
+  {/* Last Entry */}
+  <div className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
+    <FaClock className="text-xl group-hover:rotate-[10deg] transition-transform duration-300" />
+    <span>Last entry: <strong>16.45</strong></span>
+  </div>
+</div>
+
             </div>
 
             {/* Exhibitions Section */}
             <div className="flex justify-between items-center mt-12 mb-6 ">
                 <h2 className="text-3xl md:text-4xl font-semibold">Exhibitions and events</h2>
-                <button className="text-white text-sm hover:underline">
+                <Link to="/exhibitions" className="text-white text-sm hover:underline">
                     See all exhibitions and events →
-                </button>
+                </Link>
+
             </div>
 
             <div className="grid md:grid-cols-2 gap-10  ">
@@ -70,7 +80,13 @@ const MuseumShowcase = () => {
                                     <p className="text-gray-300 group-hover:text-black mt-1 text-lg">
                                         {item.subtitle}
                                     </p>
+                                    {item.description && (
+                                        <p className="text-gray-400 group-hover:text-black mt-2 text-sm leading-relaxed">
+                                            {item.description}
+                                        </p>
+                                    )}
                                 </div>
+
                                 <div>
                                     <p className="text-sm group-hover:text-black text-gray-400">Exhibition</p>
                                     <p className="text-sm group-hover:text-black text-gray-300 mt-1">
@@ -88,7 +104,7 @@ const MuseumShowcase = () => {
                                 />
                             </div>
                         </div>
-                        
+
                     </div>
                 ))}
             </div>
