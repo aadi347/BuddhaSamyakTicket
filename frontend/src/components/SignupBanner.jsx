@@ -19,7 +19,7 @@ and stay updated with the latest events and stories from the Museum.
               </p>
             </div>
             <button className="bg-black hover:bg-white border text-white hover:text-black font-semibold py-4 px-8 text-lg transition-all duration-300 hover:scale-105 whitespace-nowrap">
-              Plan
+              Visit
             </button>
           </div>
         </div>
