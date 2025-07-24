@@ -1,20 +1,26 @@
-// render1.jsx
 import React from 'react';
-import Dashboard from './Dashboard.jsx';
-
-// import SecondTrancheModule from '../Admin_Profile_Abhishek/Second_Tranche_module/NewSecondTrancheModule';
-
+import Dashboard from './Dashboard';
+import Staff from './Staff';
 
 const Render1 = ({ activePanel }) => {
+  const renderContent = () => {
+    switch (activePanel) {
+      case 'Dashboard':
+        return <Dashboard />;
+      case 'Staff':
+        return <Staff />;
+      case 'Startup List':
+        return <div className="p-6 text-black">Startup List Content</div>;
+      case 'Seed Fund Module':
+        return <div className="p-6 text-black">Seed Fund Module Content</div>;
+      default:
+        return <div className="p-6 text-black">No content available</div>;
+    }
+  };
+
   return (
-    <div className="flex items-center justify-center h-full">
-      {/* <h1 className='text-red-500'>{activePanel}</h1>  */}
-      <div className="w-full h-full">
-        {activePanel === "Dashboard" && <Dashboard />}
-        {/* {activePanel === "Second Tranche Module" && <Table  />} */}
-
-        </div>
-
+    <div className="min-h-full w-full bg-white text-black">
+      {renderContent()}
     </div>
   );
 };

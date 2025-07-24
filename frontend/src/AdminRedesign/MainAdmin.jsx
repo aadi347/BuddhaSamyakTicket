@@ -1,11 +1,10 @@
-// mainAdmin.jsx
 import React, { useState } from 'react';
-import AdminLeftBar from './AdminLeftBar';
+import AdminLeftbar from './AdminLeftbar';
 import AdminTopNavbar from './AdminTopNavbar';
 import Render1 from './Render1';
 
 const MainAdmin = () => {
-  const [activePanel, setActivePanel] = useState("Startup Profile");
+  const [activePanel, setActivePanel] = useState('Dashboard');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -14,29 +13,27 @@ const MainAdmin = () => {
 
   const handlePanelChange = (panel) => {
     setActivePanel(panel);
-    setIsSidebarOpen(false); // Close sidebar on mobile after selection
+    setIsSidebarOpen(false); // Hide sidebar on mobile
   };
 
   return (
     <div className="flex h-screen w-screen flex-col bg-gray-100">
-      {/* Top Navbar */}
       <div className="w-full">
         <AdminTopNavbar toggleSidebar={toggleSidebar} />
       </div>
 
-      {/* Content Area */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Left Sidebar */}
+        {/* Sidebar */}
         <div
-          className={`fixed inset-y-0 left-0 z-40 w-64 bg-gray-800 text-white  shadow-lg transform transition-transform duration-300 ease-in-out md:static md:translate-x-0 ${
+          className={`fixed inset-y-0 left-0 z-40 w-64 bg-white text-black shadow-lg transform transition-transform duration-300 ease-in-out md:static md:translate-x-0 ${
             isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
-          <AdminLeftBar changePanel={handlePanelChange} />
+          <AdminLeftbar changePanel={handlePanelChange} />
         </div>
 
-        {/* Main Render Area */}
-        <div className="flex-1  text-white overflow-y-auto">
+        {/* Content */}
+        <div className="flex-1 overflow-y-auto">
           <Render1 activePanel={activePanel} />
         </div>
       </div>
