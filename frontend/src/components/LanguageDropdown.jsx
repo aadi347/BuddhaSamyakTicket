@@ -38,7 +38,7 @@ const LanguageDropdown = () => {
       <div
         style={{ fontFamily: '"Playfair Display", serif' }}
         onClick={() => setOpen(!open)}
-        className="bg-white px-3 py-1.5 rounded-full text-sm text-black font-medium shadow hover:bg-gray-100 transition"
+        className="bg-white px-5 py-2 rounded-full text-sm text-black font-medium shadow hover:bg-gray-100 transition"
       >
         {selected}
       </div>
@@ -58,14 +58,12 @@ const LanguageDropdown = () => {
               <li
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang)}
-                className={`px-4 py-2 hover:bg-gray-100 text-sm transition ${
-                  selected === lang.label ? "bg-gray-200 font-semibold" : ""
+                className={`px-4 py-2 hover:bg-gray-100 text-sm transition text-white ${
+                  selected === lang.label ? "bg-gray-200 font-semibold !text-black" : ""
                 }`}
               >
                 {lang.label}
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-</svg>
+                 
               </li>
             ))}
           </motion.ul>
