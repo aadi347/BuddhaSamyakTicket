@@ -31,8 +31,8 @@ const Navbar = () => {
             <div className="text-left font-serif">
               <h1 className="text-3xl font-light leading-none">
                 <span className="text-4xl font-semibold">Buddha Samyak</span>
-                <span className="text-2xl block">Darshan</span>
-                <span className="text-4xl block">Museum</span>
+                <span className="text-2xl block">Darshan Museum</span>
+
               </h1>
             </div>
           </Link>

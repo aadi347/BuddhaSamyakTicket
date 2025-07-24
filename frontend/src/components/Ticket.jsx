@@ -51,18 +51,17 @@ const Ticket = ({ formData }) => {
           <div className="mt-4 border-t w-full border-dashed border-gray-400"></div>
 
           <div className="mt-6 space-y-4 text-[12px] text-gray-500">
-           
             {/* Row 1 */}
             <div className="flex justify-between gap-4">
               <div className="w-1/2">
                 <div className="text-xs text-gray-400">Full Name</div>
-                <div className="text-lg font-bold text-black">
+                <div className="text-sm font-bold text-black">
                   {formData.fullName || "Name"}
                 </div>
               </div>
               <div className="w-1/2 text-right">
-                <div className="text-xs text-gray-400">Phone Number</div>
-                <div className="text-lg font-bold text-black">
+                <div className="text-xs text-gray-400">Phone</div>
+                <div className="text-sm font-bold text-black">
                   {formData.phone || "Phone"}
                 </div>
               </div>
@@ -71,15 +70,15 @@ const Ticket = ({ formData }) => {
             {/* Row 2 */}
             <div className="flex justify-between gap-4">
               <div className="w-1/2">
-                <div className="text-xs text-gray-400">Number of Adults </div>
+                <div className="text-xs text-gray-400">Email</div>
                 <div className="text-lg font-bold text-black">
-                  {formData.adults || 0} 
+                  {formData.email || "Email"}
                 </div>
               </div>
               <div className="w-1/2 text-right">
-                <div className="text-xs text-gray-400">Number of Children</div>
-                <div className="text-lg font-bold text-black">
-                  {formData.children || 0}  
+                <div className="text-xs text-gray-400">Country</div>
+                <div className="text-sm font-bold text-black">
+                  {formData.country || "Country"}
                 </div>
               </div>
             </div>
@@ -87,14 +86,30 @@ const Ticket = ({ formData }) => {
             {/* Row 3 */}
             <div className="flex justify-between gap-4">
               <div className="w-1/2">
+                <div className="text-xs text-gray-400">Adults</div>
+                <div className="text-sm font-bold text-black">
+                  {formData.adults || 0}
+                </div>
+              </div>
+              <div className="w-1/2 text-right">
+                <div className="text-xs text-gray-400">Children</div>
+                <div className="text-sm font-bold text-black">
+                  {formData.children || 0}
+                </div>
+              </div>
+            </div>
+
+            {/* Row 4 */}
+            <div className="flex justify-between gap-4">
+              <div className="w-1/2">
                 <div className="text-xs text-gray-400">Date</div>
-                <div className="text-lg font-bold text-black">
+                <div className="text-sm font-bold text-black">
                   {formData.date || "No Date"}
                 </div>
               </div>
               <div className="w-1/2 text-right">
                 <div className="text-xs text-gray-400">Session Type</div>
-                <div className="text-lg font-bold text-black">
+                <div className="text-sm font-bold text-black">
                   {formData.sessionType || "No Session"}
                 </div>
               </div>
@@ -103,17 +118,15 @@ const Ticket = ({ formData }) => {
 
           <div className="mt-4 border-t border-dashed border-gray-400"></div>
           <div className="mt-4 text-center">
-  <p className="text-xs text-gray-500 mb-1">Ticket Number</p>
-  <p className="text-xl font-extrabold rounded-md py-1">
-    <span>{ticketId}</span>
-  </p>
-</div>
-
+            <p className="text-xs text-gray-500 mb-1">Ticket Number</p>
+            <p className="text-xl font-extrabold rounded-md py-1">
+              <span>{ticketId}</span>
+            </p>
+          </div>
         </div>
 
         <div className="relative rounded-b-3xl bg-black p-4">
-         <div className="absolute inset-0 z-0 bg-[url('https://static.vecteezy.com/system/resources/thumbnails/000/160/821/small_2x/hamsa-pattern-wallpaper-vector.jpg')] bg-cover bg-center bg-no-repeat opacity-90 rounded-b-3xl"></div>
-
+          <div className="absolute inset-0 z-0 bg-[url('https://static.vecteezy.com/system/resources/thumbnails/000/160/821/small_2x/hamsa-pattern-wallpaper-vector.jpg')] bg-cover bg-center bg-no-repeat opacity-90 rounded-b-3xl"></div>
 
           <div className="relative z-10 flex items-center justify-center py-6">
             <div className="rounded-2xl bg-black/60 backdrop-blur-sm p-4">

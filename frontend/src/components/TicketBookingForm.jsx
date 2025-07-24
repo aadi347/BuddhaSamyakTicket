@@ -22,6 +22,8 @@ const TicketBookingForm = () => {
     sessionType: "",
     adults: "0",
     children: "0",
+    country: "",
+    email: "",
   });
 
   const handleNext = () => {
@@ -122,30 +124,31 @@ const TicketBookingForm = () => {
               />
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div>
-              <label className="block text-sm font-medium">Country</label>
-              <input
-                name="phone"
-                type="number"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                placeholder="+91 1234567890"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium">Email</label>
-              <input
-                name="phone"
-                type="number"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                placeholder="+91 1234567890"
-                required
-              />
-            </div>
+             <div>
+    <label className="block text-sm font-medium">Country</label>
+    <input
+      name="country" // ✅ FIXED
+      type="text"
+      value={formData.country}
+      onChange={handleChange}
+      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+      placeholder="India"
+      required
+    />
+  </div>
+  <div>
+    <label className="block text-sm font-medium">Email</label>
+    <input
+      name="email" // ✅ FIXED
+      type="email"
+      value={formData.email}
+      onChange={handleChange}
+      className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+      placeholder="example@mail.com"
+      required
+    />
+  </div>
+
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <div>
