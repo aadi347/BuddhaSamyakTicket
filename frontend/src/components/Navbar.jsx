@@ -86,22 +86,76 @@ const Navbar = () => {
           } bg-black`}
         >
           <ul className="flex flex-col md:flex-row justify-end  md:gap-10 gap-4 font-semibold text-md">
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">
+            <li
+              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
+              onClick={() => {
+                const el = document.getElementById("visit");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                  setMenuOpen(false);
+                }
+              }}
+            >
               {t("Visit")}
             </li>
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">
+            <li
+              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
+              onClick={() => {
+                const el = document.getElementById("exhibitions");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                  setMenuOpen(false);
+                }
+              }}
+            >
               {t("Exhibitions")}
             </li>
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">
+            <li
+              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
+              onClick={() => {
+                const el = document.getElementById("collection");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                  setMenuOpen(false);
+                }
+              }}
+            >
               {t("Collection")}
             </li>
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">
+            <li
+              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
+              onClick={() => {
+                const el = document.getElementById("learn");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                  setMenuOpen(false);
+                }
+              }}
+            >
               {t("Learn")}
             </li>
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">
+            <li
+              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
+              onClick={() => {
+                const el = document.getElementById("membership");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                  setMenuOpen(false);
+                }
+              }}
+            >
               {t("Membership")}
             </li>
-            <li className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer">
+            <li
+              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
+              onClick={() => {
+                const el = document.getElementById("supportus");
+                if (el) {
+                  el.scrollIntoView({ behavior: "smooth" });
+                  setMenuOpen(false);
+                }
+              }}
+            >
               {t("Support us")}
             </li>
           </ul>
