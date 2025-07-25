@@ -38,7 +38,8 @@ const slides = [
   },
   {
     title: "Buddha's First Sermon - Sarnath",
-    image: "https://images.metmuseum.org/CRDImages/as/original/4%20DP314867r4_61A.jpg",
+    image:
+      "https://images.metmuseum.org/CRDImages/as/original/4%20DP314867r4_61A.jpg",
   },
 ];
 
@@ -69,53 +70,56 @@ const ExploreCollectionCarousel = () => {
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-white text-3xl font-bold">Explore the collection</h2>
-     <Link to="/collection" className="text-white hover:underline flex items-center gap-1">
-  See all →
-</Link>
+          <h2 className="text-white text-3xl font-bold">
+            Explore the collection
+          </h2>
+          <Link
+            to="/collection"
+            className="text-white hover:underline flex items-center gap-1"
+          >
+            See all →
+          </Link>
         </div>
 
         {/* Swiper Carousel */}
         <div className="relative mb-16">
-        <Swiper
-          loop
-          centeredSlides
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
-          speed={600}
-          spaceBetween={30}
-          slidesPerView={1.5}
-          breakpoints={{
-            768: { slidesPerView: 1.5 },
-            1024: { slidesPerView: 2.5 },
-          }}
-          modules={[Autoplay, Pagination, Navigation]}
-          pagination={{ clickable: true }}
-          navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          }}
-          onSlideChange={(swiper) => {
-            setActiveIndex(swiper.realIndex);
-          }}
-        >
-          {slides.map((slide, idx) => (
-            <SwiperSlide
-              key={idx}
-              className={`transition-opacity duration-500 ${
-                idx === activeIndex ? "opacity-100" : "opacity-50"
-              }`}
-            >
-              <ParallaxCard title={slide.title} image={slide.image} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          <Swiper
+            loop
+            centeredSlides
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            speed={600}
+            spaceBetween={30}
+            slidesPerView={1.5}
+            breakpoints={{
+              768: { slidesPerView: 1.5 },
+              1024: { slidesPerView: 2.5 },
+            }}
+            modules={[Autoplay, Pagination, Navigation]}
+            pagination={{ clickable: true, el: ".custom-swiper-pagination" }}
+            navigation={{
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }}
+            onSlideChange={(swiper) => {
+              setActiveIndex(swiper.realIndex);
+            }}
+          >
+            {slides.map((slide, idx) => (
+              <SwiperSlide
+                key={idx}
+                className={`transition-opacity duration-500 ${
+                  idx === activeIndex ? "opacity-100" : "opacity-50"
+                }`}
+              >
+                <ParallaxCard title={slide.title} image={slide.image} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <div className="custom-swiper-pagination flex justify-center mt-6" />
         </div>
-
-        {/* Navigation Arrows */}
-       
       </div>
     </div>
   );
