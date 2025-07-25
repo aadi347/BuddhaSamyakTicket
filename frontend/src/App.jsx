@@ -1,23 +1,24 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import ParallaxLayout from './components/ParallaxLayout';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import ExhibitionsCarousel from './components/ExhibitionsCarousel';
-import ImgGrid from './components/ImgGrid';
-import Footer from './components/Footer';
-import MembershipBanner from './components/MembershipBanner';
-import VisitInformation from './components/VisitInformationCard';
-import VisitInformation2 from './components/VisitInformationCard2';
-import SignupBanner from './components/SignupBanner';
-import MuseumCollectionCarousel from './components/MuseumCollectionCarousel';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import ParallaxLayout from "./components/ParallaxLayout";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import ExhibitionsCarousel from "./components/ExhibitionsCarousel";
+import ImgGrid from "./components/ImgGrid";
+import Footer from "./components/Footer";
+import MembershipBanner from "./components/MembershipBanner";
+import VisitInformation from "./components/VisitInformationCard";
+import VisitInformation2 from "./components/VisitInformationCard2";
+import SignupBanner from "./components/SignupBanner";
+import MuseumCollectionCarousel from "./components/MuseumCollectionCarousel";
 import TicketBookingForm from "./components/TicketBookingForm";
-import AboutMuseum from './components/AboutMuseum';
-import MainAdmin from './AdminRedesign/MainAdmin';
-import Login from './pages/Login';
-import ExhibitionPage from './components/ExhibitionPage'; // ✅ NEW IMPORT
-import AllCollectionPage from './components/AllCollectionPage';
-import TravelPage from './components/TravelPage'; // ✅ NEW IMPORT
+import AboutMuseum from "./components/AboutMuseum";
+import MainAdmin from "./AdminRedesign/MainAdmin";
+import Login from "./pages/Login";
+import ExhibitionPage from "./components/ExhibitionPage";
+import AllCollectionPage from "./components/AllCollectionPage";
+import TravelPage from "./components/TravelPage"; 
+import ScrollToTop from "./components/ScrollToTop";
 
 const MainPage = () => (
   <ParallaxLayout>
@@ -38,19 +39,16 @@ const MainPage = () => (
 const App = () => {
   return (
     <>
-   
-
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/book-ticket" element={<TicketBookingForm />} />
         <Route path="/about-museum" element={<AboutMuseum />} />
         <Route path="/admin" element={<MainAdmin />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/exhibitions" element={<ExhibitionPage />} /> {/* ✅ NEW ROUTE */}
-        <Route path="/collection" element={<AllCollectionPage />} /> {/* ✅ NEW ROUTE */}
-        <Route path="/travel" element={<TravelPage />} /> {/* ✅ NEW ROUTE */}
-        
-        {/* Add more routes as needed */}
+        <Route path="/exhibitions" element={<ExhibitionPage />} />
+        <Route path="/collection" element={<AllCollectionPage />} />
+        <Route path="/travel" element={<TravelPage />} />
       </Routes>
     </>
   );
