@@ -1,24 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SignupBanner = () => {
   return (
-    <div className="flex justify-center items-center min-h-[300px] py-12 px-4">
+    <div className="flex justify-center items-center py-12 px-4">
       {/* Outer container */}
-      <div className="bg-white border border-gray-200 p-10 w-full max-w-5xl shadow-md">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between">
+      <div className="bg-white border border-gray-200 p-12 w-full max-w-5xl shadow-md">
+        <div className="mx-auto">
+          <div className="flex flex-col md:flex-row items-center">
             <div className="mb-6 md:mb-0 md:mr-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-                How to reach Buddha Samyak Darshan 
+              <h2 className="text-3xl md:text-3xl font-bold text-gray-800 mb-4">
+                How to reach Buddha Samyak Darshan Museum
               </h2>
-              <p className="text-gray-700 text-lg mb-6">
-                Sign up to access personalized features, save your favorite exhibits,
-                and stay updated with the latest events and stories from the Museum.
+              <p className="text-gray-700 text-lg">
+                Curious how to get here? Click here to discover the best ways
+                to reach Buddha Samyak Darshan Museum and plan your visit with ease!
               </p>
             </div>
-            <button className="bg-black hover:bg-white border text-white hover:text-black font-semibold py-4 px-8 text-lg transition-all duration-300 hover:scale-105 whitespace-nowrap">
-              Sign Up
-            </button>
+            <Link to="/Travel">
+              <button className="bg-black hover:bg-white border text-white hover:text-black font-semibold py-4 px-8 text-lg transition-all duration-300 hover:scale-105 whitespace-nowrap">
+                Get Directions
+              </button>
+            </Link>
           </div>
         </div>
       </div>
