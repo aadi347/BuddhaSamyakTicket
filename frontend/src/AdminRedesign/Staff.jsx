@@ -1,4 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { X } from "lucide-react"; // for cross icon
+import { motion, AnimatePresence } from "framer-motion";
+import Employees from "./Employees";
+
+
 import {
   Users,
   CheckCircle,
@@ -16,12 +21,28 @@ import {
   Legend,
   ArcElement, // ✅ required for Doughnut & Pie
 } from "chart.js";
+import Table from "./Table"; // Assuming you have a Table component
 
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, ArcElement, Tooltip, Legend);
 
 
 const Staff = () => {
+    const [showModal, setShowModal] = useState(false);
+    const modalVariants = {
+    hidden: { y: "100%", opacity: 0 },
+    visible: {
+      y: "5%",
+      opacity: 1,
+      transition: { duration: 0.25, ease: "easeOut" },
+    },
+    exit: {
+      y: "100%",
+      opacity: 0,
+      transition: { duration: 0.2, ease: "easeIn" },
+    },
+  };
+
   const attendanceData = {
     labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     datasets: [
@@ -133,6 +154,7 @@ const doughnutOptions = {
 
 
   return (
+    
     <div className="p-6 bg-gray-50 min-h-screen">
       <h1 className="text-2xl font-bold mb-6">Staff Attendance Overview</h1>
 
@@ -140,7 +162,9 @@ const doughnutOptions = {
   {/* Left Section - 4 Tiles in 2x2 grid */}
   <div className="grid grid-cols-2 gap-4 col-span-2">
     {/* Tile 1 */}
-    <div className="bg-blue-500 text-white rounded-2xl p-5 shadow-md h-40 flex flex-col justify-between">
+    <div
+    onClick={() => setShowModal(true)}
+    className="bg-blue-500 text-white rounded-2xl p-5 shadow-md h-40 flex flex-col justify-between">
       <div>
         <h3 className="text-sm">Total Employee</h3>
         <h1 className="text-2xl font-bold">26</h1>
@@ -202,7 +226,33 @@ const doughnutOptions = {
   </div>
 </div>
 
+    <Table />
 
+
+ {/* Slide-up Modal */}
+          <AnimatePresence>
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+            <motion.div
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="bg-white w-[90%] h-[90%] rounded-3xl p-6 shadow-lg relative overflow-y-auto overflow-x-hidden"
+            >
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-4 right-4 text-gray-600 hover:text-black"
+              >
+                <X />
+              </button>
+
+              {/* Modal Content */}
+             <Employees />
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

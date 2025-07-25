@@ -109,10 +109,10 @@ const Employees = () => {
   });
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
+    <div className="p-6 bg-white min-h-screen">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Employee Directory</h1>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-blue-600 transition">
+        <button className="bg-black text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-black transition">
           <Plus size={20} />
           Add Employee
         </button>
@@ -130,7 +130,7 @@ const Employees = () => {
               placeholder="Search employees..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
             />
           </div>
           <div className="relative">
@@ -141,7 +141,7 @@ const Employees = () => {
             <select
               value={filterDepartment}
               onChange={(e) => setFilterDepartment(e.target.value)}
-              className="pl-10 pr-8 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white"
+              className="pl-10 pr-8 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black appearance-none bg-white"
             >
               {departments.map((dept) => (
                 <option key={dept} value={dept} >
@@ -205,7 +205,7 @@ const Employees = () => {
               </div>
             </div>
             <div className="flex gap-2 mt-4 pt-4 border-t border-gray-100">
-              <button className="flex-1 bg-blue-50 text-blue-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-blue-100 transition">
+              <button className="flex-1 bg-black text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-black transition">
                 View Profile
               </button>
               <button className="flex-1 bg-gray-50 text-gray-600 py-2 px-4 rounded-lg text-sm font-medium hover:bg-gray-100 transition">
