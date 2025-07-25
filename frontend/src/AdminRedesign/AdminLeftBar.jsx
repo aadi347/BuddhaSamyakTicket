@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   LayoutDashboard,
   UserCircle,
-   
 } from 'lucide-react';
 import classNames from 'classnames';
 
@@ -10,9 +9,9 @@ const AdminLeftBar = ({ changePanel }) => {
   const [activeItem, setActiveItem] = useState('Dashboard');
 
   const menuItems = [
-    { label: 'Dashboard', icon: LayoutDashboard },
-    { label: 'Staff', icon: UserCircle },
-   
+    { label: "Dashboard", icon: LayoutDashboard },
+    { label: "Staff", icon: UserCircle },
+    { label: "Employees", icon: UserCircle },
   ];
 
   const handleMenuClick = (label) => {

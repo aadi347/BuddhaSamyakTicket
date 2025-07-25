@@ -1,6 +1,7 @@
 import React from 'react';
 import Dashboard from './Dashboard';
 import Staff from './Staff';
+import Employees from './Employees';
 
 const Render1 = ({ activePanel }) => {
   const renderContent = () => {
@@ -9,6 +10,8 @@ const Render1 = ({ activePanel }) => {
         return <Dashboard />;
       case 'Staff':
         return <Staff />;
+      case 'Employees':
+        return <Employees />;
       case 'Startup List':
         return <div className="p-6 text-black">Startup List Content</div>;
       case 'Seed Fund Module':
