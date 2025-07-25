@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaBell } from 'react-icons/fa';
+
 import { LogOut } from 'lucide-react'; // Logout icon (already there as SVG, but now optional)
 import { Pencil } from 'lucide-react'; // ✏️ Edit icon from Lucide
 
@@ -41,11 +41,11 @@ const AdminTopNavbar = () => {
           <span className="text-sm text-gray-200">{today}</span>
         </div>
 
-        {/* NOTIFICATION */}
+        {/* NOTIFICATION
         <button className="relative bg-white/10 backdrop-blur-md border border-white/30 rounded-full p-2">
           <FaBell className="w-8 h-8 text-gray-50 hover:text-purple-500" />
           <span className="absolute top-0 right-0 w-2 h-2 bg-purple-500 rounded-full"></span>
-        </button>
+        </button> */}
 
         {/* PROFILE */}
         <div className="flex items-center gap-3 border bg-white/10 backdrop-blur-md border-white/30 py-1 px-3 rounded-full ">

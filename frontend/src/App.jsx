@@ -17,6 +17,7 @@ import MainAdmin from './AdminRedesign/MainAdmin';
 import Login from './pages/Login';
 import ExhibitionPage from './components/ExhibitionPage'; // ✅ NEW IMPORT
 import AllCollectionPage from './components/AllCollectionPage';
+import TravelPage from './components/TravelPage'; // ✅ NEW IMPORT
 
 const MainPage = () => (
   <ParallaxLayout>
@@ -47,6 +48,9 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/exhibitions" element={<ExhibitionPage />} /> {/* ✅ NEW ROUTE */}
         <Route path="/collection" element={<AllCollectionPage />} /> {/* ✅ NEW ROUTE */}
+        <Route path="/travel" element={<TravelPage />} /> {/* ✅ NEW ROUTE */}
+        
+        {/* Add more routes as needed */}
       </Routes>
     </>
   );

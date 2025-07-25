@@ -8,6 +8,7 @@ import "swiper/css/autoplay";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Link } from "react-router-dom";
+import "./carousel.css"; // Import your custom styles
 
 // Slide content
 const slides = [
@@ -75,6 +76,7 @@ const ExploreCollectionCarousel = () => {
         </div>
 
         {/* Swiper Carousel */}
+        <div className="relative mb-16">
         <Swiper
           loop
           centeredSlides
@@ -110,14 +112,10 @@ const ExploreCollectionCarousel = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        </div>
 
         {/* Navigation Arrows */}
-        <div className="swiper-button-prev absolute top-1/2 left-0 z-10 transform -translate-y-1/2 text-white opacity-40 hover:opacity-100 transition duration-300 text-3xl px-2 cursor-pointer">
-          <IoIosArrowBack />
-        </div>
-        <div className="swiper-button-next absolute top-1/2 right-0 z-10 transform -translate-y-1/2 text-white opacity-40 hover:opacity-100 transition duration-300 text-3xl px-2 cursor-pointer">
-          <IoIosArrowForward />
-        </div>
+       
       </div>
     </div>
   );

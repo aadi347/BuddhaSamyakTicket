@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { motion } from "framer-motion";
 import DateSelector from "./DateSelector";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Ticket from "./Ticket";
 import TicketBookingDialog from "./TicketBookingDialog";
 import Navbar from "./Navbar";
+import { BiError } from "react-icons/bi";
 
 
 
 const steps = ["Personal Info", "Booking Details", "Confirm"];
 
 const TicketBookingForm = () => {
-    const [showDialog, setShowDialog] = useState(false);
-    
-
+  const [showDialog, setShowDialog] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -26,9 +26,41 @@ const TicketBookingForm = () => {
     email: "",
   });
 
+
+  const validateStep = () => {
+  const errors = {};
+
+  if (step === 0) {
+    if (!formData.fullName.trim()) errors.fullName =  "Full name is required.";
+    if (!formData.phone.trim() || !/^\d{10,}$/.test(formData.phone))
+      errors.phone = "Enter a valid phone number.";
+    if (!formData.country.trim()) errors.country = "Country is required.";
+    if (
+      !formData.email.trim() ||
+      !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)
+    )
+      errors.email = "Enter a valid email address.";
+      if (!formData.adults.trim()) errors.adults = "Number of adults is required.";
+      if (!formData.children.trim()) errors.children = "Number of childrens is required.";
+  }
+  
+
+  if (step === 1) {
+    if (!formData.date) errors.date = "Date is required.";
+    if (!formData.sessionType) errors.sessionType = "Select a session slot.";
+  }
+
+  setFormErrors(errors);
+  return Object.keys(errors).length === 0;
+};
+
+
   const handleNext = () => {
-    if (step < 3) setStep(step + 1);
-  };
+  if (validateStep()) {
+    setStep(step + 1);
+  }
+};
+
 
   const handleBack = () => {
     if (step > 0) setStep(step - 1);
@@ -57,6 +89,10 @@ const TicketBookingForm = () => {
     e.preventDefault();
     // submission logic
   };
+
+  useEffect(() => {
+  localStorage.setItem("formData", JSON.stringify(formData));
+}, [formData]);
 
   return (
     <>
@@ -110,6 +146,12 @@ const TicketBookingForm = () => {
                 placeholder="Enter your name"
                 required
               />
+              {formErrors.fullName && (
+    <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
+    <BiError className="text-lg" />
+    {formErrors.fullName}
+  </p>
+  )}
             </div>
             <div>
               <label className="block text-sm font-medium">Phone Number</label>
@@ -122,6 +164,12 @@ const TicketBookingForm = () => {
                 placeholder="+91 1234567890"
                 required
               />
+              {formErrors.phone && (
+    <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
+    <BiError className="text-lg" />
+    {formErrors.phone}
+  </p>
+  )}
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
              <div>
@@ -135,6 +183,12 @@ const TicketBookingForm = () => {
       placeholder="India"
       required
     />
+    {formErrors.country && (
+     <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
+    <BiError className="text-lg" />
+    {formErrors.country}
+  </p>
+  )}
   </div>
   <div>
     <label className="block text-sm font-medium">Email</label>
@@ -147,6 +201,12 @@ const TicketBookingForm = () => {
       placeholder="example@mail.com"
       required
     />
+    {formErrors.email && (
+   <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
+    <BiError className="text-lg" />
+    {formErrors.email}
+  </p>
+  )}
   </div>
 
             </div>
@@ -169,6 +229,7 @@ const TicketBookingForm = () => {
                     className="w-full text-center px-4 py-2 focus:outline-none"
                     value={formData.adults}
                   />
+                  
                   <button
                     type="button"
                     onClick={() => handleChange("adults", "inc")}
@@ -176,8 +237,16 @@ const TicketBookingForm = () => {
                   >
                     <FaPlus size={12} />
                   </button>
+                  
                 </div>
+                 {formErrors.adults&& (
+   <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
+    <BiError className="text-lg" />
+    {formErrors.adults}
+  </p>
+  )}
               </div>
+              
               <div>
                 <label className="block mb-1 text-sm font-semibold text-gray-700">
                   Number of Children
@@ -196,6 +265,7 @@ const TicketBookingForm = () => {
                     className="w-full text-center px-4 py-2 focus:outline-none"
                     value={formData.children}
                   />
+                 
                   <button
                     type="button"
                     onClick={() => handleChange("children", "inc")}
@@ -204,8 +274,16 @@ const TicketBookingForm = () => {
                     <FaPlus size={12} />
                   </button>
                 </div>
+                 {formErrors.children&& (
+   <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
+    <BiError className="text-lg" />
+    {formErrors.children}
+  </p>
+  )}
               </div>
+               
             </div>
+       
           </>
         )}
 
@@ -221,18 +299,21 @@ const TicketBookingForm = () => {
                   }))
                 }
               />
+              {formErrors.date && (
+    <p className="text-red-500 text-sm mt-1">{formErrors.date}</p>
+  )}
             </div>
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 mt-6">
               {[
                 {
                   id: "radio_1",
                   label: "Slot 1",
-                  value: "Slot 1",
+                  value: "9:00 AM - 01:00 AM",
                 },
                 {
                   id: "radio_2",
                   label: "Slot 2",
-                  value: "Slot 2",
+                  value: "01:00 PM - 05:00 PM",
                 },
               ].map(({ id, label, value }) => (
                 <div key={id} className="relative">
@@ -245,6 +326,9 @@ const TicketBookingForm = () => {
                     checked={formData.sessionType === value}
                     onChange={handleChange}
                   />
+                  {formErrors.sessionType && (
+    <p className="text-red-500 text-sm mt-1">{formErrors.sessionType}</p>
+  )}
                   <span className="absolute right-4 top-1/2 block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white peer-checked:border-black"></span>
                   <label
                     htmlFor={id}
@@ -266,26 +350,15 @@ const TicketBookingForm = () => {
             <div className="flex items-center justify-center">
               <div className="relative group">
                 <button
-                  onClick={handleBack}
-                  className="relative inline-block p-px font-semibold leading-6 text-white bg-neutral-900 shadow-2xl cursor-pointer rounded-2xl shadow-emerald-900 transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 hover:shadow-emerald-600"
-                >
-                  <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-sky-600 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-                  <span className="relative z-10 block px-6 py-3 rounded-2xl bg-neutral-950">
-                    <div className="relative z-10 flex items-center space-x-3">
-                      <span className="transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-emerald-300">
-                        Back
-                      </span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        class="size-6"
-                      >
-                        <path d="M9.195 18.44c1.25.714 2.805-.189 2.805-1.629v-2.34l6.945 3.968c1.25.715 2.805-.188 2.805-1.628V8.69c0-1.44-1.555-2.343-2.805-1.628L12 11.029v-2.34c0-1.44-1.555-2.343-2.805-1.628l-7.108 4.061c-1.26.72-1.26 2.536 0 3.256l7.108 4.061Z" />
-                      </svg>
-                    </div>
-                  </span>
-                </button>
+               onClick={handleBack}
+               type="button" class="text-white bg-black hover:bg-black hover:scale-105 duration-300 ease-in-out focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path fill-rule="evenodd" d="M7.28 7.72a.75.75 0 0 1 0 1.06l-2.47 2.47H21a.75.75 0 0 1 0 1.5H4.81l2.47 2.47a.75.75 0 1 1-1.06 1.06l-3.75-3.75a.75.75 0 0 1 0-1.06l3.75-3.75a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd" />
+</svg>
+
+Back
+
+</button>
               </div>
             </div>
           ) : (
@@ -295,27 +368,14 @@ const TicketBookingForm = () => {
           {step < 2 ? (
             <div className="flex items-center justify-center">
               <div className="relative group">
-                <button
-                  onClick={handleNext}
-                  className="relative inline-block p-px font-semibold leading-6 text-white bg-neutral-900 shadow-2xl cursor-pointer rounded-2xl shadow-emerald-900 transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 hover:shadow-emerald-600"
-                >
-                  <span className="absolute inset-0 rounded-2xl bg-black p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-                  <span className="relative z-10 block px-6 py-3 rounded-2xl bg-neutral-950">
-                    <div className="relative z-10 flex items-center space-x-3">
-                      <span className="transition-all duration-500 group-hover:translate-x-1.5 group-hover:text-white">
-                        Next
-                      </span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        class="size-6"
-                      >
-                        <path d="M5.055 7.06C3.805 6.347 2.25 7.25 2.25 8.69v8.122c0 1.44 1.555 2.343 2.805 1.628L12 14.471v2.34c0 1.44 1.555 2.343 2.805 1.628l7.108-4.061c1.26-.72 1.26-2.536 0-3.256l-7.108-4.061C13.555 6.346 12 7.249 12 8.689v2.34L5.055 7.061Z" />
-                      </svg>
-                    </div>
-                  </span>
-                </button>
+               <button
+               onClick={handleNext}
+               type="button" class="text-white bg-black hover:bg-black hover:scale-105 duration-300 ease-in-out focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+Next
+<svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+</svg>
+</button>
               </div>
             </div>
           ) : (

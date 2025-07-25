@@ -6,6 +6,7 @@ import {
   PlaneTakeoff,
 } from "lucide-react";
 import { Bar } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   BarElement,
@@ -13,9 +14,12 @@ import {
   LinearScale,
   Tooltip,
   Legend,
+  ArcElement, // ✅ required for Doughnut & Pie
 } from "chart.js";
 
-ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+
+ChartJS.register(BarElement, CategoryScale, LinearScale, ArcElement, Tooltip, Legend);
+
 
 const Staff = () => {
   const attendanceData = {
@@ -55,6 +59,77 @@ const Staff = () => {
       },
     },
   };
+
+  const doughnutData = {
+  labels: ["Absent", "Present"],
+  datasets: [
+    {
+      label: "Applications",
+      data: [340, 80],
+      backgroundColor: [ "#8b5cf6", "#34d399"],
+      borderWidth: 2,
+      borderColor: "#fff",
+      hoverOffset: 6,
+    },
+  ],
+};
+
+const doughnutOptions = {
+  responsive: true,
+  maintainAspectRatio: false,
+  cutout: "70%", // Optional: Makes it look like a ring
+  plugins: {
+    legend: {
+      position: "bottom",
+      labels: {
+        usePointStyle: true,
+        pointStyle: "circle",
+        boxWidth: 10,
+        color: "#4b5563",
+        font: {
+          size: 10,
+        },
+      },
+    },
+    tooltip: {
+      enabled: true,
+      callbacks: {
+        label: function (context) {
+          const label = context.label || '';
+          const value = context.raw || 0;
+          return `${label}: ${value}`;
+        },
+      },
+    },
+  },
+  layout: {
+    padding: 0,
+  },
+  // ❌ Hide all unnecessary elements
+  scales: {
+    x: {
+      display: false,
+      grid: {
+        display: false,
+        drawBorder: false,
+      },
+      ticks: {
+        display: false,
+      },
+    },
+    y: {
+      display: false,
+      grid: {
+        display: false,
+        drawBorder: false,
+      },
+      ticks: {
+        display: false,
+      },
+    },
+  },
+};
+
 
 
   return (
@@ -116,16 +191,17 @@ const Staff = () => {
   {/* Right Section - Chart or Stats */}
   <div className="bg-white rounded-2xl shadow-md p-5 col-span-1 h-[336px]">
     <div className="flex justify-between items-center mb-4">
-      <h2 className="text-lg font-semibold">Daily attendance statistic</h2>
-      <span className="text-sm text-gray-500">IT Student</span>
+     
+
     </div>
     {/* Your chart goes here */}
     <div className="h-full flex items-center justify-center text-gray-400">
       {/* Placeholder */}
-     <Bar data={attendanceData} options={attendanceOptions} />
+     <Doughnut data={doughnutData} options={doughnutOptions} />
     </div>
   </div>
 </div>
+
 
     </div>
   );

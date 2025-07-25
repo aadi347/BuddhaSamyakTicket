@@ -72,12 +72,11 @@ function AboutMuseum() {
         {/* Block 1 */}
         <div className="flex flex-col md:flex-row gap-4">
           <div className="md:w-2/5 bg-white bg-opacity-90 text-black rounded-xl p-4">
-            <h2 className="text-xl font-bold mb-1">
-              The Stupa and Museum Exterior
+            <h2 className="text-3xl font-bold mb-1">
+               ऐतिहासिक पृष्ठभूमि और पुरातात्विक खोज
             </h2>
             <p className="text-lg pt-5">
-              The Buddha Samyak Darshan Museum and Memorial Stupa is an
-              ambitious project in Vaishali district, Bihar...
+              वैशाली पुरास्थल पर प्रसिद्ध इतिहासकार एवं पुरातत्वविद् डॉ. ए. एस. अल्तेकर द्वारा किए गए वैज्ञानिक उत्खनन के फलस्वरूप वर्ष 1958-60 के मध्य भगवान बुद्ध के पवित्र अस्थि-अवशेष प्राप्त हुए। यह अवशेष प्राचीन लिच्छवी गणराज्य द्वारा स्थापित एक मिट्टी से निर्मित स्तूप में संरक्षित थे। उत्खनन के दौरान ताम्र पत्रांकित सिक्का, शंख का टुकड़ा, दो मनके तथा सोने की पतली पत्तियाँ भी प्राप्त हुईं, जो सोप स्टोन की मंजूषा में सुरक्षित पाए गए। वर्ष 1972 में इन पवित्र अस्थियों को पटना संग्रहालय में स्थानांतरित कर सुरक्षित रखा गया।
             </p>
           </div>
           <div className="md:w-3/5 rounded-xl overflow-hidden">
@@ -105,12 +104,11 @@ function AboutMuseum() {
             />
           </div>
           <div className="md:w-2/5 bg-white bg-opacity-90 text-black rounded-xl p-4">
-            <h2 className="text-xl font-bold mb-1">
-              Historical Context & Relics
+            <h2 className="text-3xl font-bold mb-1">
+              राज्य सरकार का निर्णय एवं परियोजना की रूपरेखा
             </h2>
             <p className="text-lg pt-5">
-              This site honors the “Relic Stupa” originally built to house
-              one‑eighth of the Buddha’s remains...
+              पटना संग्रहालय में सुरक्षित भगवान बुद्ध के इन पवित्र अस्थि-अवशेषों और मंजूषा के ऐतिहासिक, पुरातात्विक एवं धार्मिक महत्व, साथ ही इनके सार्वजनिक प्रदर्शन की जन-आकांक्षा को ध्यान में रखते हुए, बिहार सरकार द्वारा विभागीय अधिसूचना संख्या-167 दिनांक 08.04.2005 तथा संख्या-15 दिनांक 12.05.2010 के माध्यम से यह निर्णय लिया गया कि वैशाली में "बुद्ध सम्यक दर्शन संग्रहालय एवं स्मृति स्तूप" का निर्माण किया जाएगा। इस संग्रहालय में पवित्र अस्थि-अवशेष, बौद्ध पुरावशेष, कलाकृतियाँ, बुद्ध के जीवन-वृत्त और उनके सिद्धांतों का व्यापक रूप से प्रदर्शन किया जाएगा।
             </p>
           </div>
         </div>
@@ -118,12 +116,11 @@ function AboutMuseum() {
         {/* Block 3 */}
         <div className="flex flex-col md:flex-row gap-4">
           <div className="md:w-2/5 bg-white bg-opacity-90 text-black rounded-xl p-4">
-            <h2 className="text-xl font-bold mb-1">
-              Visitor Experience & Exhibition
+            <h2 className="text-3xl font-bold mb-1">
+              महत्व, उद्देश्य एवं अपेक्षित लाभ
             </h2>
-            <p className="text-lg pt-5">
-              The museum–stupa complex is designed as a spiritual and
-              educational site...
+            <p className="text-xl pt-5">
+              इस योजना के कार्यान्वयन से देश-विदेश के बौद्ध धर्मावलंबियों, बौद्ध विषयक शोधकर्ताओं, छात्रों तथा विशेषकर नई पीढ़ी को भगवान बुद्ध के जीवन, दर्शन, सत्य, अहिंसा के संदेश और बौद्ध कला से परिचित एवं लाभान्वित होने का अवसर प्राप्त होगा। इसके साथ ही, इस संग्रहालय एवं स्तूप के निर्माण से राज्य के पर्यटन उद्योग को भी उल्लेखनीय प्रोत्साहन मिलेगा, जिससे वैशाली को एक अंतरराष्ट्रीय बौद्ध सांस्कृतिक केंद्र के रूप में विकसित किया जा सकेगा।
             </p>
           </div>
           <div className="md:w-3/5 rounded-xl overflow-hidden">

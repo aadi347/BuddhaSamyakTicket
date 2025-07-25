@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Navbar from "./Navbar";
 
 // Slide data
 const allSlides = [
@@ -74,6 +75,8 @@ const CollectionCard = ({ title, image, description }) => (
 // Page Component
 const AllCollectionPage = () => {
   return (
+    <>
+    <Navbar />
     <div className="bg-black py-16 min-h-screen">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-white text-3xl font-bold mb-10">Full Collection</h2>
@@ -84,6 +87,7 @@ const AllCollectionPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

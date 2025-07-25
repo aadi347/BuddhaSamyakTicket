@@ -8,7 +8,7 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa6';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaLocationArrow } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -28,9 +28,12 @@ const Footer = () => {
             <li>Online ticketing service</li>
             <li>Online Boutique</li>
             <li>Collection</li>
-            <li>Corpus</li>
-            <li>Donate</li>
-            <li>Press</li>
+            <li>Exhibitions</li>
+            <li>Events</li>
+            <Link to="/admin
+            " className="text-blue-400 hover:underline">
+            <li>Admin Login</li>
+            </Link>
           </ul>
         </div>
         <div>
@@ -51,7 +54,7 @@ const Footer = () => {
     <li className="flex items-center gap-2 cursor-pointer hover:text-white transition">
       <FaLocationArrow className="text-white" />
       <a
-        href="https://www.google.com/maps/search/Buddha+Samyak+Darshan+Museum+%26+Stupa,+X4VC%2BP25,+Vaishali,+Basarh,+Bihar+843143/@25.9945109,85.118543,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D"
+        href="https://www.google.com/maps/place/Buddha+Samyak+Darshan+Museum+%26+Stupa/@25.9942652,85.1153299,17z/data=!4m10!1m2!2m1!1sBuddha+Samyak+Darshan+Museum+%26+Stupa,+X4VC%2BP25,+Vaishali,+Basarh,+Bihar+843143!3m6!1s0x39ed391d4d1060ad:0x60961d6b8f33c717!8m2!3d25.9942639!4d85.1201086!15sCk5CdWRkaGEgU2FteWFrIERhcnNoYW4gTXVzZXVtICYgU3R1cGEsIFg0VkMrUDI1LCBWYWlzaGFsaSwgQmFzYXJoLCBCaWhhciA4NDMxNDNaTCJKYnVkZGhhIHNhbXlhayBkYXJzaGFuIG11c2V1bSAmIHN0dXBhIHg0dmMgcDI1IHZhaXNoYWxpIGJhc2FyaCBiaWhhciA4NDMxNDOSARVhcmNoYWVvbG9naWNhbF9tdXNldW2aASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVTmxjemhxUjBSUkVBRaoBnQEQASooIiRidWRkaGEgc2FteWFrIGRhcnNoYW4gbXVzZXVtICYgc3R1cGEoADIfEAEiGzpYAd9cldkEhmupP6H33ePsFjzl34H8ePq-wjJOEAIiSmJ1ZGRoYSBzYW15YWsgZGFyc2hhbiBtdXNldW0gJiBzdHVwYSB4NHZjIHAyNSB2YWlzaGFsaSBiYXNhcmggYmloYXIgODQzMTQz4AEA-gEECAAQLA!16s%2Fg%2F11rbrwj7s7?entry=ttu&g_ep=EgoyMDI1MDcyMS4wIKXMDSoASAFQAw%3D%3D"
         target="_blank"
         rel="noopener noreferrer"
       >
