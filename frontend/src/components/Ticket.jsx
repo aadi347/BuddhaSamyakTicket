@@ -22,7 +22,7 @@ const Ticket = ({ formData }) => {
   return (
     <div id="ticket-to-download">
     <div className="flex min-h-screen items-center justify-center">
-      <div className="w-[350px] overflow-hidden rounded-3xl bg-[#ffffff] drop-shadow-2xl">
+      <div className="w-[350px] overflow-hidden rounded-3xl bg-[#ffffff] drop-shadow-2xl border border-[#d1d5db]">
         <div className="relative border-b border-[#d1d5db] p-6 text-xs">
           <div className="flex justify-between items-center mt-2">
             {/* Left side text */}

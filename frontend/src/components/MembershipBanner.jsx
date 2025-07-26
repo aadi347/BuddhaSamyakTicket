@@ -1,6 +1,25 @@
-import React from "react";
+
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react"; // for cross icon
+import Calendar from "./Calendar";
+
 
 const MembershipBanner = () => {
+   const [showModal, setShowModal] = useState(false);
+      const modalVariants = {
+      hidden: { y: "100%", opacity: 0 },
+      visible: {
+        y: "5%",
+        opacity: 1,
+        transition: { duration: 0.25, ease: "easeOut" },
+      },
+      exit: {
+        y: "100%",
+        opacity: 0,
+        transition: { duration: 0.2, ease: "easeIn" },
+      },
+    };
   return (
     <div className="flex justify-center items-center min-h-[300px] py-12 px-4">
       {/* Larger transparent container */}
@@ -14,12 +33,38 @@ const MembershipBanner = () => {
                 plus discounts in the Museum shops, cafés and more.
               </p>
             </div>
-            <button className="bg-black hover:bg-white border text-white hover:text-black font-semibold py-4 px-8  text-lg transition-all duration-300 hover:scale-105 whitespace-nowrap">
+            <button
+            onClick={() => setShowModal(true)}
+            className="bg-black hover:bg-white border text-white hover:text-black font-semibold py-4 px-8  text-lg transition-all duration-300 hover:scale-105 whitespace-nowrap">
               Visit
             </button>
           </div>
         </div>
       </div>
+      {/* Slide-up Modal */}
+          <AnimatePresence>
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+            <motion.div
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="bg-white w-[100%] h-[100%] rounded-3xl p-6 shadow-lg relative overflow-y-auto overflow-x-hidden"
+            >
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-4 right-4 text-gray-600 hover:text-black"
+              >
+                <X size={20} className="text-white bg-black rounded-full p-1 transform ease-in-out duration-300 hover:scale-110" />
+              </button>
+
+              {/* Modal Content */}
+            <Calendar />
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

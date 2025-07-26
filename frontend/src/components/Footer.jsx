@@ -109,7 +109,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="mt-20 border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center text-base text-gray-400">
-        <p>© 2025 Buddha Samyak Foundation</p>
+        <p>© 2025 Bihar Heritage Development Society. All rights reserved.</p>
         <div className="flex gap-6 mt-4 md:mt-0">
           <a href="#" className="hover:text-white">Privacy policy</a>
           <a href="#" className="hover:text-white">Accessibility</a>
