@@ -1,6 +1,10 @@
 import React from "react";
 import { FaClock, FaTicketAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { WiDaySunny, WiHumidity, WiStrongWind, WiThermometer } from "react-icons/wi";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
+import WeatherInfo from "./WeatherInfo";
 const exhibitions = [
     {
         title: "Hiroshige",
@@ -20,6 +24,12 @@ const exhibitions = [
 
 
 const MuseumShowcase = () => {
+    const weather = {
+    temperature: "34°C",
+    condition: "Sunny",
+    humidity: "46%",
+    wind: "12 km/h",
+  };
     return (
         <div className="bg-black text-white px-6 md:px-16 py-12 font-sans">
             {/* Top Hero Section */}
@@ -54,6 +64,10 @@ const MuseumShowcase = () => {
 </div>
 
             </div>
+            {/* Location Section */}
+            <div className="flex items-center gap-4 mt-8">
+           <WeatherInfo />
+           </div>
 
             {/* Exhibitions Section */}
             <div className="flex justify-between items-center mt-12 mb-6 ">
