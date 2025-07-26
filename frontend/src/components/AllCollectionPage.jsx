@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
+import Breadcrumbs from "./Breadcrumbs";
 
 // Slide data
 const allSlides = [
@@ -77,9 +78,10 @@ const AllCollectionPage = () => {
   return (
     <>
     <Navbar />
-    <div className="bg-black py-16 min-h-screen">
+    <div className="bg-black py-10 min-h-screen">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-white text-3xl font-bold mb-10">Full Collection</h2>
+        <Breadcrumbs />
+        <h2 className="text-white text-4xl font-bold mb-10">Full Collection</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {allSlides.map((item, index) => (
             <CollectionCard key={index} {...item} />
