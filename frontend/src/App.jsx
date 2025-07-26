@@ -19,6 +19,7 @@ import ExhibitionPage from "./components/ExhibitionPage";
 import AllCollectionPage from "./components/AllCollectionPage";
 import TravelPage from "./components/TravelPage"; 
 import ScrollToTop from "./components/ScrollToTop";
+import Calendar from "./components/Calendar";
 
 const MainPage = () => (
   <ParallaxLayout>
@@ -49,6 +50,7 @@ const App = () => {
         <Route path="/exhibitions" element={<ExhibitionPage />} />
         <Route path="/collection" element={<AllCollectionPage />} />
         <Route path="/travel" element={<TravelPage />} />
+        <Route path="/calendar" element={<Calendar />} />
       </Routes>
     </>
   );

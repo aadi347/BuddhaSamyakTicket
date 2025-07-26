@@ -20,12 +20,13 @@ const Ticket = ({ formData }) => {
   });
 
   return (
+    <div id="ticket-to-download">
     <div className="flex min-h-screen items-center justify-center">
-      <div className="w-[350px] overflow-hidden rounded-3xl bg-white drop-shadow-2xl">
-        <div className="relative border-b border-gray-300 p-6 text-xs">
+      <div className="w-[350px] overflow-hidden rounded-3xl bg-[#ffffff] drop-shadow-2xl">
+        <div className="relative border-b border-[#d1d5db] p-6 text-xs">
           <div className="flex justify-between items-center mt-2">
             {/* Left side text */}
-            <h3 className="text-sm font-semibold text-gray-500">
+            <h3 className="text-sm font-semibold text-[#6b7280]">
               ENTRY TICKET
             </h3>
 
@@ -44,24 +45,24 @@ const Ticket = ({ formData }) => {
             </div>
           </div>
 
-          <h1 className="text-2xl w-full leading-snug font-bold text-black">
+          <h1 className="text-2xl w-full leading-snug font-bold text-[#000000]">
             Buddha Samyak <br />
             Darshan Museum
           </h1>
-          <div className="mt-4 border-t w-full border-dashed border-gray-400"></div>
+          <div className="mt-4 border-t w-full border-dashed border-[#9ca3af]"></div>
 
-          <div className="mt-6 space-y-4 text-[12px] text-gray-500">
+          <div className="mt-6 space-y-4 text-[12px] text-[#6b7280]">
             {/* Row 1 */}
             <div className="flex justify-between gap-4">
               <div className="w-1/2">
-                <div className="text-xs text-gray-400">Full Name</div>
-                <div className="text-sm font-bold text-black">
+                <div className="text-xs text-[#9ca3af]">Full Name</div>
+                <div className="text-sm font-bold text-[#000000]">
                   {formData.fullName || "Name"}
                 </div>
               </div>
               <div className="w-1/2 text-right">
-                <div className="text-xs text-gray-400">Phone</div>
-                <div className="text-sm font-bold text-black">
+                <div className="text-xs text-[#9ca3af]">Phone</div>
+                <div className="text-sm font-bold text-[#000000]">
                   {formData.phone || "Phone"}
                 </div>
               </div>
@@ -70,14 +71,14 @@ const Ticket = ({ formData }) => {
             {/* Row 2 */}
             <div className="flex justify-between gap-4">
               <div className="w-1/2">
-                <div className="text-xs text-gray-400">Email</div>
-                <div className="text-lg font-bold text-black">
+                <div className="text-xs text-[#9ca3af]">Email</div>
+                <div className="text-lg font-bold text-[#000000]">
                   {formData.email || "Email"}
                 </div>
               </div>
               <div className="w-1/2 text-right">
-                <div className="text-xs text-gray-400">Country</div>
-                <div className="text-sm font-bold text-black">
+                <div className="text-xs text-[#9ca3af]">Country</div>
+                <div className="text-sm font-bold text-[#000000]">
                   {formData.country || "Country"}
                 </div>
               </div>
@@ -86,14 +87,14 @@ const Ticket = ({ formData }) => {
             {/* Row 3 */}
             <div className="flex justify-between gap-4">
               <div className="w-1/2">
-                <div className="text-xs text-gray-400">Adults</div>
-                <div className="text-sm font-bold text-black">
+                <div className="text-xs text-[#9ca3af]">Adults</div>
+                <div className="text-sm font-bold text-[#000000]">
                   {formData.adults || 0}
                 </div>
               </div>
               <div className="w-1/2 text-right">
-                <div className="text-xs text-gray-400">Children</div>
-                <div className="text-sm font-bold text-black">
+                <div className="text-xs text-[#9ca3af]">Children</div>
+                <div className="text-sm font-bold text-[#000000]">
                   {formData.children || 0}
                 </div>
               </div>
@@ -102,34 +103,34 @@ const Ticket = ({ formData }) => {
             {/* Row 4 */}
             <div className="flex justify-between gap-4">
               <div className="w-1/2">
-                <div className="text-xs text-gray-400">Date</div>
-                <div className="text-sm font-bold text-black">
+                <div className="text-xs text-[#9ca3af]">Date</div>
+                <div className="text-sm font-bold text-[#000000]">
                   {formData.date || "No Date"}
                 </div>
               </div>
               <div className="w-1/2 text-right">
-                <div className="text-xs text-gray-400">Session Type</div>
-                <div className="text-sm font-bold text-black">
+                <div className="text-xs text-[#9ca3af]">Session Type</div>
+                <div className="text-sm font-bold text-[#000000]">
                   {formData.sessionType || "No Session"}
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-4 border-t border-dashed border-gray-400"></div>
+          <div className="mt-4 border-t border-dashed border-[#9ca3af]"></div>
           <div className="mt-4 text-center">
-            <p className="text-xs text-gray-500 mb-1">Ticket Number</p>
+            <p className="text-xs text-[#6b7280] mb-1">Ticket Number</p>
             <p className="text-xl font-extrabold rounded-md py-1">
               <span>{ticketId}</span>
             </p>
           </div>
         </div>
 
-        <div className="relative rounded-b-3xl bg-black p-4">
+        <div className="relative rounded-b-3xl bg-[#000000] p-4">
           <div className="absolute inset-0 z-0 bg-[url('https://static.vecteezy.com/system/resources/thumbnails/000/160/821/small_2x/hamsa-pattern-wallpaper-vector.jpg')] bg-cover bg-center bg-no-repeat opacity-90 rounded-b-3xl"></div>
 
           <div className="relative z-10 flex items-center justify-center py-6">
-            <div className="rounded-2xl bg-black/60 backdrop-blur-sm p-4">
+            <div className="rounded-2xl bg-[#00000067] backdrop-blur-sm p-4">
               <QRCode
                 value={qrData}
                 size={150}
@@ -141,6 +142,7 @@ const Ticket = ({ formData }) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

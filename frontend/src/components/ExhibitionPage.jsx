@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
 
-
-
-
 const exhibitionCards = [
   {
     title: "Hiroshige",

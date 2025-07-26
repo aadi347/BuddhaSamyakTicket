@@ -1,39 +1,50 @@
-import React from 'react';
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 
-const TicketBookingDialog = ({ onClose }) => {
+const TicketBookingDialog = ({ open, onClose }) => {
+  const handleDownloadPDF = async () => {
+    const ticketElement = document.getElementById("ticket-to-download");
+
+    if (!ticketElement) {
+      alert("Ticket not found. Make sure the ticket is rendered.");
+      return;
+    }
+
+    // Scroll into view if needed
+    ticketElement.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    const canvas = await html2canvas(ticketElement, { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4");
+    const imgProps = pdf.getImageProperties(imgData);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save("ticket.pdf");
+  };
+
   return (
-    <div className="fixed inset-0 z-50  flex items-center justify-center backdrop-blur-sm bg-black/30">
-      <div className="bg-white rounded-3xl shadow-xl max-w-md w-full p-6 text-center relative">
-        
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-black text-lg"
-        >
-          &times;
-        </button>
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex justify-center items-center z-50">
+      <div className="bg-white p-6 rounded-lg w-[90%] max-w-md text-center">
+        <h2 className="text-xl font-bold mb-4">Ticket Booked Successfully!</h2>
 
-        {/* Animation */}
-        <video
-          src="/ticket-animation.webm"
-          autoPlay
-          loop
-          muted
-          className="w-40 h-40 mx-auto mb-4"
-        />
+        <div className="flex gap-4 justify-center">
+          <button
+            className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
+            onClick={handleDownloadPDF}
+          >
+            Download Ticket
+          </button>
 
-        {/* Success Message */}
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">Your ticket has been booked!</h2>
-        <p className="text-sm text-gray-500 mb-6">Thank you for choosing us. You can now download your ticket below.</p>
-
-        {/* Download Button */}
-        <a
-          href="/your-ticket.pdf"
-          download
-          className="inline-block px-6 py-2 rounded-md bg-black text-white font-semibold hover:bg-blue-700 transition"
-        >
-          Download Ticket
-        </a>
+          <button
+            className="bg-gray-200 text-black px-4 py-2 rounded hover:bg-gray-300"
+            onClick={onClose}
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );
