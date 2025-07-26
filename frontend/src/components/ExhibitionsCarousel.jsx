@@ -34,8 +34,8 @@ const MuseumShowcase = () => {
                 <div className="space-y-3 text-base md:text-lg text-white font-medium">
   {/* Ticket Info */}
   <div className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
-    <FaTicketAlt className="text-xl group-hover:rotate-[-10deg] transition-transform duration-300" />
-    <span className="cursor-pointer">
+    <FaTicketAlt className=" animate-bounce text-xl group-hover:rotate-[-10deg] transition-transform duration-300" />
+    <span className="cursor-pointer ">
       Free entry – <span className="font-semibold">book online</span>
     </span>
   </div>
