@@ -1,8 +1,12 @@
 import React from "react";
 import { Instagram, Twitter, Mail, PhoneCall } from "lucide-react";
+import Navbar from "./Navbar";
 
 function AboutMuseum() {
+
   const StayConnected = () => (
+    <>
+    
     <div className="bg-black/90 rounded-xl p-6 flex flex-col md:flex-row items-center justify-between mt-10 text-white">
       <div className="text-center md:text-left max-w-md mb-4 md:mb-0">
         <h2 className="text-xl font-semibold mb-2">Stay Connected</h2>
@@ -42,9 +46,12 @@ function AboutMuseum() {
         </a>
       </div>
     </div>
+    </>
   );
 
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen text-white py-8 bg-white">
       {/* 🌟 Banner Section */}
       <div className="w-full px-4 md:px-20">
@@ -141,6 +148,7 @@ function AboutMuseum() {
         <div className="w-full px-4 md:px-20">{StayConnected()}</div>
       </div>
     </div>
+    </>
   );
 }
 

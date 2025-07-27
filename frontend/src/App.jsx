@@ -7,8 +7,8 @@ import ExhibitionsCarousel from "./components/ExhibitionsCarousel";
 import ImgGrid from "./components/ImgGrid";
 import Footer from "./components/Footer";
 import MembershipBanner from "./components/MembershipBanner";
-import VisitInformation from "./components/VisitInformationCard";
-import VisitInformation2 from "./components/VisitInformationCard2";
+import VisitTheMuseum from "./components/VisitTheMuseum";
+import Amenities from "./components/Amenities";
 import SignupBanner from "./components/SignupBanner";
 import MuseumCollectionCarousel from "./components/MuseumCollectionCarousel";
 import TicketBookingForm from "./components/TicketBookingForm";
@@ -19,16 +19,15 @@ import ExhibitionPage from "./components/ExhibitionPage";
 import AllCollectionPage from "./components/AllCollectionPage";
 import TravelPage from "./components/TravelPage"; 
 import ScrollToTop from "./components/ScrollToTop";
-import Calendar from "./components/Calendar";
 
 const MainPage = () => (
   <ParallaxLayout>
     <div className="min-h-screen">
       <Home />
       <ExhibitionsCarousel />
-      <VisitInformation />
+      <VisitTheMuseum />
       <MembershipBanner />
-      <VisitInformation2 />
+      <Amenities />
       <SignupBanner />
       <MuseumCollectionCarousel />
       <ImgGrid />

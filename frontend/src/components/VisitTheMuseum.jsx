@@ -1,9 +1,9 @@
 import React from "react";
 
 // Individual Card Component
-const VisitInformationCard = ({ description, imageUrl }) => {
+const VisitInformationCard = ({ description, imageUrl,heading }) => {
   return (
-    <div className="bg-white hover:bg-black hover:text-white transition-all duration-300 border border-gray-300 group rounded-lg overflow-hidden shadow-md">
+    <div className="bg-white hover:bg-black hover:text-white transition-all duration-300 hover:border hover:border-gray-500/30 group rounded-lg overflow-hidden shadow-md">
       <div className="h-52 sm:h-60 md:h-64 w-full overflow-hidden">
         <img
           src={imageUrl}
@@ -12,36 +12,41 @@ const VisitInformationCard = ({ description, imageUrl }) => {
         />
       </div>
       <div className="p-5">
-        <p className="text-base leading-relaxed">{description}</p>
-      </div>
+      <h3 className="text-lg font-bold mb-3">{heading}</h3>
+      <p className="text-base text-gray-600  leading-relaxed">{description}</p>
+    </div>
     </div>
   );
 };
 
 // Main Component
-const VisitInformation = () => {
+const VisitTheMuseum = () => {
   const visitOptions = [
     {
       description:
         "Book tickets and plan your day including exhibitions, facilities, access, food and travel.",
+        heading: "Plan Your Visit",
       imageUrl:
         "https://www.museumnext.com/wp-content/uploads/2022/01/museums_wellbeing_self_confidence-e1654708663370.jpg",
     },
     {
       description:
         "Navigate the Museum with ease, using our floor-by-floor plan and discover what not to miss.",
+      heading: "Museum Map",
       imageUrl:
         "https://assets.vogue.com/photos/5f3ab0ac038d1aea7980c03c/master/w_2560%2Cc_limit/GettyImages-873665400.jpg",
     },
     {
       description:
         "Walk through two million years of history and culture across more than 50 galleries.",
+      heading: "Explore the Galleries",
       imageUrl:
         "https://observer.com/wp-content/uploads/sites/2/2024/07/Crystal-Bridges-Museum.jpeg?quality=80&w=970",
     },
     {
       description:
         "From family facilities to activities and events, discover how to make the most of your day at the Museum.",
+      heading: "Visitor Information",
       imageUrl:
         "https://cdn.sanity.io/images/cxgd3urn/production/cc18d6f637a5e8b4208395a79ae19a17742c3aa9-2320x1473.jpg?w=1200&h=762&q=85&fit=crop&auto=format",
     },
@@ -58,6 +63,7 @@ const VisitInformation = () => {
           {visitOptions.map((option, index) => (
             <VisitInformationCard
               key={index}
+              heading={option.heading}
               description={option.description}
               imageUrl={option.imageUrl}
             />
@@ -68,4 +74,4 @@ const VisitInformation = () => {
   );
 };
 
-export default VisitInformation;
+export default VisitTheMuseum;

@@ -1,8 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Card Component
-const VisitInformationCard = ({ title, description, imageUrl }) => (
-  <div className="bg-white hover:bg-black hover:text-white transition-all duration-300 border border-gray-300 group rounded-lg overflow-hidden shadow-md">
+const VisitInformationCard = ({ title, description, imageUrl, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+    className="bg-white hover:bg-black hover:text-white  transition-all duration-300 hover:border hover:border-gray-500/30 group rounded-lg overflow-hidden shadow-md"
+  >
     <div className="h-52 sm:h-60 md:h-64 w-full overflow-hidden">
       <img
         src={imageUrl}
@@ -12,13 +19,13 @@ const VisitInformationCard = ({ title, description, imageUrl }) => (
     </div>
     <div className="p-5">
       <h3 className="text-lg font-bold mb-3">{title}</h3>
-      <p className="text-base leading-relaxed">{description}</p>
+      <p className="text-base text-gray-600  leading-relaxed">{description}</p>
     </div>
-  </div>
+  </motion.div>
 );
 
 // Main Component
-const VisitInformation = () => {
+const Amenities = () => {
   const visitOptions = [
     {
       title: "Collection Online",
@@ -53,22 +60,31 @@ const VisitInformation = () => {
   return (
     <div className="bg-black w-full py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-white mb-10 text-center">
-          What’s Online
-        </h2>
+       < div className="flex justify-between items-center mb-8">
+                  <h2 className="text-white text-3xl font-bold">
+                    Amenities
+                  </h2>
+                  <Link
+                    to="/collection"
+                    className="text-white hover:underline flex items-center gap-1"
+                  >
+                    See all →
+                  </Link>
+                </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {visitOptions.map((opt, idx) => (
-            <VisitInformationCard
-              key={idx}
-              title={opt.title}
-              description={opt.description}
-              imageUrl={opt.imageUrl}
-            />
-          ))}
+  <VisitInformationCard
+    key={idx}
+    index={idx}
+    title={opt.title}
+    description={opt.description}
+    imageUrl={opt.imageUrl}
+  />
+))}
         </div>
       </div>
     </div>
   );
 };
 
-export default VisitInformation;
+export default Amenities;
