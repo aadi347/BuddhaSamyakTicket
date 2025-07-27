@@ -38,7 +38,7 @@ const LanguageDropdown = () => {
       <div
         style={{ fontFamily: '"Playfair Display", serif' }}
         onClick={() => setOpen(!open)}
-        className="bg-white px-5 py-2 rounded-full text-sm text-black font-medium shadow hover:bg-gray-100 transition"
+        className="bg-white px-8 md:px-5 py-2 rounded-full text-sm text-black font-medium shadow hover:bg-gray-100 transition"
       >
         {selected}
       </div>

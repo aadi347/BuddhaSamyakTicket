@@ -12,7 +12,9 @@ const Navbar = () => {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const searchRef = useRef(null);
+  const mobileSearchRef = useRef(null);
 
   const {
     searchQuery,
@@ -28,6 +30,12 @@ const Navbar = () => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
         setSearchOpen(false);
+      }
+      if (
+        mobileSearchRef.current &&
+        !mobileSearchRef.current.contains(event.target)
+      ) {
+        setMobileSearchOpen(false);
       }
     };
 
@@ -46,6 +54,7 @@ const Navbar = () => {
   const handleResultClick = (result) => {
     console.log("Clicked result:", result);
     setSearchOpen(false);
+    setMobileSearchOpen(false);
     clearSearch();
     // Could implement navigation logic here
   };
@@ -53,13 +62,13 @@ const Navbar = () => {
   return (
     <nav className="w-full shadow-md bg-black text-white font-sans">
       {/* Main Top Section */}
-      <div className="px-6 py-4 border-b border-gray-700/30">
+      <div className="px-4 py-4 md:px-6 md:py-4 border-b border-gray-700/30">
         <div className="flex items-center justify-between">
           {/* Left: Logo */}
-          <div className="flex items-center justify-center h-full transform translate-y-3">
+          <div className="flex items-center justify-center h-full md:transform md:translate-y-3">
             <Link
               to="/"
-              className="flex items-center gap-2 md:gap-4 pl-2 md:pl-6 no-underline h-full"
+              className="flex items-center gap-2 md:gap-4 md:pl-6 no-underline h-full"
             >
               <div className="flex items-center h-full">
                 <img
@@ -127,15 +136,17 @@ const Navbar = () => {
                 </button>
               )}
 
-              {/* Search Results */}
-              <SearchResults
-                searchQuery={searchQuery}
-                searchResults={searchResults}
-                isSearching={isSearching}
-                onClear={clearSearch}
-                onResultClick={handleResultClick}
-                isVisible={searchOpen && (searchQuery.trim() || hasResults)}
-              />
+              {/* Search Results - Desktop Only */}
+              <div className="hidden md:block">
+                <SearchResults
+                  searchQuery={searchQuery}
+                  searchResults={searchResults}
+                  isSearching={isSearching}
+                  onClear={clearSearch}
+                  onResultClick={handleResultClick}
+                  isVisible={searchOpen && (searchQuery.trim() || hasResults)}
+                />
+              </div>
             </div>
 
             <div className="hidden md:block">
@@ -177,40 +188,91 @@ const Navbar = () => {
         >
           <ul className="flex flex-col md:flex-row justify-end md:gap-10 gap-4 font-semibold text-md px-4 md:px-0 pb-4 md:pb-0">
             {/* Mobile-only search and language dropdown */}
-            <li className="md:hidden">
-              <button
-                className="flex items-center gap-2 hover:text-white transition-colors w-full text-left"
-                onClick={() => setSearchOpen(true)}
-              >
-                <FaMagnifyingGlass />
-                {t("Search")}
-              </button>
-            </li>
-            <li className="md:hidden">
-              <LanguageDropdown />
-            </li>
-            <li className="md:hidden">
-              <Link to="/book-ticket" onClick={() => setMenuOpen(false)}>
-                <button
-                  style={{ fontFamily: '"Playfair Display", serif' }}
-                  className="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition inline-flex items-center gap-2 border border-gray-700 hover:border-gray-100 text-sm w-full justify-center"
+            <li className="md:hidden relative" ref={mobileSearchRef}>
+              {mobileSearchOpen ? (
+                <form
+                  onSubmit={handleSearchSubmit}
+                  className="flex items-center pt-2"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className="size-6"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M1.5 6.375c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v3.026a.75.75 0 0 1-.375.65 2.249 2.249 0 0 0 0 3.898.75.75 0 0 1 .375.65v3.026c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 0 1 1.5 17.625v-3.026a.75.75 0 0 1 .374-.65 2.249 2.249 0 0 0 0-3.898.75.75 0 0 1-.374-.65V6.375Zm15-1.125a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V6a.75.75 0 0 1 .75-.75Zm.75 4.5a.75.75 0 0 0-1.5 0v.75a.75.75 0 0 0 1.5 0v-.75Zm-.75 3a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0v-.75a.75.75 0 0 1 .75-.75Zm.75 4.5a.75.75 0 0 0-1.5 0V18a.75.75 0 0 0 1.5 0v-.75ZM6 12a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 0 1.5H6.75A.75.75 0 0 1 6 12Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
-                      clipRule="evenodd"
+                  <div className="relative w-full">
+                    <input
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      onFocus={() => setMobileSearchOpen(true)}
+                      placeholder={t("Search")}
+                      className="bg-gray-800 text-white px-4 py-2 pr-10 rounded-lg w-full border border-gray-600 focus:border-gray-400 focus:outline-none transition-colors"
+                      autoFocus
                     />
-                  </svg>
-                  {t("Tickets")}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMobileSearchOpen(false);
+                        clearSearch();
+                      }}
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
+                    >
+                      <FaTimes className="text-sm" />
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <button
+                  className="flex items-center gap-2 hover:text-white transition-colors w-full text-left pt-2"
+                  onClick={() => setMobileSearchOpen(true)}
+                >
+                  <FaMagnifyingGlass />
+                  {t("Search")}
                 </button>
-              </Link>
+              )}
+
+              {/* Mobile Search Results */}
+              {mobileSearchOpen && (
+                <div className="relative">
+                  <SearchResults
+                    searchQuery={searchQuery}
+                    searchResults={searchResults}
+                    isSearching={isSearching}
+                    onClear={() => {
+                      clearSearch();
+                      setMobileSearchOpen(false);
+                    }}
+                    onResultClick={handleResultClick}
+                    isVisible={
+                      mobileSearchOpen && (searchQuery.trim() || hasResults)
+                    }
+                    isMobile={true}
+                  />
+                </div>
+              )}
             </li>
+            <div className="flex items-center gap-2 w-full md:hidden">
+              <li className="md:hidden">
+                <LanguageDropdown />
+              </li>
+              <li className="md:hidden">
+                <Link to="/book-ticket" onClick={() => setMenuOpen(false)}>
+                  <button
+                    style={{ fontFamily: '"Playfair Display", serif' }}
+                    className="bg-black text-white px-7 py-2 rounded-full hover:bg-gray-800 transition inline-flex items-center gap-2 border border-gray-700 hover:border-gray-100 text-sm w-full justify-center"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="size-6"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M1.5 6.375c0-1.036.84-1.875 1.875-1.875h17.25c1.035 0 1.875.84 1.875 1.875v3.026a.75.75 0 0 1-.375.65 2.249 2.249 0 0 0 0 3.898.75.75 0 0 1 .375.65v3.026c0 1.035-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 0 1 1.5 17.625v-3.026a.75.75 0 0 1 .374-.65 2.249 2.249 0 0 0 0-3.898.75.75 0 0 1-.374-.65V6.375Zm15-1.125a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0V6a.75.75 0 0 1 .75-.75Zm.75 4.5a.75.75 0 0 0-1.5 0v.75a.75.75 0 0 0 1.5 0v-.75Zm-.75 3a.75.75 0 0 1 .75.75v.75a.75.75 0 0 1-1.5 0v-.75a.75.75 0 0 1 .75-.75Zm.75 4.5a.75.75 0 0 0-1.5 0V18a.75.75 0 0 0 1.5 0v-.75ZM6 12a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 0 1.5H6.75A.75.75 0 0 1 6 12Zm.75 2.25a.75.75 0 0 0 0 1.5h3a.75.75 0 0 0 0-1.5h-3Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    {t("Tickets")}
+                  </button>
+                </Link>
+              </li>
+            </div>
             <li
               className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
               onClick={() => {
