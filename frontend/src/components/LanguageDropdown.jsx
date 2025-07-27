@@ -58,7 +58,7 @@ const LanguageDropdown = () => {
               <li
                 key={lang.code}
                 onClick={() => handleLanguageChange(lang)}
-                className={`px-4 py-2 hover:bg-gray-100 text-sm transition text-white ${
+                className={`px-4 py-2 hover:bg-gray-100 hover:text-black text-sm transition text-white ${
                   selected === lang.label ? "bg-gray-200 font-semibold !text-black" : ""
                 }`}
               >
