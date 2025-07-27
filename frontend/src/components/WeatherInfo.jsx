@@ -18,7 +18,7 @@ const WeatherInfo = () => {
       >
 
 <div
-  className=" weather flex min-h-[10em] min-w-[16em] flex-col items-center justify-center gap-[0.5em] rounded-[1.5em] bg-black px-[1em] py-[0.5em] font-nunito text-white border border-gray-500"
+  className=" weather flex min-h-[15em] min-w-[20em] flex-col items-center justify-center gap-[0.5em] rounded-[1.5em] bg-black px-[1em] py-[0.5em] font-nunito text-white border border-gray-500/30"
 >
   <div className="flex h-fit w-full items-center justify-center gap-[1em]">
        <Rainbow size={70} />

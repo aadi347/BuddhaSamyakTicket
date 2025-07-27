@@ -21,7 +21,7 @@ const Ticket = ({ formData }) => {
 
   return (
     <div id="ticket-to-download">
-    <div className="flex min-h-screen items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center p-8">
       <div className="w-[350px] overflow-hidden rounded-3xl bg-[#ffffff] drop-shadow-2xl border border-[#d1d5db]">
         <div className="relative border-b border-[#d1d5db] p-6 text-xs">
           <div className="flex justify-between items-center mt-2">
@@ -38,7 +38,7 @@ const Ticket = ({ formData }) => {
                 className="h-8 w-8 object-contain"
               />
               <img
-                src="https://m.media-amazon.com/images/I/51SHJDH2X2L._UF894,1000_QL80_.jpg"
+                src="biharGovLogo.jpg"
                 alt="Logo 2"
                 className="h-8 w-8 object-contain"
               />
@@ -72,7 +72,7 @@ const Ticket = ({ formData }) => {
             <div className="flex justify-between gap-4">
               <div className="w-1/2">
                 <div className="text-xs text-[#9ca3af]">Email</div>
-                <div className="text-lg font-bold text-[#000000]">
+                <div className="text-sm font-bold text-[#000000]">
                   {formData.email || "Email"}
                 </div>
               </div>
@@ -110,7 +110,7 @@ const Ticket = ({ formData }) => {
               </div>
               <div className="w-1/2 text-right">
                 <div className="text-xs text-[#9ca3af]">Session Type</div>
-                <div className="text-sm font-bold text-[#000000]">
+                <div className="text-sm font-bold text-[#000000] whitespace-nowrap">
                   {formData.sessionType || "No Session"}
                 </div>
               </div>
@@ -118,16 +118,16 @@ const Ticket = ({ formData }) => {
           </div>
 
           <div className="mt-4 border-t border-dashed border-[#9ca3af]"></div>
-          <div className="mt-4 text-center">
-            <p className="text-xs text-[#6b7280] mb-1">Ticket Number</p>
-            <p className="text-xl font-extrabold rounded-md py-1">
+          <div className="text-center mt-2">
+            <p className="text-xs text-[#6b7280]">Ticket Number</p>
+            <p className="text-xl font-extrabold rounded-md">
               <span>{ticketId}</span>
             </p>
           </div>
         </div>
 
-        <div className="relative rounded-b-3xl bg-[#000000] p-4">
-          <div className="absolute inset-0 z-0 bg-[url('https://static.vecteezy.com/system/resources/thumbnails/000/160/821/small_2x/hamsa-pattern-wallpaper-vector.jpg')] bg-cover bg-center bg-no-repeat opacity-90 rounded-b-3xl"></div>
+        <div className="relative rounded-b-3xl bg-[#000000]">
+          <div className="absolute inset-0 z-0 bg-[url(/ticketBgPattern.jpg)] bg-cover bg-center bg-no-repeat opacity-90 rounded-b-3xl"></div>
 
           <div className="relative z-10 flex items-center justify-center py-6">
             <div className="rounded-2xl bg-[#00000067] backdrop-blur-sm p-4">

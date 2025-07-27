@@ -63,43 +63,46 @@ export default function DateSelector({ value, onChange }) {
   };
 
   const generateCalendarDays = () => {
-    const year = currentDate.getFullYear();
-    const month = currentDate.getMonth();
-    const firstDay = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    const blanks = [...Array((firstDay + 6) % 7)].map((_, idx) => (
-      <div key={`blank-${idx}`} />
-    ));
+  const blanks = [...Array((firstDay + 6) % 7)].map((_, idx) => (
+    <div key={`blank-${idx}`} />
+  ));
 
-    const days = [...Array(daysInMonth)].map((_, i) => {
-      const day = i + 1;
-      const dateObj = new Date(year, month, day);
-      dateObj.setHours(0, 0, 0, 0);
+  const days = [...Array(daysInMonth)].map((_, i) => {
+    const day = i + 1;
+    const dateObj = new Date(year, month, day);
+    dateObj.setHours(0, 0, 0, 0);
 
-      const isSelected =
-        selectedDate &&
-        day === selectedDate.getDate() &&
-        month === selectedDate.getMonth() &&
-        year === selectedDate.getFullYear();
+    const isSunday = dateObj.getDay() === 0;
+    const isPast = dateObj < today;
 
-      const isDisabled = dateObj < today;
+    const isSelected =
+      selectedDate &&
+      day === selectedDate.getDate() &&
+      month === selectedDate.getMonth() &&
+      year === selectedDate.getFullYear();
+
+    const isDisabled = isPast || isSunday;
 
       return (
-        <div
-          key={day}
-          onClick={() => !isDisabled && handleDayClick(day)}
-          className={`flex h-[38px] w-[38px] items-center justify-center rounded-[7px] border-[.5px] mb-2
-            ${isDisabled ? "opacity-30 pointer-events-none" : "cursor-pointer"}
-            ${
-              isSelected
-                ? "bg-black text-white"
-                : "border-transparent text-dark hover:border-stroke hover:bg-gray-2 dark:text-white dark:hover:border-dark-3 dark:hover:bg-dark"
-            }
-            sm:h-[46px] sm:w-[47px]`}
-        >
-          {day}
-        </div>
+         <div
+        key={day}
+        onClick={() => !isDisabled && handleDayClick(day)}
+        className={`relative flex flex-col items-center justify-center h-[50px] w-[50px] sm:h-[58px] sm:w-[58px] text-sm rounded-[7px] mb-2
+          ${isDisabled ? "opacity-40 pointer-events-none" : "cursor-pointer"}
+          ${
+            isSelected
+              ? "bg-black text-white"
+              : "border border-transparent text-dark hover:border-stroke hover:bg-gray-100 dark:text-white dark:hover:border-dark-3 dark:hover:bg-dark"
+          }`}
+      >
+        <span>{day}</span>
+        {isSunday && <span className="text-[10px] text-red-500">Closed</span>}
+      </div>
       );
     });
 

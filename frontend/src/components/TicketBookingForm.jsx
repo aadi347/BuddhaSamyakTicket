@@ -291,9 +291,12 @@ const TicketBookingForm = () => {
                     }))
                   }
                 />
-                {formErrors.date && (
-                  <p className="text-red-500 text-sm mt-1">{formErrors.date}</p>
-                )}
+               {formErrors.date && (
+                    <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
+                      <BiError className="text-lg" />
+                      {formErrors.date}
+                    </p>
+                  )}
               </div>
               <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 mt-6">
                 {[
@@ -319,10 +322,11 @@ const TicketBookingForm = () => {
                       onChange={handleChange}
                     />
                     {formErrors.sessionType && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {formErrors.sessionType}
-                      </p>
-                    )}
+                    <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
+                      <BiError className="text-lg" />
+                      {formErrors.sessionType}
+                    </p>
+                  )}
                     <span className="absolute right-4 top-1/2 block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white peer-checked:border-black"></span>
                     <label
                       htmlFor={id}
