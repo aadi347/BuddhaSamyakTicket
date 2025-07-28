@@ -49,7 +49,7 @@ const Amenities = () => {
     title: "Cafeteria",
     description:
       "Relax and recharge with a variety of wholesome meals and beverages in our clean and comfortable dining space.",
-    imageUrl: "Cafeteria.webp",
+    imageUrl: "cafeteria2.jpeg",
   },
   ];
 

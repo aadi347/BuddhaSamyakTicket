@@ -1,30 +1,34 @@
-import React, { useRef, useState } from "react";
-import { FaInfoCircle, FaPause, FaPlay } from "react-icons/fa";
+import React, { useRef, useState, useEffect } from "react";
+import { FaInfoCircle, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 import { FaRoute } from "react-icons/fa";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import MessageBox from "./MessageBox"; // adjust path
+import MessageBox from "./MessageBox";
 
 const Home = () => {
-   const [showMessage, setShowMessage] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
 
-  const toggleVideo = () => {
+  useEffect(() => {
     if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-        setIsPlaying(true);
-      } else {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      }
+      videoRef.current.muted = true; // start muted
+    }
+  }, []);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
     }
   };
 
-  const showInfo = () => {
-    alert("This is a background video of the Buddha Samyak Darshan Museum.");
+  const openMap = () => {
+    window.open(
+      "https://www.google.com/maps/place/Buddha+Samyak+Darshan+Museum+%26+Stupa/@25.9942639,85.1175337,959m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39ed391d4d1060ad:0x60961d6b8f33c717!8m2!3d25.9942639!4d85.1201086!16s%2Fg%2F11rbrwj7s7?entry=ttu",
+      "_blank"
+    );
   };
 
   return (
@@ -35,17 +39,18 @@ const Home = () => {
         <video
           ref={videoRef}
           autoPlay
-          muted
           loop
+          muted
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
-          <source src="/main2.mp4" type="video/mp4" />
+          <source src="/buddhamain.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
 
         {/* Black Overlay */}
-        <div className="absolute top-0 left-0 w-full h-full  z-10" />
+        <div className="absolute top-0 left-0 w-full h-full z-10" />
+
         {/* Left Info Panel */}
         <div className="absolute bottom-6 left-4 z-20 w-[380px] bg-white text-black px-6 py-8 transition duration-300 group hover:bg-black hover:text-white ">
           <h2
@@ -71,84 +76,46 @@ const Home = () => {
           </Link>
         </div>
 
-        {/* Pause/Play Button */}
-        {/* Button Container at Bottom Right */}
-        <div className="absolute bottom-5 right-5 z-30 flex  items-end gap-4">
-          {/* Play/Pause Button */}
+        {/* Button Controls - Bottom Right */}
+        <div className="absolute bottom-5 right-5 z-30 flex items-end gap-4">
+          {/* 🔊 Sound Toggle */}
           <button
-            onClick={toggleVideo}
+            onClick={toggleMute}
             className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
-            title={isPlaying ? "Pause Video" : "Play Video"}
+            title={isMuted ? "Unmute" : "Mute"}
           >
-            {isPlaying ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                className="size-6"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M6.75 5.25a.75.75 0 0 1 .75-.75H9a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H7.5a.75.75 0 0 1-.75-.75V5.25Zm7.5 0A.75.75 0 0 1 15 4.5h1.5a.75.75 0 0 1 .75.75v13.5a.75.75 0 0 1-.75.75H15a.75.75 0 0 1-.75-.75V5.25Z"
-                  clipRule="evenodd"
-                />
-              </svg>
+            {isMuted ? (
+              <FaVolumeMute size={22} />
             ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                className="size-6"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <FaVolumeUp size={22} />
             )}
           </button>
 
-          {/* Info Button */}
+          {/* ℹ️ Info Hover Box */}
           <div
-      className="relative flex flex-col items-center"
-      onMouseEnter={() => setShowMessage(true)}
-      onMouseLeave={() => setShowMessage(false)}
-    >
-      {/* Info Button */}
-      <button
-        className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
-        title="Info"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          className="size-6"
-        >
-          <path
-            fillRule="evenodd"
-            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
-            clipRule="evenodd"
-          />
-        </svg>
-      </button>
+            className="relative flex flex-col items-center"
+            onMouseEnter={() => setShowMessage(true)}
+            onMouseLeave={() => setShowMessage(false)}
+          >
+            <button
+              className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
+              title="Info"
+            >
+              <FaInfoCircle size={22} />
+            </button>
+            <AnimatePresence>{showMessage && <MessageBox />}</AnimatePresence>
+          </div>
 
-      {/* Animate Message Box */}
-      <AnimatePresence>{showMessage && <MessageBox />}</AnimatePresence>
-    </div>
-
+          {/* 📍 Location */}
           <button
-            onClick={showInfo}
+            onClick={openMap}
             className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
-            title="Info"
+            title="Open in Google Maps"
           >
             <FaRoute size={22} />
           </button>
         </div>
       </div>
-         
-
     </>
   );
 };
