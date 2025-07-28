@@ -18,7 +18,7 @@ function ImgGrid() {
         className="text-5xl md:text-6xl font-bold text-white pt-6 pl-6"
         style={{ fontFamily: '"Playfair Display", serif' }}
       >
-        बुद्ध के प्रकाश में,<br /> सत्य खिल उठता है।
+       बिहार के अन्य संग्रहालयों की<br /> सांस्कृतिक झलक।
       </h2>
 
       <div className="grid grid-cols-6 grid-rows-12 gap-4 pt-24 px-2 md:px-6">

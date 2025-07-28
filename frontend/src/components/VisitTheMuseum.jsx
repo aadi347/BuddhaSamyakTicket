@@ -26,22 +26,22 @@ const VisitTheMuseum = () => {
     {
       heading: t("visit_option_ticket_heading1"),
       description: t("visit_option_ticket_desc1"),
-      imageUrl: "https://www.museumnext.com/wp-content/uploads/2022/01/museums_wellbeing_self_confidence-e1654708663370.jpg",
+      imageUrl: "/gallery.jpeg",
     },
     {
       heading: t("visit_option_verify_heading1"),
       description: t("visit_option_verify_desc1"),
-      imageUrl: "https://assets.vogue.com/photos/5f3ab0ac038d1aea7980c03c/master/w_2560%2Cc_limit/GettyImages-873665400.jpg",
+      imageUrl: "/buddhabg3.png",
     },
     {
       heading: t("visit_option_highlights_heading1"),
       description: t("visit_option_highlights_desc1"),
-      imageUrl: "https://observer.com/wp-content/uploads/sites/2/2024/07/Crystal-Bridges-Museum.jpeg?quality=80&w=970",
+      imageUrl: "library.png",
     },
     {
       heading: t("visit_option_amenities_heading1"),
       description: t("visit_option_amenities_desc1"),
-      imageUrl: "https://cdn.sanity.io/images/cxgd3urn/production/cc18d6f637a5e8b4208395a79ae19a17742c3aa9-2320x1473.jpg?w=1200&h=762&q=85&fit=crop&auto=format",
+      imageUrl: "/visitorsCenter.jpeg",
     },
   ];
 
