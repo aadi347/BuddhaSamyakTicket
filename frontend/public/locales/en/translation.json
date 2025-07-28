@@ -1,11 +1,46 @@
 
 {
+
   "Search": "Search",
-  "Tickets": "Tickets",
-  "Visit": "Visit",
+  "FreeTickets": "Free Tickets",
+  "VisitPlanner": "Visit Planner",
   "Exhibitions": "Exhibitions",
-  "Collection": "Collection",
-  "Learn": "Learn",
-  "Membership": "Membership",
-  "Support us": "Support us"
+  "Gallery": "Gallery",
+  "AboutUs": "About Us",
+
+  "stay_connected_title": "Stay Connected",
+  "follow_us_description": "Follow us to stay updated on upcoming events, exhibitions, and special experiences at the Buddha Samyak Darshan Museum. Be part of our growing community of heritage enthusiasts and spiritual seekers.",
+
+  "explore_section_title": "Explore More",
+  "historical_background_title": "Historical Background and Discoveries",
+  "historical_background_description": "The sacred relics of Lord Buddha were discovered during scientific excavations at the Vaishali archaeological site, conducted by the renowned historian and archaeologist Dr. A.S. Altekar between 1958 and 1960. These relics were preserved in a terracotta stupa established by the ancient Licchavi republic.\n\nAlong with the relics, a copper coin, a piece of conch shell, two beads, and thin gold leaves were also found, carefully placed in a soapstone box. These discoveries established Vaishali as a significant center of Buddhist heritage.\n\nThis discovery not only enriched the region historically and archaeologically but also evoked a sense of spiritual reverence. In 1972, these sacred relics were respectfully transferred to the Patna Museum, where they are preserved for public awareness and research.\n\nThese artifacts serve as an important link to the era of Buddha and the ancient republic, inspiring generations of seekers, historians, and pilgrims who come to this sacred land in search of truth and heritage.",
+  "gov_initiative_title": "Government Initiative and Vision",
+  "gov_initiative_description": "Recognizing the immense historical, archaeological, and spiritual value of Lord Buddha’s sacred relics preserved in the Patna Museum, the Government of Bihar took a significant step toward honoring this legacy. Through official notifications dated April 8, 2005 (No. 167) and May 12, 2010 (No. 15), it was formally resolved to establish the “Buddha Samyak Darshan Museum and Memorial Stupa” at Vaishali — the very site where the relics were originally discovered. The decision was shaped not only by scholarly consensus but also by widespread public desire to view and engage with these sacred items. The museum is envisioned as a world-class institution that will display the sacred relics, rare Buddhist antiquities, artistic sculptures, and curated exhibits on Buddha’s life, teachings, and philosophy. The project includes modern infrastructure for digital storytelling, thematic galleries, and interactive installations that allow visitors to experience the spiritual and cultural ethos of Buddhism. The architectural design has been crafted to harmonize ancient tradition with modern expression, enhancing both visual appeal and visitor immersion.The initiative underscores Bihar’s commitment to preserving Buddhist heritage and to transforming Vaishali into a global destination for pilgrims, historians, and tourists alike.",
+  "significance_title": "Significance, Purpose, and Impact",
+  "significance_description": "The Buddha Samyak Darshan Museum is more than a tribute to the past — it is a visionary project aimed at creating lasting cultural, spiritual, and educational value. By offering a space for reflection and discovery, it will serve as a beacon for domestic and international visitors interested in Buddhist heritage, peace, and philosophy.Through carefully curated exhibits and interactive platforms, the museum will help scholars, students, and spiritual seekers explore the life and teachings of Lord Buddha, particularly his emphasis on compassion, truth, non-violence, and mindful living. Special educational programs and exhibitions will be tailored to engage young minds and promote values rooted in India’s civilizational heritage.The project also holds enormous potential for regional development. With improved tourism infrastructure, guided tours, and cultural festivals, Vaishali will be elevated to an international cultural circuit — attracting global travelers, academic institutions, and Buddhist organizations from around the world.Ultimately, the museum and stupa will serve as a living bridge between history and modernity — nurturing a deeper understanding of Buddhist ideals while boosting cultural tourism, economic growth, and international goodwill. ",
+
+  "Amenities": "Amenities",
+  "Meditation Center": "Meditation Center",
+  "Meditation Center Description": "Experience tranquility in our serene meditation halls designed to help you reflect and reconnect with inner peace.",
+  
+  "Visitor Center": "Visitor Center",
+  "Visitor Center Description": "Begin your journey here with essential information, guided assistance, and a preview of everything the site has to offer.",
+  
+  "Library": "Library",
+  "Library Description": "Discover ancient scriptures, Buddhist texts, and historical manuscripts in a peaceful and scholarly setting.",
+  
+  "Cafeteria": "Cafeteria",
+  "Cafeteria Description": "Relax and recharge with a variety of wholesome meals and beverages in our clean and comfortable dining space.",
+
+  "visit_the_museum_title1": "Visit the Museum",
+  "visit_option_ticket_heading1": "Get Your Free Ticket",
+  "visit_option_ticket_desc1": "Click “Get Free Ticket” on our website, fill out the simple form with your details, and download your ticket with the QR code for entry.",
+  "visit_option_verify_heading1": "Verify Your Ticket at Entry",
+  "visit_option_verify_desc1": "When you arrive, show your digital or printed ticket at the entry gate for a quick QR code scan and entry to the museum.",
+  "visit_option_highlights_heading1": "Explore the Museum Highlights",
+  "visit_option_highlights_desc1": "Discover the Buddha Samyak Stupa, relax at the Meditation Center, and browse books in the quiet library.",
+  "visit_option_amenities_heading1": "Enjoy Museum Amenities",
+  "visit_option_amenities_desc1": "Visit the Visitor Center, Guest House, or Cafeteria and enjoy all the facilities provided by the Department of Art & Culture."
 }
+
+  

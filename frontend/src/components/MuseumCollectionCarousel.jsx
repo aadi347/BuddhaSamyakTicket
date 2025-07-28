@@ -13,35 +13,30 @@ import "./carousel.css"; // Import your custom styles
 // Slide content
 const slides = [
   {
-    title: "Seated Buddha - Sarnath",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZYBl8_WD_mWUjAXWlTHwyRmyF8lknHcGhw&s",
+    title: "विराजमान बुद्ध - सारनाथ",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZYBl8_WD_mWUjAXWlTHwyRmyF8lknHcGhw&s",
   },
   {
-    title: "Bodhisattva Avalokiteshvara",
-    image:
-      "https://cdn.britannica.com/57/133057-050-AC74BBA2/Avalokiteshvara-bodhisattva-compassion-Mount-Jiuhua-China-province.jpg",
+    title: "बोधिसत्त्व अवलोकितेश्वर",
+    image: "https://cdn.britannica.com/57/133057-050-AC74BBA2/Avalokiteshvara-bodhisattva-compassion-Mount-Jiuhua-China-province.jpg",
   },
   {
-    title: "Amaravati Stupa Panel",
-    image:
-      "https://tricycle.org/wp-content/uploads/2025/06/Amaravati_Stupa_relief_at_Museum%E2%80%94-Amaravati-Maha-Stupa-relief-at-Museum-in-Chennai-India-scaled.jpg",
+    title: "अमरावती स्तूप पैनल",
+    image: "https://tricycle.org/wp-content/uploads/2025/06/Amaravati_Stupa_relief_at_Museum%E2%80%94-Amaravati-Maha-Stupa-relief-at-Museum-in-Chennai-India-scaled.jpg",
   },
   {
-    title: "Birth of Buddha - Gandhara Style",
-    image:
-      "https://www.shutterstock.com/image-photo/osaka-japan-december-4-2023-260nw-2401947087.jpg",
+    title: "बुद्ध का जन्म - गांधार शैली",
+    image: "https://www.shutterstock.com/image-photo/osaka-japan-december-4-2023-260nw-2401947087.jpg",
   },
   {
-    title: "Buddha Head - Mathura",
+    title: "बुद्ध का मस्तक - मथुरा",
     image: "https://images.metmuseum.org/CRDImages/as/original/DP267831.jpg",
   },
   {
-    title: "Buddha's First Sermon - Sarnath",
-    image:
-      "https://images.metmuseum.org/CRDImages/as/original/4%20DP314867r4_61A.jpg",
+    title: "बुद्ध का पहला उपदेश - सारनाथ",
+    image: "https://images.metmuseum.org/CRDImages/as/original/4%20DP314867r4_61A.jpg",
   },
-];
+]
 
 // Slide Card Component
 const ParallaxCard = ({ title, image }) => (
@@ -71,13 +66,13 @@ const ExploreCollectionCarousel = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-white text-3xl font-bold">
-            Explore the collection
+            संग्रह को देखें
           </h2>
           <Link
             to="/collection"
             className="text-white hover:underline flex items-center gap-1"
           >
-            See all →
+            सभी देखें →
           </Link>
         </div>
 

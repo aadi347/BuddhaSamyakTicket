@@ -52,26 +52,26 @@ const Home = () => {
         <div className="absolute top-0 left-0 w-full h-full z-10" />
 
         {/* Left Info Panel */}
-        <div className="absolute bottom-6 left-4 z-20 w-[380px] bg-white text-black px-6 py-8 transition duration-300 group hover:bg-black hover:text-white ">
+        <div className="absolute bottom-6  left-4 z-20 w-[380px] bg-white text-black px-6 py-8 transition duration-300 group hover:bg-black hover:text-white ">
           <h2
             style={{ fontFamily: '"Playfair Display", serif' }}
             className="text-xl font-bold"
           >
-            Welcome to The Buddha Samyak Darshan Museum
+            बुद्ध सम्यक् दर्शन संग्रहालय में <br />
+             आपका स्वागत है
           </h2>
           <p
             style={{ fontFamily: '"Playfair Display", serif' }}
             className="text-sm leading-relaxed mt-4"
           >
-            Discover the serene legacy of the Buddha through immersive exhibits
-            and digital storytelling.
+            आध्यात्मिक प्रदर्शनों और डिजिटल कथा-वाचन के माध्यम से बुद्ध की शांतिपूर्ण विरासत को जानिए।
           </p>
           <Link to="/about-museum">
             <button
               style={{ fontFamily: '"Playfair Display", serif' }}
               className="mt-5 text-sm px-5 py-2 border border-black bg-black text-white transition group-hover:bg-white group-hover:text-black"
             >
-              Explore More
+              और जानें
             </button>
           </Link>
         </div>

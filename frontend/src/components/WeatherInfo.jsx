@@ -7,7 +7,7 @@ import {
 } from "react-icons/wi";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { Rainbow } from "lucide-react";
+import { Rainbow,CloudRainWind } from "lucide-react";
 
 const WeatherInfo = () => {
   return (
@@ -21,12 +21,12 @@ const WeatherInfo = () => {
       >
         <div className="weather flex min-h-[8em] md:min-h-[15em] min-w-full md:min-w-[20em] flex-col items-center justify-center gap-[0.5em] rounded-[1.5em] bg-black px-[0.75em] md:px-[1em] py-[0.5em] font-nunito text-white border border-gray-500/30">
           <div className="flex h-fit w-full items-center justify-center gap-[0.75em] md:gap-[1em]">
-            <Rainbow size={50} className="md:w-[70px] md:h-[70px]" />
+            <CloudRainWind size={50} className="md:w-[70px] md:h-[70px]" />
 
             <span className="h-[3em] md:h-[4em] w-[1px] rounded-full bg-gray-500"></span>
             <div className="flex flex-col items-start justify-center">
               <p className="text-[0.65rem] md:text-[0.75rem] font-light">
-                Seasoning City, Dishland
+                Vaishali, Bihar
               </p>
               <p className="text-[1.25em] md:text-[1.5em] font-semibold">
                 28°C
@@ -50,8 +50,8 @@ const WeatherInfo = () => {
                     fill="#F471A6"
                   ></path>
                 </svg>
-                <p className="text-[0.625rem] font-light">
-                  Don’t miss out the Rainbow
+                <p className="text-[0.500rem] font-light">
+                  Don't forget to carry an umbrella!
                 </p>
               </div>
             </div>
@@ -128,77 +128,12 @@ const WeatherInfo = () => {
             </div>
             <div className="flex h-full w-[6rem] flex-col items-center py-[0.25em] text-[0.625em]">
               <div className="group relative z-0 h-[48px] w-[48px]">
-                <svg
-                  className="duration-200 ease-linear group-hover:-translate-y-[8px]"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  height="48"
-                  width="48"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g>
-                    <path
-                      d="M20.199 25.307c-1.343-6.396-6.887-10.646-12.383-9.492-5.497 1.153-8.864 7.274-7.521 13.67.829 3.949 3.259 7.078 6.29 8.625H4.328a1.505 1.505 0 1 0-1.376 2.114l.04-.002.038.002h11.944c.474 0 6.36-9.501 5.224-14.917Z"
-                      fill="#6DC82A"
-                    ></path>
-                    <path
-                      d="M20.198 25.307c-1.342-6.396-6.886-10.646-12.382-9.492a8.827 8.827 0 0 0-1.7.54c.735 6.883 2.302 16.451 5.598 23.15l-.182.111c-.354.216-.7.43-.986.608h4.43c.473 0 6.36-9.501 5.222-14.917Z"
-                      fill="#5EAC24"
-                    ></path>
-                    <path
-                      d="M47.705 29.485c1.343-6.396-2.024-12.517-7.52-13.67-5.497-1.154-11.04 3.096-12.383 9.492-1.137 5.416 4.75 14.917 5.223 14.917h11.944l.04-.002.039.002a1.506 1.506 0 1 0-1.377-2.115h-2.255c3.03-1.546 5.46-4.676 6.29-8.624Z"
-                      fill="#6DC82A"
-                    ></path>
-                    <path
-                      d="M27.802 25.307c1.342-6.396 6.886-10.646 12.383-9.492.592.124 1.16.307 1.7.54-.736 6.883-2.303 16.451-5.599 23.15.06.035.12.073.182.111.354.216.7.43.986.608h-4.43c-.472 0-6.36-9.501-5.222-14.917Z"
-                      fill="#5EAC24"
-                    ></path>
-                    <path
-                      d="M35.813 17.311H13.348l2.944 22.913h16.25l3.271-22.913Z"
-                      fill="#4E901E"
-                    ></path>
-                    <path
-                      d="M33.648 40.267c6.508-11.695 6.905-32.555 6.905-32.555a6.09 6.09 0 0 0-12.17-.321h-8.766a6.09 6.09 0 0 0-12.17.321s.636 21.945 6.906 32.555c0-.12-3.453 2.05-3.453 2.05h3.935l-.723 2.532 3.255-1.446.603 2.17 2.452-4.051s.254-.41.26-.611c.004-.169-.126-.443-.126-.443-1.128-3.242-6.642-20.457 3.445-20.457 10.341 0 4.665 17.098 3.463 20.423 0 0-.146.366-.146.477 0 .206.261.612.261.612l2.451 4.05.603-2.17 3.256 1.447-.724-2.533H37.1s-3.452-2.17-3.452-2.05Z"
-                      fill="#91DC5A"
-                    ></path>
-                    <path
-                      d="M11.098 43.081a.804.804 0 1 0 0-1.607.804.804 0 0 0 0 1.607Zm3.054 2.492a.804.804 0 1 0 0-1.608.804.804 0 0 0 0 1.608Zm3.778.804a.804.804 0 1 0 0-1.608.804.804 0 0 0 0 1.608Zm12.063 0a.804.804 0 1 0 0-1.608.804.804 0 0 0 0 1.608Zm3.9-.804a.804.804 0 1 0 0-1.608.804.804 0 0 0 0 1.608Zm3.18-2.492a.804.804 0 1 0 0-1.607.804.804 0 0 0 0 1.607Z"
-                      fill="#5EAC24"
-                    ></path>
-                    <path
-                      d="M13.544 12.699a4.547 4.547 0 1 0 0-9.093 4.547 4.547 0 0 0 0 9.093Z"
-                      fill="#6DC82A"
-                    ></path>
-                    <path
-                      d="M13.544 11.717A3.57 3.57 0 0 1 9.98 8.152a3.57 3.57 0 0 1 3.565-3.566 3.57 3.57 0 0 1 3.566 3.566 3.57 3.57 0 0 1-3.566 3.565Z"
-                      fill="#5EAC24"
-                    ></path>
-                    <path
-                      d="M15.736 8.708h-4.384a.558.558 0 0 1-.556-.556c0-.306.25-.557.556-.557h4.384c.305 0 .556.25.556.557 0 .305-.25.556-.556.556Z"
-                      fill="#57565C"
-                    ></path>
-                    <path
-                      d="M34.449 12.699a4.547 4.547 0 1 0 0-9.094 4.547 4.547 0 0 0 0 9.094Z"
-                      fill="#6DC82A"
-                    ></path>
-                    <path
-                      d="M34.45 11.717a3.57 3.57 0 0 1-3.566-3.565 3.57 3.57 0 0 1 3.566-3.566 3.57 3.57 0 0 1 3.565 3.566 3.57 3.57 0 0 1-3.566 3.565Z"
-                      fill="#5EAC24"
-                    ></path>
-                    <path
-                      d="M36.64 8.708h-4.383a.558.558 0 0 1-.556-.556c0-.306.25-.557.556-.557h4.384a.558.558 0 0 1 0 1.112Z"
-                      fill="#57565C"
-                    ></path>
-                    <path
-                      d="M13.633 17.555c-.706-.008-2.058-.41-2.18-1.868a.736.736 0 0 1 1.467-.123c.038.456.557.512.724.518h20.713c.167-.006.686-.062.724-.518a.735.735 0 1 1 1.467.123c-.122 1.459-1.474 1.86-2.172 1.868H13.633Z"
-                      fill="#6DC82A"
-                    ></path>
-                    <path
-                      d="M42.449 34.38a.736.736 0 0 1-.546-1.23c.313-.346.604-.728.865-1.134a.736.736 0 1 1 1.239.796 10.29 10.29 0 0 1-1.011 1.326.734.734 0 0 1-.547.243Zm2.375-4.764a.736.736 0 0 1-.721-.887c.453-2.155.198-4.32-.716-6.096a.736.736 0 0 1 1.308-.674c1.07 2.075 1.37 4.587.849 7.072a.736.736 0 0 1-.72.585Z"
-                      fill="#5EAC24"
-                    ></path>
-                  </g>
-                </svg>
+                <img
+                  src="/FeelLike.svg"
+                  alt="Weather Icon"
+                  className="h-full w-full object-cover text-white transition-transform duration-300 group-hover
+:scale-110"
+                />
                 <span className="absolute bottom-[8px] left-1/2 z-[-1] h-[4px] w-[32px] -translate-x-1/2 bg-[#68082e] blur-[6px] duration-200 ease-linear group-hover:w-[16px] group-hover:blur-[4px]"></span>
               </div>
               <p className="text-center font-light">Feels like 24°C</p>
@@ -215,13 +150,11 @@ const WeatherInfo = () => {
         className="w-full md:w-[55%] space-y-4"
       >
         <h1 className="text-4xl md:text-5xl font-semibold leading-tight text-white">
-          Explore the Climate of Samyak’s Home
+          सम्यक् स्थल के मौसम की जानकारी प्राप्त करें
+
         </h1>
         <p className="text-white/80 text-xs leading-relaxed">
-          The Buddha Samyak Darshan Museum is located in Vaishali — a region
-          with rich heritage and dynamic weather. Stay informed about the
-          current climate to plan your visit with ease and comfort. Whether it’s
-          a sunny day or a gentle breeze, experience culture with nature’s mood.
+          बुद्ध सम्यक् दर्शन संग्रहालय वैशाली में स्थित है — एक ऐसा क्षेत्र जो समृद्ध सांस्कृतिक विरासत और विविध मौसमीय स्वरूपों से परिपूर्ण है। अपनी यात्रा की योजना सहजता और सुविधा के साथ बनाने के लिए वर्तमान मौसम की जानकारी प्राप्त करें। चाहे धूप हो या मंद समीर, प्रकृति के संग अनुभव करें संस्कृति का अद्भुत संगम।
         </p>
       </motion.div>
     </div>

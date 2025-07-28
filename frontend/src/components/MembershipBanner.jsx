@@ -27,16 +27,15 @@ const MembershipBanner = () => {
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0 md:mr-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Plan Your Visit</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">अपनी यात्रा की योजना बनाएं</h2>
               <p className="text-gray-700 text-lg mb-6">
-                Enjoy exclusive events, unlimited access to exhibitions and the Members' Room, 
-                plus discounts in the Museum shops, cafés and more.
-              </p>
+                विशेष आयोजनों का आनंद लें, प्रदर्शनियों और सदस्यों के कक्ष तक असीमित पहुँच प्राप्त करें, साथ ही संग्रहालय की दुकानों, कैफ़े और अन्य सेवाओं पर विशेष छूट का लाभ उठाएं।
+                </p>
             </div>
             <button
             onClick={() => setShowModal(true)}
             className="bg-black hover:bg-white border text-white hover:text-black font-semibold py-4 px-8  text-lg transition-all duration-300 hover:scale-105 whitespace-nowrap">
-              Visit
+              दर्शन करें
             </button>
           </div>
         </div>

@@ -5,22 +5,25 @@ import { WiDaySunny, WiHumidity, WiStrongWind, WiThermometer } from "react-icons
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import WeatherInfo from "./WeatherInfo";
+
+
 const exhibitions = [
-    {
-        title: "Hiroshige",
-        subtitle: "artist of the open road",
-        description: "Experience Edo-period Japan through Hiroshige’s iconic landscapes.",
-        date: "1 May – 7 September 2025",
-        image: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/705435/1582576/main-image",
-    },
-    {
-        title: "Ancient India",
-        subtitle: "living traditions",
-        description: "Explore the enduring cultural practices and sacred art of India.",
-        date: "22 May – 19 October 2025",
-        image: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/38615/1331596/main-image",
-    },
-];
+  {
+    title: "हिरोशिगे",
+    subtitle: "खुले मार्ग का कलाकार",
+    description: "हिरोशिगे के प्रतिष्ठित दृश्यों के माध्यम से एडो कालीन जापान का अनुभव करें।",
+    date: "1 मई – 7 सितंबर 2025",
+    image: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/705435/1582576/main-image",
+  },
+  {
+    title: "प्राचीन भारत",
+    subtitle: "जीवित परंपराएँ",
+    description: "भारत की सतत सांस्कृतिक परंपराओं और पवित्र कला की खोज करें।",
+    date: "22 मई – 19 अक्टूबर 2025",
+    image: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/38615/1331596/main-image",
+  },
+]
+
 
 
 const MuseumShowcase = () => {
@@ -30,46 +33,60 @@ const MuseumShowcase = () => {
     humidity: "46%",
     wind: "12 km/h",
   };
+
+  const DepartmentLogo = () => (
+  <img
+    src="/DepartmentofArtandCultureLogo.jpeg" // Replace with your actual logo path or URL
+    alt="Department of Art and Culture Logo"
+    className="h-20 w-auto object-contain"
+  />
+);
     return (
       <div className="bg-black text-white px-6 md:px-16 py-12 font-sans">
-        {/* Top Hero Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-10 border-b border-gray-700">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-              This website is maintained by <br /> The Department of Art and
-              Culture.
-            </h1>
-          </div>
-          <div className="space-y-3 text-base md:text-lg text-white font-medium">
-            {/* Ticket Info */}
-              <Link to="/book-ticket">
-            <div className="flex items-center gap-3 group transition-transform hover:scale-[1.02] pb-3">
-              <FaTicketAlt className=" text-xl group-hover:rotate-[-10deg] transition-transform duration-300" />
-                <span className="cursor-pointer ">
-                  Free entry –{" "}
-                  <span className="font-semibold">book online</span>
-                </span>
-            </div>
-              </Link>
+       {/*const TopHeroSection*/} 
+   <div className="flex flex-col md:flex-row justify-between items-start md:items-stretch gap-8 pb-10 border-b border-gray-700">
+  {/* Left Side: Logo above text on mobile, inline on desktop */}
+  <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
+  <div>
+    <DepartmentLogo />
+  </div>
+  <div>
+    <h1 className="text-2xl md:text-4xl font-semibold leading-tight text-white max-w-lg">
+      कला एवं संस्कृति विभाग
+    </h1>
+    <p className="text-sm md:text-base text-gray-400 mt-1">
+      बिहार सरकार के कला एवं संस्कृति विभाग की ओर से आपका हार्दिक स्वागत है। आइए, हमारे साथ जुड़ें और भारत की गौरवशाली सांस्कृतिक विरासत की समृद्ध यात्रा का अनुभव करें।
+    </p>
+  </div>
+</div>
 
-            {/* Open Time */}
-            <div className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
-              <FaClock className="text-xl group-hover:rotate-[10deg] transition-transform duration-300" />
-              <span>
-                Open today: <strong>9:00 – 5:00</strong>
-              </span>
-            </div>
+  {/* Vertical Divider */}
+  <div className="hidden md:block w-px bg-gray-500 opacity-40 self-stretch" />
 
-            {/* Last Entry */}
-            <div className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
-              <FaClock className="text-xl group-hover:rotate-[10deg] transition-transform duration-300" />
-              <span>
-                Last entry: <strong>4:45</strong>
-              </span>
-            </div>
-          </div>
+  {/* दाहिनी ओर: टिकट जानकारी बॉक्स */}
+    <div className="text-white rounded-lg shadow-lg p-5 w-full md:min-w-[320px] md:max-w-[350px]">
+      <Link to="/book-ticket" className="block">
+        <div className="flex items-center gap-3 group transition-transform hover:scale-[1.05] cursor-pointer border border-gray-500/30 rounded-lg p-4 bg-white/10 hover:bg-white/20">
+          <FaTicketAlt className="text-white text-2xl group-hover:rotate-[-10deg] transition-transform duration-300" />
+          <span className="font-semibold text-white">
+            नि:शुल्क प्रवेश – <span className="font-bold">ऑनलाइन बुक करें</span>
+          </span>
         </div>
-        {/* Location Section */}
+      </Link>
+
+      <div className="mt-5 space-y-3 text-gray-700 font-medium text-sm md:text-base border border-gray-500/30 rounded-lg p-4 bg-white/10 hover:bg-white/20">
+        <div className="flex items-center gap-3">
+          <FaClock className="text-white text-lg" />
+          <span className="text-white">आज खुला है: <strong>29-07-2025</strong></span>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <FaClock className="text-white text-lg" />
+          <span className="text-white">प्रवेश समय: <strong>9:00 – 5:00</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
         <div className="flex items-center gap-4 mt-8">
           <WeatherInfo />
         </div>
@@ -77,13 +94,13 @@ const MuseumShowcase = () => {
         {/* Exhibitions Section */}
         <div className="flex justify-between items-center mt-12 mb-6 ">
           <h2 className="text-3xl md:text-4xl font-semibold">
-            Exhibitions and events
+            प्रदर्शनियाँ एवं कार्यक्रम
           </h2>
           <Link
             to="/exhibitions"
             className="text-white text-sm hover:underline"
           >
-            See all exhibitions and events →
+            सभी प्रदर्शनियाँ एवं कार्यक्रम देखें →
           </Link>
         </div>
 

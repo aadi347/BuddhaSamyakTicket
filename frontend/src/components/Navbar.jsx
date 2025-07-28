@@ -80,11 +80,11 @@ const Navbar = () => {
 
               <div className="flex flex-col justify-center h-full font-serif leading-none">
                 <h1 className="text-lg md:text-3xl font-light">
-                  <span className="text-xl md:text-4xl font-semibold">
-                    Buddha Samyak
+                  <span className="text-xl md:text-5xl font-semibold">
+                    बुद्ध सम्यक
                   </span>
-                  <span className="text-sm md:text-2xl block">
-                    Darshan Museum
+                  <span className="text-sm md:text-2xl block pl-10">
+                    दर्शन संग्रहालय
                   </span>
                 </h1>
               </div>
@@ -167,7 +167,7 @@ const Navbar = () => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  {t("Tickets")}
+                  {t("FreeTickets")}
                 </button>
               </Link>
             </div>
@@ -268,7 +268,7 @@ const Navbar = () => {
                         clipRule="evenodd"
                       />
                     </svg>
-                    {t("Tickets")}
+                    {t("FreeTickets")}
                   </button>
                 </Link>
               </li>
@@ -283,7 +283,7 @@ const Navbar = () => {
                 }
               }}
             >
-              {t("Visit")}
+              {t("VisitPlanner")}
             </li>
             <li
               className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
@@ -307,7 +307,7 @@ const Navbar = () => {
                 }
               }}
             >
-              {t("Collection")}
+              {t("Gallery")}
             </li>
             <li
               className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
@@ -319,32 +319,9 @@ const Navbar = () => {
                 }
               }}
             >
-              {t("Learn")}
+              {t("AboutUs")}
             </li>
-            <li
-              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
-              onClick={() => {
-                const el = document.getElementById("membership");
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
-                  setMenuOpen(false);
-                }
-              }}
-            >
-              {t("Membership")}
-            </li>
-            <li
-              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
-              onClick={() => {
-                const el = document.getElementById("supportus");
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
-                  setMenuOpen(false);
-                }
-              }}
-            >
-              {t("Support us")}
-            </li>
+            
           </ul>
         </div>
       </div>
