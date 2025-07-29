@@ -103,64 +103,10 @@ const MuseumShowcase = () => {
       </div>
 
         {/* Exhibitions Section */}
-        <div className="flex justify-between items-center mt-12 mb-6 ">
-          <h2 className="text-3xl md:text-4xl font-semibold">
-            प्रदर्शनियाँ एवं कार्यक्रम
-          </h2>
-          <Link
-            to="/exhibitions"
-            className="text-white text-sm hover:underline"
-          >
-            सभी प्रदर्शनियाँ एवं कार्यक्रम देखें →
-          </Link>
-        </div>
+       
 
-        <div className="grid md:grid-cols-2 gap-10  ">
-          {exhibitions.map((item, index) => (
-            <div
-              key={index}
-              className="relative group overflow-hidden rounded-xl bg-black shadow-xl transition-transform duration-300 hover:scale-[1.01]"
-            >
-              <div className="flex h-[440px] ">
-                {/* Text Content */}
-                <div className="w-1/2 p-8 flex flex-col justify-between transition-all duration-300 group-hover:bg-white">
-                  <div>
-                    <h3 className="text-white group-hover:text-black text-2xl font-bold">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-300 group-hover:text-black mt-1 text-lg">
-                      {item.subtitle}
-                    </p>
-                    {item.description && (
-                      <p className="text-gray-400 group-hover:text-black mt-2 text-sm leading-relaxed">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-
-                <div>
-                  <p className="text-sm group-hover:text-black text-gray-400">
-                    Exhibition
-                  </p>
-                  <p className="text-sm group-hover:text-black text-gray-300 mt-1">
-                    {item.date}
-                  </p>
-                </div>
-              </div>
-
-              {/* Image */}
-              <div className="w-1/2 overflow-hidden ">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover rounded-r-xl transform transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="border-b border-gray-700 pt-20"></div>
+        
+   
     </div>
   );
 };
