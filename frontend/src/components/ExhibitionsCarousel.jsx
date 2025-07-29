@@ -15,21 +15,20 @@ const exhibitions = [
   {
     title: "हिरोशिगे",
     subtitle: "खुले मार्ग का कलाकार",
-    description:
-      "हिरोशिगे के प्रतिष्ठित दृश्यों के माध्यम से एडो कालीन जापान का अनुभव करें।",
+    description: "हिरोशिगे के प्रतिष्ठित दृश्यों के माध्यम से एडो कालीन जापान का अनुभव करें।",
     date: "1 मई – 7 सितंबर 2025",
-    image:
-      "https://collectionapi.metmuseum.org/api/collection/v1/iiif/705435/1582576/main-image",
+    image: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/705435/1582576/main-image",
   },
   {
     title: "प्राचीन भारत",
     subtitle: "जीवित परंपराएँ",
     description: "भारत की सतत सांस्कृतिक परंपराओं और पवित्र कला की खोज करें।",
     date: "22 मई – 19 अक्टूबर 2025",
-    image:
-      "https://collectionapi.metmuseum.org/api/collection/v1/iiif/38615/1331596/main-image",
+    image: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/38615/1331596/main-image",
   },
-];
+]
+
+
 
 const MuseumShowcase = () => {
   const weather = {
@@ -103,41 +102,41 @@ const MuseumShowcase = () => {
         <WeatherInfo />
       </div>
 
-      {/* Exhibitions Section */}
-      <div
-        id="exhibitions"
-        className="flex justify-between items-center mt-12 mb-6 scroll-mt-16"
-      >
-        <h2 className="text-3xl md:text-4xl font-semibold">
-          प्रदर्शनियाँ एवं कार्यक्रम
-        </h2>
-        <Link to="/exhibitions" className="text-white text-sm hover:underline">
-          सभी प्रदर्शनियाँ एवं कार्यक्रम देखें →
-        </Link>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-10  ">
-        {exhibitions.map((item, index) => (
-          <div
-            key={index}
-            className="relative group overflow-hidden rounded-xl bg-black shadow-xl transition-transform duration-300 hover:scale-[1.01]"
+        {/* Exhibitions Section */}
+        <div className="flex justify-between items-center mt-12 mb-6 ">
+          <h2 className="text-3xl md:text-4xl font-semibold">
+            प्रदर्शनियाँ एवं कार्यक्रम
+          </h2>
+          <Link
+            to="/exhibitions"
+            className="text-white text-sm hover:underline"
           >
-            <div className="flex h-[440px] ">
-              {/* Text Content */}
-              <div className="w-1/2 p-8 flex flex-col justify-between transition-all duration-300 group-hover:bg-white">
-                <div>
-                  <h3 className="text-white group-hover:text-black text-2xl font-bold">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-300 group-hover:text-black mt-1 text-lg">
-                    {item.subtitle}
-                  </p>
-                  {item.description && (
-                    <p className="text-gray-400 group-hover:text-black mt-2 text-sm leading-relaxed">
-                      {item.description}
+            सभी प्रदर्शनियाँ एवं कार्यक्रम देखें →
+          </Link>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-10  ">
+          {exhibitions.map((item, index) => (
+            <div
+              key={index}
+              className="relative group overflow-hidden rounded-xl bg-black shadow-xl transition-transform duration-300 hover:scale-[1.01]"
+            >
+              <div className="flex h-[440px] ">
+                {/* Text Content */}
+                <div className="w-1/2 p-8 flex flex-col justify-between transition-all duration-300 group-hover:bg-white">
+                  <div>
+                    <h3 className="text-white group-hover:text-black text-2xl font-bold">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-300 group-hover:text-black mt-1 text-lg">
+                      {item.subtitle}
                     </p>
-                  )}
-                </div>
+                    {item.description && (
+                      <p className="text-gray-400 group-hover:text-black mt-2 text-sm leading-relaxed">
+                        {item.description}
+                      </p>
+                    )}
+                  </div>
 
                 <div>
                   <p className="text-sm group-hover:text-black text-gray-400">

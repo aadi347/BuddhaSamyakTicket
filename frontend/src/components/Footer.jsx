@@ -56,9 +56,11 @@ const Footer = () => {
             निःशुल्क प्रवेश
           </h4>
 
+          
+
           <div className="grid grid-cols-2 gap-4 md:block">
             <div>
-              <p className="text-sm md:text-base">ग्रेट बुद्ध स्तूप</p>
+              <p className="text-sm md:text-base">बुद्ध सम्यक दर्शन संग्रहालय</p>
               <p className="text-sm md:text-base">वैशाली, बिहार, भारत</p>
               <p className="mt-2 md:mt-3 font-medium text-sm md:text-base">
                 +91 98765 43210
@@ -67,10 +69,10 @@ const Footer = () => {
 
             <div className="mt-0 md:mt-4 lg:mt-5">
               <p className="font-bold mb-1 text-sm md:text-base">
-                खुलने का समय
+                प्रवेश समय:
               </p>
-              <p className="text-sm md:text-base">प्रतिदिन: 09.00–18.00</p>
-              <p className="text-sm md:text-base">अंतिम प्रवेश: 17.30</p>
+              <p className="text-sm md:text-base">प्रतिदिन: 09.00–05.00</p>
+              <p className="text-sm md:text-base">अंतिम प्रवेश: 04.30</p>
             </div>
           </div>
         </div>

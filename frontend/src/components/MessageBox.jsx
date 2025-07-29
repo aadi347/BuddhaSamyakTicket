@@ -15,11 +15,9 @@ const MessageBox = () => {
       className="absolute bottom-16 left-1/2 -translate-x-1/2 z-50"
     >
       <div className="relative mx-auto w-72 rounded-2xl  bg-white p-4 shadow-lg">
-        <p className="text-center text-sm text-gray-700">
-          This is a sample message<br />
-          inside the message box.<br />
-          You can use this for tooltips,<br />
-          notifications, or hints.
+        <p className="text-center text-xs text-gray-700">
+         बुद्ध सम्यक दर्शन संग्रहालय की भव्यता, स्थापत्य कला एवं आध्यात्मिक वातावरण को दर्शाने हेतु एक विशेष वीडियो प्रस्तुत किया जा रहा है, जिसमें संग्रहालय के विभिन्न कोणों से लिए गए दृश्य सम्मिलित हैं।
+
         </p>
 
         {/* Arrow */}

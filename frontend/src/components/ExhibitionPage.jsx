@@ -4,57 +4,14 @@ import Breadcrumbs from "./Breadcrumbs";
 
 const exhibitionCards = [
   {
-    title: "Hiroshige",
-    subtitle: "artist of the open road",
-    description:
-      "Experience the beauty of Edo-period Japan through Hiroshige's masterful prints.",
-    date: "1 May – 7 September 2025",
-    image:
-      "https://collectionapi.metmuseum.org/api/collection/v1/iiif/705435/1582576/main-image",
-  },
-  {
-    title: "Ancient India",
-    subtitle: "living traditions",
-    description:
-      "Delve into centuries of vibrant Indian cultural traditions and heritage.",
-    date: "22 May – 19 October 2025",
-    image:
-      "https://collectionapi.metmuseum.org/api/collection/v1/iiif/38615/1331596/main-image",
-  },
-  {
-    title: "The Maurya Legacy",
-    subtitle: "Rise of Empire",
-    description:
-      "Uncover the foundations of one of India’s greatest empires and its cultural zenith.",
-    date: "12 June – 28 October 2025",
-    image:
-      "https://collectionapi.metmuseum.org/api/collection/v1/iiif/705435/1582576/main-image",
-  },
-  {
-    title: "Nalanda Rediscovered",
-    subtitle: "A Buddhist revival",
-    description:
-      "Journey into the rediscovery of Nalanda, the ancient center of learning and faith.",
-    date: "5 July – 15 November 2025",
-    image:
-      "https://collectionapi.metmuseum.org/api/collection/v1/iiif/38615/1331596/main-image",
-  },
-  {
-    title: "The Gupta Aesthetics",
-    subtitle: "Art and Enlightenment",
-    description:
-      "Explore a golden age of Indian art and intellectual achievement.",
-    date: "10 August – 5 December 2025",
-    image: "https://images.metmuseum.org/CRDImages/as/original/DP251139.jpg",
-  },
-  {
-    title: "The Sacred Path",
-    subtitle: "Pilgrimages in India",
-    description:
-      "Discover the spiritual landscapes that define sacred Indian journeys.",
-    date: "20 September – 31 December 2025",
-    image: "https://images.metmuseum.org/CRDImages/as/original/DP251139.jpg",
-  },
+  title: "बुद्ध सम्यक् दर्शन संग्रहालय का उद्घाटन",
+  subtitle: "माननीय मुख्यमंत्री, बिहार द्वारा",
+  description: "बिहार की सांस्कृतिक धरोहर को समर्पित इस संग्रहालय का उद्घाटन आज दिनांक 29 जुलाई 2025 को माननीय मुख्यमंत्री, बिहार सरकार द्वारा संपन्न हुआ। यह संग्रहालय बुद्ध की शिक्षाओं, जीवन दर्शन एवं ऐतिहासिक विरासत का जीवंत प्रतीक है।",
+  date: "29 जुलाई 2025",
+  image: "/buddhabg3.png",
+}
+
+ 
 ];
 
 const ExhibitionPage = () => {
@@ -71,56 +28,56 @@ const ExhibitionPage = () => {
           {/* Left Description */}
           <div className="mb-8 flex flex-col items-start">
             <h2 className="text-4xl font-semibold mb-2 mt-2">
-              Exhibitions & Events
+              प्रदर्शनी एवं कार्यक्रम
             </h2>
           </div>
 
-          {/* Cards Section */}
-          <div className="grid md:grid-cols-3 gap-10 w-full">
-            {exhibitionCards.map((item, index) => (
-              <div
-                key={index}
-                className="relative group overflow-hidden rounded-xl bg-black shadow-xl transition-transform duration-300 hover:scale-[1.01] border border-white/10"
-              >
-                <div className="flex h-[440px]">
-                  {/* Text */}
-                  <div className="w-1/2 p-8 flex flex-col justify-between transition-all duration-300 group-hover:bg-white">
-                    <div>
-                      <h3 className="text-white group-hover:text-black text-2xl font-bold">
-                        {item.title}
-                      </h3>
-                      <p className="text-gray-300 group-hover:text-black mt-1 text-lg">
-                        {item.subtitle}
-                      </p>
-                      {item.description && (
-                        <p className="text-gray-400 group-hover:text-black mt-2 text-sm leading-relaxed">
-                          {item.description}
-                        </p>
-                      )}
-                    </div>
-
-                    <div>
-                      <p className="text-sm group-hover:text-black text-gray-400">
-                        Exhibition
-                      </p>
-                      <p className="text-sm group-hover:text-black text-gray-300 mt-1">
-                        {item.date}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Image */}
-                  <div className="w-1/2 overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover rounded-r-xl transform transition-transform duration-500 group-hover:scale-110"
-                    />
-                  </div>
-                </div>
-              </div>
-            ))}
+      <div className="grid md:grid-cols-3 gap-10 w-full">
+  {exhibitionCards.map((item, index) => (
+    <div
+      key={index}
+      className="group overflow-hidden rounded-xl bg-black shadow-xl transition-transform duration-300 hover:scale-[1.01] border border-white/10"
+    >
+      <div className="flex flex-col md:flex-row">
+        {/* Text Section */}
+        <div className="w-full md:w-1/2 p-6 flex flex-col gap-4 transition-all duration-300 group-hover:bg-white">
+          <div>
+            <h3 className="text-white group-hover:text-black text-2xl font-bold">
+              {item.title}
+            </h3>
+            <p className="text-gray-300 group-hover:text-black mt-1 text-lg">
+              {item.subtitle}
+            </p>
+            {item.description && (
+              <p className="text-gray-400 group-hover:text-black mt-3 text-sm leading-relaxed border-b border-gray-500/40 pb-4">
+                {item.description}
+              </p>
+            )}
           </div>
+
+          <div className="pt-2">
+            <p className="text-sm group-hover:text-black text-gray-400">
+              कार्यक्रम
+            </p>
+            <p className="text-sm group-hover:text-black text-gray-300 mt-1">
+              {item.date}
+            </p>
+          </div>
+        </div>
+
+        {/* Image Section */}
+        <div className="w-full md:w-1/2 max-h-[300px] md:max-h-full overflow-hidden">
+          <img
+            src={item.image}
+            alt={item.title}
+            className="w-full h-full object-cover rounded-b-xl md:rounded-r-xl md:rounded-b-none transform transition-transform duration-500 group-hover:scale-110"
+          />
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
         </div>
       </div>
     </>
