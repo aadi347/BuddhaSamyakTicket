@@ -61,13 +61,11 @@ const ExploreCollectionCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="bg-black py-16 relative overflow-hidden">
+    <div id="collection" className="bg-black py-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-white text-3xl font-bold">
-            संग्रह को देखें
-          </h2>
+          <h2 className="text-white text-3xl font-bold">संग्रह को देखें</h2>
           <Link
             to="/collection"
             className="text-white hover:underline flex items-center gap-1"

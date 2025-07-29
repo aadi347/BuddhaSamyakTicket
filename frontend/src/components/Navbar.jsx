@@ -273,30 +273,37 @@ const Navbar = () => {
                 </Link>
               </li>
             </div>
-            <li
-              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
-              onClick={() => {
-                const el = document.getElementById("visit");
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
-                  setMenuOpen(false);
-                }
-              }}
-            >
-              {t("VisitPlanner")}
-            </li>
-            <li
-              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
-              onClick={() => {
-                const el = document.getElementById("exhibitions");
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
-                  setMenuOpen(false);
-                }
-              }}
-            >
-              {t("Exhibitions")}
-            </li>
+            <Link to="/">
+              <li
+                className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
+                onClick={() => {
+                  const el = document.getElementById("visit");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                    setMenuOpen(false);
+                  }
+                }}
+              >
+                {t("VisitPlanner")}
+              </li>
+            </Link>
+
+            <Link to="/">
+              <li
+                className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
+                onClick={() => {
+                  const el = document.getElementById("exhibitions");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                    setMenuOpen(false);
+                  }
+                }}
+              >
+                {t("Exhibitions")}
+              </li>
+            </Link>
+
+            <Link to="/">
             <li
               className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
               onClick={() => {
@@ -309,19 +316,21 @@ const Navbar = () => {
             >
               {t("Gallery")}
             </li>
-            <li
-              className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
-              onClick={() => {
-                const el = document.getElementById("learn");
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
-                  setMenuOpen(false);
-                }
-              }}
-            >
-              {t("AboutUs")}
-            </li>
-            
+            </Link>
+            <Link to="/about-museum">
+              <li
+                className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
+                onClick={() => {
+                  const el = document.getElementById("learn");
+                  if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                    setMenuOpen(false);
+                  }
+                }}
+              >
+                {t("AboutUs")}
+              </li>
+            </Link>
           </ul>
         </div>
       </div>
