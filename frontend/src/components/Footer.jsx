@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
 
         {/* Signup */}
-        <div className="lg:w-1/2">
+        {/* <div className="lg:w-1/2">
           <form className="flex flex-col sm:flex-row w-full max-w-xl gap-2 sm:gap-0">
             <input
               type="email"
@@ -45,7 +45,7 @@ const Footer = () => {
               साइन अप करें
             </button>
           </form>
-        </div>
+        </div> */}
       </div>
 
       {/* Middle: Grid Sections */}
