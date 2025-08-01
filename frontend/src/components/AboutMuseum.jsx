@@ -97,7 +97,7 @@ function AboutMuseum() {
                 playsInline
                 className="w-full h-full object-cover rounded-xl"
               >
-                <source src="/sec4stupa.mp4" type="video/mp4" />
+                <source src="https://res.cloudinary.com/dnjmxt0kz/video/upload/v1754050153/sec4stupa_lap6sb.mov" type="video/mp4" />
               </video>
             </div>
           </div>
