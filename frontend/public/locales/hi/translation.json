@@ -63,18 +63,23 @@
   "VisitBannerDescription": "यहाँ कैसे पहुँचें? जानने के लिए क्लिक करें — बुद्ध सम्यक् दर्शन संग्रहालय तक पहुँचने के सर्वोत्तम मार्ग जानिए और अपनी यात्रा की योजना आसानी से बनाएं!",
   "VisitBannerButton": "दिशा-निर्देश प्राप्त करें",
   
+  
+  "TravelPlanHeading": "अपनी यात्रा की योजना बनाएं",
+  "TravelPlanDescription": "विशेष आयोजनों का आनंद लें, प्रदर्शनों और केवल सदस्यों के लिए उपलब्ध लॉन्ज़ में असीमित पहुंच पाएं, और संग्रहालय की दुकानों, कैफ़े और अन्य सेवाओं पर विशेष छूट का लाभ उठाएं।",
+  "TravelPlanButton": "अब एक्सप्लोर करें",
+
 
 
   
   "ExploreCollectionHeading": "संग्रह को देखें",
   "ExploreCollectionViewAll": "सभी देखें →",
   "Slides": [
-    { "title": "विराजमान बुद्ध - सारनाथ" },
-    { "title": "बोधिसत्त्व अवलोकितेश्वर" },
-    { "title": "अमरावती स्तूप पैनल" },
-    { "title": "बुद्ध का जन्म - गांधार शैली" },
-    { "title": "बुद्ध का मस्तक - मथुरा" },
-    { "title": "बुद्ध का पहला उपदेश - सारनाथ" }
+    { "title": "विराजमान बुद्ध - सारनाथ","image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZYBl8_WD_mWUjAXWlTHwyRmyF8lknHcGhw&s" },
+    { "title": "बोधिसत्त्व अवलोकितेश्वर","image": "https://cdn.britannica.com/57/133057-050-AC74BBA2/Avalokiteshvara-bodhisattva-compassion-Mount-Jiuhua-China-province.jpg" },
+    { "title": "अमरावती स्तूप पैनल", "image": "https://tricycle.org/wp-content/uploads/2025/06/Amaravati_Stupa_relief_at_Museum%E2%80%94-Amaravati-Maha-Stupa-relief-at-Museum-in-Chennai-India-scaled.jpg" },
+    { "title": "बुद्ध का जन्म - गांधार शैली", "image": "https://www.shutterstock.com/image-photo/osaka-japan-december-4-2023-260nw-2401947087.jpg"},
+    { "title": "बुद्ध का मस्तक - मथुरा",  "image": "https://images.metmuseum.org/CRDImages/as/original/DP267831.jpg" },
+    { "title": "बुद्ध का पहला उपदेश - सारनाथ", "image": "https://images.metmuseum.org/CRDImages/as/original/4%20DP314867r4_61A.jpg"  }
   ],
 
 

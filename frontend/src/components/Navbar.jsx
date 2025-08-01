@@ -98,7 +98,7 @@ const Navbar = () => {
             </div>
 
             {/* Search Button/Input */}
-            <div className="relative" ref={searchRef}>
+            {/* <div className="relative" ref={searchRef}>
               {searchOpen ? (
                 <form
                   onSubmit={handleSearchSubmit}
@@ -134,10 +134,10 @@ const Navbar = () => {
                   <FaMagnifyingGlass />
                   {t("Search")}
                 </button>
-              )}
+              )} */}
 
               {/* Search Results - Desktop Only */}
-              <div className="hidden md:block">
+              {/* <div className="hidden md:block">
                 <SearchResults
                   searchQuery={searchQuery}
                   searchResults={searchResults}
@@ -147,7 +147,7 @@ const Navbar = () => {
                   isVisible={searchOpen && (searchQuery.trim() || hasResults)}
                 />
               </div>
-            </div>
+            </div> */}
 
             <div className="hidden md:block">
               <Link to="/book-ticket">
