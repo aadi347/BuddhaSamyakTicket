@@ -8,8 +8,10 @@ import {
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Rainbow, CloudRainWind,Wind } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const WeatherInfo = () => {
+  const { t } = useTranslation();
   const [weatherData, setWeatherData] = useState(null);
 
   useEffect(() => {
@@ -171,13 +173,10 @@ const WeatherInfo = () => {
         className="w-full md:w-[55%] space-y-4"
       >
         <h1 className="text-4xl md:text-5xl font-semibold leading-tight text-white">
-          सम्यक् स्थल के मौसम की जानकारी प्राप्त करें
+          {t("WeatherHeading")}
         </h1>
         <p className="text-white/80 text-xs leading-relaxed">
-          बुद्ध सम्यक् दर्शन संग्रहालय वैशाली में स्थित है — एक ऐसा क्षेत्र जो समृद्ध
-          सांस्कृतिक विरासत और विविध मौसमीय स्वरूपों से परिपूर्ण है। अपनी यात्रा की
-          योजना सहजता और सुविधा के साथ बनाने के लिए वर्तमान मौसम की जानकारी प्राप्त करें।
-          चाहे धूप हो या मंद समीर, प्रकृति के संग अनुभव करें संस्कृति का अद्भुत संगम।
+         {t("WeatherDescription")}
         </p>
       </motion.div>
     </div>

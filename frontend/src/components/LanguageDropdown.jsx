@@ -3,13 +3,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
 const languages = [
-  { code: "en", label: "English" },
-  { code: "hi", label: "हिन्दी" },
-  { code: "th", label: "Thai" },
-  { code: "ja", label: "日本語" },
-  { code: "zh", label: "中国人" },
-  { code: "ko", label: "한국인" },
+  { code: "en", label: "English (English)" },
+  { code: "hi", label: "हिन्दी (Hindi)" },
+  { code: "th", label: "Thai (Thai)" },
+  { code: "ja", label: "日本語 (Japanese)" },
+  { code: "zh", label: "中国人 (Chinese)" },
+  { code: "ko", label: "한국인 (Korean)" },
 ];
+
 
 const LanguageDropdown = () => {
   const { i18n } = useTranslation();

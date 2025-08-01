@@ -40,7 +40,103 @@
   "visit_option_highlights_heading1": "Explore the Museum Highlights",
   "visit_option_highlights_desc1": "Discover the Buddha Samyak Stupa, relax at the Meditation Center, and browse books in the quiet library.",
   "visit_option_amenities_heading1": "Enjoy Museum Amenities",
-  "visit_option_amenities_desc1": "Visit the Visitor Center, Guest House, or Cafeteria and enjoy all the facilities provided by the Department of Art & Culture."
+  "visit_option_amenities_desc1": "Visit the Visitor Center, Guest House, or Cafeteria and enjoy all the facilities provided by the Department of Art & Culture.",
+
+
+  "Welcome": "Welcome to the Buddha Samyak Darshan Museum",
+  "MuseumDescription": "Discover the peaceful legacy of the Buddha through spiritual exhibits and digital storytelling.",
+  "Explore": "Explore More",
+
+
+  
+  "art&culture": "Department of Art, Culture & Youth, Government of Bihar",
+  "art&culture_description": "Warm greetings from the Department of Art and Culture, Government of Bihar. Join us on a rich journey through the glorious cultural heritage of India.",
+  
+  "TicketBooking": "Free Entry – Book Online",
+  "Notification": "Online ticket booking for the museum will commence soon.",
+  "Time": "Visiting Hours: 9:00 AM – 5:00 PM",
+
+  "WeatherHeading": "Get the Latest Weather Updates at Buddha Samyak",
+  "WeatherDescription": "The Buddha Samyak Darshan Museum is located in Vaishali — a region known for its rich cultural legacy and diverse climatic patterns. Check the current weather to plan your visit with ease and comfort. Whether under the warm sun or gentle breeze, experience a beautiful blend of nature and culture.",
+
+
+  "TravelPlanHeading": "Plan Your Visit",
+  "TravelPlanDescription": "Enjoy special events, get unlimited access to exhibitions and members-only lounges, and avail exclusive discounts at museum shops, cafés, and other services.",
+  "TravelPlanButton": "Explore Now",
+
+
+  
+  "VisitBannerHeading": "How to Reach Buddha Samyak Darshan Museum",
+  "VisitBannerDescription": "Wondering how to get here? Click to discover the best routes to the Buddha Samyak Darshan Museum and plan your journey with ease!",
+  "VisitBannerButton": "Get Directions",
+
+
+  
+  
+  "ExploreCollectionHeading": "Explore the Collection",
+  "ExploreCollectionViewAll": "View All →",
+  "Slides": [
+    { "title": "Seated Buddha - Sarnath", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZYBl8_WD_mWUjAXWlTHwyRmyF8lknHcGhw&s" },
+    { "title": "Bodhisattva Avalokiteshvara", "image": "https://cdn.britannica.com/57/133057-050-AC74BBA2/Avalokiteshvara-bodhisattva-compassion-Mount-Jiuhua-China-province.jpg" },
+    { "title": "Amaravati Stupa Panel", "image": "https://tricycle.org/wp-content/uploads/2025/06/Amaravati_Stupa_relief_at_Museum%E2%80%94-Amaravati-Maha-Stupa-relief-at-Museum-in-Chennai-India-scaled.jpg" },
+    { "title": "Birth of Buddha - Gandhara Style", "image": "https://www.shutterstock.com/image-photo/osaka-japan-december-4-2023-260nw-2401947087.jpg" },
+    { "title": "Buddha's Head - Mathura", "image": "https://images.metmuseum.org/CRDImages/as/original/DP267831.jpg" },
+    { "title": "First Sermon of Buddha - Sarnath", "image": "https://images.metmuseum.org/CRDImages/as/original/4%20DP314867r4_61A.jpg" }
+  ],
+
+
+
+
+
+
+
+
+  "JoinUs": "Join Us",
+  "FreeEntry": "Free Entry",
+  "MuseumName": "Buddha Samyak Darshan Museum",
+  "MuseumAddress": "Vaishali, Bihar, India",
+  "MuseumPhone": "+91 98765 43210",
+  "OpeningHoursLabel": "Opening Hours:",
+  "OpeningHours": "Daily: 09.00–05.00",
+  "LastEntry": "Last Entry: 04.30",
+
+  "AboutHeading": "About Us",
+  "AboutGovernment": "Governance",
+  "AboutStory": "Our Story",
+  "AboutCareers": "Careers",
+  "AboutPress": "Press",
+  "AboutContact": "Contact Us",
+
+  "VisitHeading": "Visit",
+  "VisitMap": "Temple Map",
+  "VisitEvents": "Events",
+  "VisitAccessibility": "Accessibility",
+  "VisitFoodDrink": "Food & Drink",
+  "VisitAudioGuide": "Audio Guide",
+
+  "CommercialHeading": "Commercial",
+  "CommercialVenue": "Venue Hire",
+  "CommercialFilming": "Filming",
+  "CommercialLicensing": "Image Licensing",
+  "CommercialStore": "Souvenir Store",
+  "CommercialPartners": "Travel Partners",
+
+  "ResourcesHeading": "Resources",
+  "ResourcesStudy": "Study Room",
+  "ResourcesLibrary": "Library Archives",
+  "ResourcesTeachings": "Teachings",
+  "ResourcesBlog": "Blog",
+
+  "Copyright": "©️ 2025 Bihar Heritage Development Committee. All rights reserved.",
+  "PrivacyPolicy": "Privacy Policy",
+  "Accessibility": "Accessibility",
+  "TermsOfUse": "Terms of Use",
+
+
+"ImgGridHeading": "A cultural glimpse of other museums in Bihar.",
+"ImgGridButton": "Learn More"
+
+
 }
 
   

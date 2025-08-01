@@ -5,8 +5,10 @@ import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import MessageBox from "./MessageBox";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation();
   const [showMessage, setShowMessage] = useState(false);
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
@@ -57,21 +59,21 @@ const Home = () => {
     style={{ fontFamily: '"Playfair Display", serif' }}
     className="text-xl font-bold"
   >
-    बुद्ध सम्यक् दर्शन संग्रहालय में <br />
-    आपका स्वागत है
+    {t("Welcome")} <br />
+
   </h2>
   <p
     style={{ fontFamily: '"Playfair Display", serif' }}
     className="text-sm leading-relaxed mt-4"
   >
-    आध्यात्मिक प्रदर्शनों और डिजिटल कथा-वाचन के माध्यम से बुद्ध की शांतिपूर्ण विरासत को जानिए।
+    {t("MuseumDescription")}
   </p>
   <Link to="/about-museum">
     <button
       style={{ fontFamily: '"Playfair Display", serif' }}
       className="mt-5 text-sm px-5 py-2 border border-black bg-black text-white transition group-hover:bg-white group-hover:text-black"
     >
-      और जानें
+      {t("Explore")}
     </button>
   </Link>
 </div>

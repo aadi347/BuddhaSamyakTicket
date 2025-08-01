@@ -23,6 +23,7 @@
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+
 }
 
 /* Progress bar for the active bullet */
@@ -63,5 +64,6 @@
   border-radius: 12px;
   padding: 10px 20px;
   gap: 8px;
+
 }
 

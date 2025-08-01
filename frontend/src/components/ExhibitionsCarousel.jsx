@@ -10,6 +10,10 @@ import {
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import WeatherInfo from "./WeatherInfo";
+import { FaBell } from "react-icons/fa6";
+import { MdAccessTimeFilled } from "react-icons/md";
+import { useTranslation } from "react-i18next";
+
 
 const exhibitions = [
   {
@@ -31,12 +35,8 @@ const exhibitions = [
 
 
 const MuseumShowcase = () => {
-  const weather = {
-    temperature: "34°C",
-    condition: "Sunny",
-    humidity: "46%",
-    wind: "12 km/h",
-  };
+
+  const { t } = useTranslation();
 
   const DepartmentLogo = () => (
     <img
@@ -56,12 +56,10 @@ const MuseumShowcase = () => {
           </div>
           <div>
             <h1 className="text-2xl md:text-4xl font-semibold leading-tight text-white max-w-lg">
-              कला एवं संस्कृति विभाग
+             {t("art&culture")}
             </h1>
             <p className="text-sm md:text-base text-gray-400 mt-1">
-              बिहार सरकार के कला एवं संस्कृति विभाग की ओर से आपका हार्दिक स्वागत
-              है। आइए, हमारे साथ जुड़ें और भारत की गौरवशाली सांस्कृतिक विरासत की
-              समृद्ध यात्रा का अनुभव करें।
+              {t("art&culture_description")}
             </p>
           </div>
         </div>
@@ -75,24 +73,23 @@ const MuseumShowcase = () => {
             <div className="flex items-center gap-3 group transition-transform hover:scale-[1.05] cursor-pointer border border-gray-500/30 rounded-lg p-4 bg-white/10 hover:bg-white/20">
               <FaTicketAlt className="text-white text-2xl group-hover:rotate-[-10deg] transition-transform duration-300" />
               <span className="font-semibold text-white">
-                नि:शुल्क प्रवेश –{" "}
-                <span className="font-bold">ऑनलाइन बुक करें</span>
+              {t("TicketBooking")}
               </span>
             </div>
           </Link>
 
           <div className="mt-5 space-y-3 text-gray-700 font-medium text-sm md:text-base border border-gray-500/30 rounded-lg p-4 bg-white/10 hover:bg-white/20">
             <div className="flex items-center gap-3">
-              <FaClock className="text-white text-lg" />
-              <span className="text-white">
-                आज खुला है: <strong>29-07-2025</strong>
+              <FaBell className="text-white text-lg animate-pulse" />
+              <span className="text-white text-xs">
+              {t("Notification")}
               </span>
             </div>
 
             <div className="flex items-center gap-3">
-              <FaClock className="text-white text-lg" />
-              <span className="text-white">
-                प्रवेश समय: <strong>9:00 – 5:00</strong>
+              <FaClock className="text-white text-lg animate-spin" />
+              <span className="text-white text-xs">
+                {t("Time")}
               </span>
             </div>
           </div>

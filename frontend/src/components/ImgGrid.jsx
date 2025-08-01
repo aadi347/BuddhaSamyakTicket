@@ -1,7 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function ImgGrid() {
+  const { t } = useTranslation();
   const images = [
     "https://images.livemint.com/img/2023/04/15/original/Bihar_Museum_5_1681531344757.jpg", // 2
     "https://assets.cntraveller.in/photos/60ba27a40f3a5367ec9feabf/master/w_1600%2Cc_limit/Didarganj-Yakshi-Custom.jpg", // 3
@@ -18,7 +20,7 @@ function ImgGrid() {
         className="text-5xl md:text-6xl font-bold text-white pt-6 pl-6"
         style={{ fontFamily: '"Playfair Display", serif' }}
       >
-       बिहार के अन्य संग्रहालयों की<br /> सांस्कृतिक झलक।
+       {t("ImgGridHeading")}
       </h2>
 
       <div className="grid grid-cols-6 grid-rows-12 gap-4 pt-24 px-2 md:px-6">
@@ -48,7 +50,7 @@ function ImgGrid() {
       <div className="absolute bottom-0 left-0 w-full h-[45rem] bg-gradient-to-t from-black to-transparent z-10">
 
         <Link to="/exploreMore" className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-white text-black py-2 px-6 font-medium text-lg hover:scale-105 transition-transform">
-          अधिक जानकारी प्राप्त करें
+          {t("ImgGridButton")}
         </Link>
       </div>
     </div>
