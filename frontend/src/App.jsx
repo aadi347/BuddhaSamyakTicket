@@ -20,6 +20,7 @@ import AllCollectionPage from "./components/AllCollectionPage";
 import TravelPage from "./components/TravelPage"; 
 import ScrollToTop from "./components/ScrollToTop";
 import ExploreMore from "./pages/ExploreMore";
+import DevelopersTeam from "./pages/DevelopersTeam";
 
 const MainPage = () => (
   <ParallaxLayout>
@@ -51,6 +52,7 @@ const App = () => {
         <Route path="/collection" element={<AllCollectionPage />} />
         <Route path="/travel" element={<TravelPage />} />
         <Route path="/exploreMore" element={<ExploreMore />} />
+        <Route path="/developers-team" element={<DevelopersTeam />} />
       </Routes>
     </>
   );
