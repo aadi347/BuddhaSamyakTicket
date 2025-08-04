@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 const SignupBanner = () => {
   const { t } = useTranslation();
   return (
-    <div className="flex justify-center items-center py-12 px-4">
+    <div className="flex justify-center items-center py-12 px-8 sm:px-0">
       {/* Outer container */}
       <div className="bg-white border border-gray-200 p-12 w-full max-w-5xl shadow-md">
         <div className="mx-auto">

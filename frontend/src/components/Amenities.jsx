@@ -19,7 +19,7 @@ const VisitInformationCard = ({ title, description, imageUrl, index }) => (
     </div>
     <div className="p-5">
       <h3 className="text-lg font-bold mb-3">{title}</h3>
-      <p className="text-base text-gray-600 leading-relaxed">{description}</p>
+      <p className="text-base leading-relaxed">{description}</p>
     </div>
   </motion.div>
 );
@@ -55,11 +55,11 @@ const Amenities = () => {
     <div className="bg-black w-full py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-white text-3xl font-bold">
+          <h2 className="text-white text-2xl font-bold">
             {t("Amenities")}
           </h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="px-8 sm:px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {visitOptions.map((opt, idx) => (
             <VisitInformationCard
               key={idx}

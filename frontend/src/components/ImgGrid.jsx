@@ -17,7 +17,7 @@ function ImgGrid() {
   return (
     <div className="bg-black px-6 pt-10 relative z-0">
       <h2
-        className="text-5xl md:text-6xl font-bold text-white pt-6 pl-6"
+        className="text-2xl md:text-4xl font-bold text-white pt-6 pl-6"
         style={{ fontFamily: '"Playfair Display", serif' }}
       >
        {t("ImgGridHeading")}

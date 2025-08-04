@@ -78,46 +78,46 @@ const Home = () => {
   </Link>
 </div>
 
+{/* Button Controls - Bottom Right */}
+<div className="absolute bottom-5 right-5 sm:right-10 md:right-15 z-30 flex items-end gap-4">
+  {/* 🔊 Sound Toggle */}
+  <button
+    onClick={toggleMute}
+    className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
+    title={isMuted ? "Unmute" : "Mute"}
+  >
+    {isMuted ? (
+      <FaVolumeMute size={22} />
+    ) : (
+      <FaVolumeUp size={22} />
+    )}
+  </button>
 
-        {/* Button Controls - Bottom Right */}
-        <div className="absolute bottom-5 right-15 z-30 flex items-end gap-4">
-          {/* 🔊 Sound Toggle */}
-          <button
-            onClick={toggleMute}
-            className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
-            title={isMuted ? "Unmute" : "Mute"}
-          >
-            {isMuted ? (
-              <FaVolumeMute size={22} />
-            ) : (
-              <FaVolumeUp size={22} />
-            )}
-          </button>
+  {/* ℹ️ Info Hover Box */}
+  <div
+    className="relative flex flex-col items-center hidden lg:block"
+    onMouseEnter={() => setShowMessage(true)}
+    onMouseLeave={() => setShowMessage(false)}
+  >
+    <button
+      className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
+      title="Info"
+    >
+      <FaInfoCircle size={22} />
+    </button>
+    <AnimatePresence>{showMessage && <MessageBox />}</AnimatePresence>
+  </div>
 
-          {/* ℹ️ Info Hover Box */}
-          <div
-            className="relative flex flex-col items-center"
-            onMouseEnter={() => setShowMessage(true)}
-            onMouseLeave={() => setShowMessage(false)}
-          >
-            <button
-              className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
-              title="Info"
-            >
-              <FaInfoCircle size={22} />
-            </button>
-            <AnimatePresence>{showMessage && <MessageBox />}</AnimatePresence>
-          </div>
+  {/* 📍 Location */}
+  <button
+    onClick={openMap}
+    className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
+    title="Open in Google Maps"
+  >
+    <FaRoute size={22} />
+  </button>
+</div>
 
-          {/* 📍 Location */}
-          <button
-            onClick={openMap}
-            className="bg-white/20 backdrop-blur-md text-white rounded-full p-3 shadow-md hover:bg-gray-200 transition"
-            title="Open in Google Maps"
-          >
-            <FaRoute size={22} />
-          </button>
-        </div>
       </div>
     </>
   );

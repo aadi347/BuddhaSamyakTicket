@@ -13,7 +13,7 @@ const VisitInformationCard = ({ description, imageUrl, heading }) => (
     </div>
     <div className="p-5">
       <h3 className="text-lg font-bold mb-3">{heading}</h3>
-      <p className="text-base text-gray-600 leading-relaxed">{description}</p>
+      <p className="text-base leading-relaxed">{description}</p>
     </div>
   </div>
 );
@@ -48,19 +48,20 @@ const VisitTheMuseum = () => {
   return (
     <div className="bg-black w-full py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-white mb-10 text-center">
+        <h2 className="text-2xl font-bold text-white mb-10 text-left">
           {t("visit_the_museum_title1")}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {visitOptions.map((option, idx) => (
-            <VisitInformationCard
-              key={idx}
-              heading={option.heading}
-              description={option.description}
-              imageUrl={option.imageUrl}
-            />
-          ))}
-        </div>
+        <div className="px-8 sm:px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+  {visitOptions.map((option, idx) => (
+    <VisitInformationCard
+      key={idx}
+      heading={option.heading}
+      description={option.description}
+      imageUrl={option.imageUrl}
+    />
+  ))}
+</div>
+
       </div>
     </div>
   );
