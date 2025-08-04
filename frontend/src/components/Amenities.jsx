@@ -29,15 +29,15 @@ const Amenities = () => {
   const { t } = useTranslation();
 
   const visitOptions = [
+     {
+      title: t("Visitor Center"),
+      description: t("Visitor Center Description"),
+      imageUrl: "/visitorsCenter.jpeg",
+    },
     {
       title: t("Meditation Center"),
       description: t("Meditation Center Description"),
       imageUrl: "/meditationCenter.png",
-    },
-    {
-      title: t("Visitor Center"),
-      description: t("Visitor Center Description"),
-      imageUrl: "/visitorsCenter.jpeg",
     },
     {
       title: t("Library"),

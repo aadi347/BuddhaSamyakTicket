@@ -12,7 +12,7 @@ const VisitInformationCard = ({ description, imageUrl, heading }) => (
       />
     </div>
     <div className="p-5">
-      <h3 className="text-lg font-bold mb-3">{heading}</h3>
+      <h3 className="text-lg font-bold mb-3 whitespace-nowrap">{heading}</h3>
       <p className="text-base leading-relaxed">{description}</p>
     </div>
   </div>
