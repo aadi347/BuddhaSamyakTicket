@@ -9,58 +9,6 @@ import {
     FaInstagram,
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "./Navbar";
-import { FaPlaneDeparture, FaMapMarkerAlt, FaRoad, FaClock } from "react-icons/fa";
-
-const internationalAirports = [
-    {
-    name: "Indira Gandhi International Airport (DEL)",
-    location: "New Delhi",
-    distanceFromPatna: "1000 km",
-    connectivity:
-      "Global connectivity: USA, UK, Germany, Japan, Australia, UAE. Daily domestic flights to Gaya & Patna.",
-    travelTime: "1.5h flight + 2h road / 12–14h train",
-  },
-  {
-    name: "Gaya International Airport (GAY)",
-    location: "Gaya, Bihar",
-    distanceFromPatna: "100 km (≈2 hours by road)",
-    connectivity:
-      "Seasonal direct flights from Thailand, Myanmar, Bhutan, Sri Lanka, Vietnam. Domestic flights from Delhi & Kolkata.",
-    travelTime: "≈25 minutes (12 km) to museum",
-  },
-   
-  {
-    name: "Netaji Subhas Chandra Bose International Airport (CCU)",
-    location: "Kolkata, West Bengal",
-    distanceFromPatna: "580 km",
-    connectivity:
-      "Flights from Bangkok, Dubai, London, Dhaka, Kathmandu, Kuala Lumpur. Easy domestic connections to Gaya & Patna.",
-    travelTime: "1h flight to Gaya / 8–10h train or road to Bodh Gaya",
-  },
- 
-  {
-    name: "Chaudhary Charan Singh International Airport (LKO)",
-    location: "Lucknow, Uttar Pradesh",
-    distanceFromPatna: "520 km",
-    connectivity:
-      "Flights from Dubai, Jeddah, Bangkok, Sharjah. Daily domestic flights to Patna & Gaya.",
-    travelTime: "1h flight / 10h train or road to Bodh Gaya",
-  },
-];
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  }),
-};
 
 const TravelPage = () => {
     const [activeTab, setActiveTab] = useState("airplane");
@@ -86,34 +34,37 @@ const TravelPage = () => {
             title: "Travel by Air",
             description:
                 "Gaya International Airport (GAY) connects with Delhi, Varanasi, and Kolkata. Book a flight and use local transport to reach the Buddha Samyak Darshan Museum.",
-            img: "/airways3.svg",
+            img: "https://news.mit.edu/sites/default/files/images/202408/MIT_Airline-Safety-01.jpg",
         },
         car: {
             title: "Travel by Road",
             description:
                 "Gaya is accessible by highway. Hire private cabs or use buses from Patna, Ranchi, and other major cities to visit the museum comfortably.",
-            img: "/ar.svg",
+            img: "https://images.unsplash.com/photo-1532931899774-fbd4de0008fb?fm=jpg&q=60&w=3000",
         },
         train: {
             title: "Travel by Train",
             description:
                 "Gaya Junction offers excellent rail connectivity. From there, use autos or taxis to reach the museum within 30 minutes.",
-            img: "train.svg",
+            img: "https://static.toiimg.com/photo/msid-92440904,width-96,height-65.cms",
         },
     };
 
     const { title, description, img } = travelInfo[activeTab];
 
     return (
-        <>
-        <Navbar />
         <div className="min-h-screen bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-black text-gray-900 dark:text-white">
             {/* Hero Section */}
             <section className="text-center px-4 py-12">
-                <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-black drop-shadow-xl tracking-wide">
+                <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700 drop-shadow-xl tracking-wide">
                     HOW TO REACH
                 </h1>
-               
+                <p className="text-xl font-medium mt-2 text-gray-600 dark:text-gray-300">
+                    Buddha Samyak Darshan Museum
+                </p>
+                <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+                    Explore travel options via air, train, or road and plan your visit to this cultural and spiritual landmark.
+                </p>
             </section>
 
             {/* Tabs */}
@@ -125,7 +76,7 @@ const TravelPage = () => {
                             onClick={() => setActiveTab(tab.key)}
                             whileHover={{ scale: 1.1 }}
                             className={`text-xl p-3 rounded-full transition-all duration-300 ${activeTab === tab.key
-                                ? "bg-black text-white"
+                                ? "bg-blue-600 text-white"
                                 : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white"
                                 }`}
                         >
@@ -144,7 +95,7 @@ const TravelPage = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0.95 }}
                         transition={{ duration: 0.5 }}
-                        className="rounded-3xl overflow-hidden  mb-10"
+                        className="rounded-3xl overflow-hidden shadow-xl mb-10"
                     >
                         <img
                             src={img}
@@ -157,62 +108,82 @@ const TravelPage = () => {
 
             {/* Info + Form + Map Section */}
             <section className="px-6 sm:px-10 lg:px-32 pb-16">
-                <section className="px-6 sm:px-10 lg:px-32 pb-20">
-      <h2 className="text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white tracking-wide">
-        Nearest International Airports
-      </h2>
+                <div className="grid lg:grid-cols-2 gap-10 items-start">
+                    {/* Left Side: Info + Form */}
+                    <div className="bg-white/90 dark:bg-gray-900/80 backdrop-blur-md rounded-3xl shadow-2xl p-8 space-y-6">
+                        <h2 className="text-3xl font-semibold text-blue-700 dark:text-purple-300">
+                            {title}
+                        </h2>
+                        <p className="text-gray-700 dark:text-gray-300">{description}</p>
 
-      <div className="grid gap-8 sm:grid-cols-2">
-        {internationalAirports.map((airport, index) => (
-          <motion.div
-            key={index}
-            custom={index}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="group rounded-3xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-8 shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-3">
-              <FaPlaneDeparture className="text-black group-hover:scale-110 transition-transform duration-300" />
-              {airport.name}
-            </h3>
+                        {/* Form */}
+                        <form onSubmit={handleSubmit} className="grid gap-4 text-black dark:text-white">
+                            <input
+                                name="from"
+                                type="text"
+                                placeholder="From"
+                                value={form.from}
+                                onChange={handleChange}
+                                required
+                                className="border border-gray-300 dark:border-gray-600 p-3 rounded-xl shadow-sm"
+                            />
+                            <input
+                                name="to"
+                                type="text"
+                                placeholder="To"
+                                value={form.to}
+                                onChange={handleChange}
+                                required
+                                className="border border-gray-300 dark:border-gray-600 p-3 rounded-xl shadow-sm"
+                            />
+                            <input
+                                name="date"
+                                type="date"
+                                value={form.date}
+                                onChange={handleChange}
+                                required
+                                className="border border-gray-300 dark:border-gray-600 p-3 rounded-xl shadow-sm"
+                            />
+                            <input
+                                name="passengers"
+                                type="number"
+                                min="1"
+                                value={form.passengers}
+                                onChange={handleChange}
+                                className="border border-gray-300 dark:border-gray-600 p-3 rounded-xl shadow-sm"
+                                placeholder="Passengers"
+                            />
+                            <motion.button
+                                whileHover={{ scale: 1.05 }}
+                                type="submit"
+                                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold shadow-md"
+                            >
+                                Search {activeTab === "airplane" ? "Flights" : activeTab === "car" ? "Rides" : "Trains"}
+                            </motion.button>
+                        </form>
+                    </div>
 
-            <div className="space-y-3 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-              <p className="flex items-start gap-2">
-                <FaMapMarkerAlt className="mt-1 text-black" />
-                <span>
-                  <strong>Location:</strong> {airport.location}
-                </span>
-              </p>
-              <p className="flex items-start gap-2">
-                <FaRoad className="mt-1 text-black" />
-                <span>
-                  <strong>Distance from Patna:</strong> {airport.distanceFromPatna}
-                </span>
-              </p>
-              <p className="flex items-start gap-2">
-                <span className="text-black mt-1">✈️</span>
-                <span>
-                  <strong>Connectivity:</strong> {airport.connectivity}
-                </span>
-              </p>
-              <p className="flex items-start gap-2">
-                <FaClock className="mt-1 text-black" />
-                <span>
-                  <strong>Travel Time to Museum:</strong> {airport.travelTime}
-                </span>
-              </p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </section>
+                    {/* Right Side: Map */}
+                    <div className="w-full h-[450px] rounded-3xl overflow-hidden shadow-xl border border-gray-200">
+                        <iframe
+                            title="Buddha Samyak Darshan Museum Location"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14339.210530853977!2d85.136007!3d25.685895!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed752fa588fc4f%3A0xb8de460f7a48dc96!2sBuddha%20Samyak%20Darshan%20Museum%20And%20Memorial%20Stupa!5e0!3m2!1sen!2sin!4v1721895373923!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                    </div>
+
+
+
+                </div>
             </section>
 
 
         </div>
-        </>
     );
 };
 
