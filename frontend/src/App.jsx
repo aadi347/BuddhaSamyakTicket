@@ -21,6 +21,7 @@ import TravelPage from "./components/TravelPage";
 import ScrollToTop from "./components/ScrollToTop";
 import ExploreMore from "./pages/ExploreMore";
 import DevelopersTeam from "./pages/DevelopersTeam";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const MainPage = () => (
   <ParallaxLayout>
@@ -34,6 +35,7 @@ const MainPage = () => (
       <MuseumCollectionCarousel />
       <ImgGrid />
       <Footer />
+      
     </div>
   </ParallaxLayout>
 );
@@ -53,6 +55,7 @@ const App = () => {
         <Route path="/travel" element={<TravelPage />} />
         <Route path="/exploreMore" element={<ExploreMore />} />
         <Route path="/developers-team" element={<DevelopersTeam />} />
+        <Route path="/policy" element={<PrivacyPolicy />} />
       </Routes>
     </>
   );

@@ -102,7 +102,7 @@ const Footer = () => {
           {t("Copyright")}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 md:gap-6 text-center md:text-left">
-          <a href="#" className="hover:text-white">{t("PrivacyPolicy")}</a>
+          <a href="/policy" className="hover:text-white">{t("PrivacyPolicy")}</a>
           <a href="#" className="hover:text-white">{t("AccessibilityLink")}</a>
           <a href="#" className="hover:text-white">{t("TermsOfUse")}</a>
         </div>
