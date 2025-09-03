@@ -83,7 +83,7 @@ const DevelopersTeam = () => {
 
   const teamLead = [
     {
-      name: "Nishant Sekhar",
+      name: "Nishant Shekhar",
       role: "Founder, NS Apps Innovations",
       image: "https://media.licdn.com/dms/image/v2/D4D03AQFUD3EMJW-SMQ/profile-displayphoto-shrink_800_800/B4DZR_Z.U3HkAg-/0/1737304303571?e=1756944000&v=beta&t=bFiTipJE7Rq-2OMORmJH9IAqylsUMKxXHT0PZiPWZb0",
       show: true,

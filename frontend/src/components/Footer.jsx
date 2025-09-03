@@ -151,7 +151,7 @@ const Footer = () => {
         <div className="mt-12 md:mt-20 border-t border-gray-800 pt-6 md:pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm md:text-base text-gray-400 text-center md:text-left">
-              {t("Copyright")} © 2025 Buddha Samyak Darshan Museum. All rights reserved.
+              {t("Copyright")} 
             </p>
             
             <div className="flex gap-6 text-sm text-gray-400">
