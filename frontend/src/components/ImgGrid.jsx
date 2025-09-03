@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+ 
 
 function ImgGrid() {
   const { t } = useTranslation();
@@ -43,7 +44,7 @@ function ImgGrid() {
           <img src={images[5]} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
         </div>
         <div className="col-span-2 row-span-3 col-start-3 row-start-10 overflow-hidden">
-          <img src={images[6]} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+          <img src="/Gandhara_Buddha_(tnm).jpeg"  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import {
   FaFacebookF,
   FaInstagram,
@@ -11,100 +12,158 @@ const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-black text-white px-4 md:px-6 lg:px-20 py-12 md:py-24">
-      <div className="flex flex-col lg:flex-row justify-between gap-8 md:gap-16 mb-12 md:mb-20">
-        <div className="space-y-6 md:space-y-10 lg:w-1/2">
-          <h2 className="text-2xl md:text-4xl font-bold">{t("JoinUs")}</h2>
-          <div className="flex gap-4 md:gap-8 text-2xl md:text-4xl flex-wrap">
-            <a target="_blank" href="https://www.facebook.com/ArtCultureYouth" aria-label="Facebook">
-              <FaFacebookF className="hover:text-gray-400 cursor-pointer" />
-            </a>
-            <a target="_blank" href="https://x.com/ArtCultureYouth" aria-label="Twitter">
-              <FaTwitter className="hover:text-gray-400 cursor-pointer" />
-            </a>
-            <a target="_blank" href="https://www.instagram.com/artcultureyouth" aria-label="Instagram">
-              <FaInstagram className="hover:text-gray-400 cursor-pointer" />
-            </a>
-            <a target="_blank" href="https://www.youtube.com/@ArtCultureYouth" aria-label="YouTube">
-              <FaYoutube className="hover:text-gray-400 cursor-pointer" />
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 text-base md:text-lg">
-        <div className="md:col-span-1">
-          <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4">{t("FreeEntry")}</h4>
-          <div className="grid grid-cols-2 gap-4 md:block">
-            <div>
-              <p className="text-sm md:text-base">{t("MuseumName")}</p>
-              <p className="text-sm md:text-base">{t("MuseumLocation")}</p>
-              <p className="mt-2 md:mt-3 font-medium text-sm md:text-base">+91 98765 43210</p>
+    <footer className="bg-black text-white px-4 md:px-6 lg:px-20 py-12 md:py-24 border-t border-gray-800">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Social Section */}
+        <div className="flex flex-col lg:flex-row justify-between gap-8 md:gap-16 mb-12 md:mb-20">
+          <div className="space-y-6 md:space-y-10">
+            <h2 className="text-2xl md:text-4xl font-bold">{t("JoinUs")}</h2>
+            <div className="flex gap-4 md:gap-8 text-2xl md:text-3xl">
+              <a 
+                target="_blank" 
+                href="https://www.facebook.com/ArtCultureYouth" 
+                aria-label="Facebook"
+                className="p-3 bg-white text-black rounded-full hover:bg-gray-200 transition-colors duration-300"
+              >
+                <FaFacebookF />
+              </a>
+              <a 
+                target="_blank" 
+                href="https://x.com/ArtCultureYouth" 
+                aria-label="Twitter"
+                className="p-3 bg-white text-black rounded-full hover:bg-gray-200 transition-colors duration-300"
+              >
+                <FaTwitter />
+              </a>
+              <a 
+                target="_blank" 
+                href="https://www.instagram.com/artcultureyouth" 
+                aria-label="Instagram"
+                className="p-3 bg-white text-black rounded-full hover:bg-gray-200 transition-colors duration-300"
+              >
+                <FaInstagram />
+              </a>
+              <a 
+                target="_blank" 
+                href="https://www.youtube.com/@ArtCultureYouth" 
+                aria-label="YouTube"
+                className="p-3 bg-white text-black rounded-full hover:bg-gray-200 transition-colors duration-300"
+              >
+                <FaYoutube />
+              </a>
             </div>
-            <div className="mt-0 md:mt-4 lg:mt-5">
-              <p className="font-bold mb-1 text-sm md:text-base">{t("OpeningHours")}</p>
-              <p className="text-sm md:text-base">{t("DailyHours")}</p>
-              <p className="text-sm md:text-base">{t("LastEntry")}</p>
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          
+          {/* Museum Info & Hours */}
+          <div className="lg:col-span-1">
+            <h4 className="font-bold text-xl md:text-2xl mb-4 md:mb-6">{t("FreeEntry")}</h4>
+            <div className="space-y-4">
+              <div>
+                <p className="text-base md:text-lg font-medium">{t("MuseumName")}</p>
+                <p className="text-gray-300 text-sm md:text-base">{t("MuseumLocation")}</p>
+                <p className="mt-2 font-semibold text-base md:text-lg">+91 98765 43210</p>
+              </div>
+              
+              <div className="pt-4 border-t border-gray-800">
+                <p className="font-bold mb-2 text-base md:text-lg">{t("OpeningHours")}</p>
+                <p className="text-gray-300 text-sm md:text-base">{t("DailyHours")}</p>
+                <p className="text-gray-300 text-sm md:text-base">{t("LastEntry")}</p>
+              </div>
+
+              {/* Book Ticket Button */}
+              <div className="pt-4">
+                <Link 
+                  to="/book-ticket"
+                  className="inline-block bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors duration-300"
+                >
+                  Book Tickets
+                </Link>
+              </div>
             </div>
           </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-bold text-xl md:text-2xl mb-4 md:mb-6">Explore</h4>
+            <ul className="space-y-3 text-gray-300">
+              <li>
+                <Link to="/" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about-museum" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                  About Museum
+                </Link>
+              </li>
+              <li>
+                <Link to="/exhibitions" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                  Exhibitions
+                </Link>
+              </li>
+              <li>
+                <Link to="/collection" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                  Collections
+                </Link>
+              </li>
+              <li>
+                <Link to="/exploreMore" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                  Gallery
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Visit & Support */}
+          <div>
+            <h4 className="font-bold text-xl md:text-2xl mb-4 md:mb-6">Visit & Support</h4>
+            <ul className="space-y-3 text-gray-300">
+              <li>
+                <Link to="/travel" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                  How to Reach
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact-us" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/developers-team" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                  Development Team
+                </Link>
+              </li>
+              <li>
+                <Link to="/policy" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                  Privacy Policy
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 md:contents">
-          <div>
-            <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4">{t("AboutUs")}</h4>
-            <ul className="space-y-1 md:space-y-2 text-gray-300">
-              <li className="text-sm md:text-base">{t("Governance")}</li>
-              <li className="text-sm md:text-base">{t("OurStory")}</li>
-              <li className="text-sm md:text-base">{t("Jobs")}</li>
-              <li className="text-sm md:text-base">{t("Press")}</li>
-              <li className="text-sm md:text-base">{t("Contact")}</li>
-            </ul>
+        {/* Footer Bottom */}
+        <div className="mt-12 md:mt-20 border-t border-gray-800 pt-6 md:pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm md:text-base text-gray-400 text-center md:text-left">
+              {t("Copyright")} © 2025 Buddha Samyak Darshan Museum. All rights reserved.
+            </p>
+            
+            <div className="flex gap-6 text-sm text-gray-400">
+              <Link to="/policy" className="hover:text-white transition-colors duration-300">
+                Privacy Policy
+              </Link>
+              <span className="text-gray-600">•</span>
+              <Link to="/contact-us" className="hover:text-white transition-colors duration-300">
+                Terms of Service
+              </Link>
+            </div>
           </div>
-
-          <div>
-            <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4">{t("Visit")}</h4>
-            <ul className="space-y-1 md:space-y-2 text-gray-300">
-              <li className="text-sm md:text-base">{t("TempleMap")}</li>
-              <li className="text-sm md:text-base">{t("Events")}</li>
-              <li className="text-sm md:text-base">{t("Accessibility")}</li>
-              <li className="text-sm md:text-base">{t("FoodAndDrink")}</li>
-              <li className="text-sm md:text-base">{t("AudioGuide")}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4 md:contents">
-          <div>
-            <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4">{t("Commercial")}</h4>
-            <ul className="space-y-1 md:space-y-2 text-gray-300">
-              <li className="text-sm md:text-base">{t("VenueHire")}</li>
-              <li className="text-sm md:text-base">{t("Filming")}</li>
-              <li className="text-sm md:text-base">{t("ImageLicensing")}</li>
-              <li className="text-sm md:text-base">{t("SouvenirStore")}</li>
-              <li className="text-sm md:text-base">{t("TravelPartners")}</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-lg md:text-xl mb-3 md:mb-4">{t("Resources")}</h4>
-            <ul className="space-y-1 md:space-y-2 text-gray-300">
-              <li className="text-sm md:text-base">{t("StudyRoom")}</li>
-              <li className="text-sm md:text-base">{t("LibraryArchives")}</li>
-              <li className="text-sm md:text-base">{t("Discourses")}</li>
-              <li className="text-sm md:text-base">{t("Blog")}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-12 md:mt-20 border-t border-gray-700 pt-4 md:pt-6 flex flex-col md:flex-row justify-between items-start md:items-center text-sm md:text-base text-gray-400 gap-4 md:gap-0">
-        <p className="text-center md:text-left">
-          {t("Copyright")}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 text-center md:text-left">
-          <a href="/policy" className="hover:text-white">{t("PrivacyPolicy")}</a>
-          <a href="#" className="hover:text-white">{t("AccessibilityLink")}</a>
-          <a href="#" className="hover:text-white">{t("TermsOfUse")}</a>
         </div>
       </div>
     </footer>
