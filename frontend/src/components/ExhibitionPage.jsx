@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import Breadcrumbs from "./Breadcrumbs";
 
+import Footer from "./Footer";
 const exhibitionCards = [
   {
   title: "बुद्ध सम्यक् दर्शन संग्रहालय का उद्घाटन",
@@ -80,6 +81,7 @@ const ExhibitionPage = () => {
 
         </div>
       </div>
+      <Footer />
     </>
   );
 };

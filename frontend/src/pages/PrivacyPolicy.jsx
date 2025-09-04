@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Shield, Eye, Lock, Users, Globe, Mail, Phone, MapPin, ChevronDown, ChevronUp, Heart, Flower } from 'lucide-react';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const PrivacyPolicy = () => {
   const [expandedSections, setExpandedSections] = useState({});
@@ -173,6 +175,7 @@ const PrivacyPolicy = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Navbar />
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
         <div 
@@ -376,7 +379,7 @@ const PrivacyPolicy = () => {
         </button>
       </div>
 
-
+          <Footer />
     </div>
   );
 };

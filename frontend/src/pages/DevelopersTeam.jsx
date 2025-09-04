@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Linkedin, ExternalLink, Code, Users, Award, Star, ChevronDown, Flower, Heart, Eye } from "lucide-react";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 const PersonProfileCard = ({ name, role, image, linkedin, technologies, delay }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -131,9 +133,9 @@ const DevelopersTeam = () => {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden">
+    <div className="relative min-h-screen bg-black overflow-hidden">
       {/* Animated Background */}
-   
+      <Navbar />
 
       {/* Hero Section */}
       <div className="relative pt-32 pb-20 px-4">
@@ -141,10 +143,10 @@ const DevelopersTeam = () => {
           {/* Buddhist Symbol */}
           {/* Title Section */}
           <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <p className="text-lg md:text-xl font-bold text-black mb-2 tracking-wider">
+            <p className="text-lg md:text-xl font-bold text-white mb-2 tracking-wider">
               NS APPS INNOVATIONS
             </p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-black mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
               Developer's <span className="relative">
                 Team
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
@@ -162,7 +164,7 @@ const DevelopersTeam = () => {
               
               {/* Stats */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <div className="bg-black text-white p-6 rounded-xl shadow-lg">
+                <div className="bg-black border border-gray-700 text-white p-6 rounded-xl shadow-lg">
                   <div className="text-3xl font-bold mb-2">28+</div>
                   <div className="text-gray-300">Projects Completed</div>
                 </div>
@@ -170,7 +172,7 @@ const DevelopersTeam = () => {
                   <div className="text-3xl font-bold text-black mb-2">6</div>
                   <div className="text-gray-600">Team Members</div>
                 </div>
-                <div className="bg-black text-white p-6 rounded-xl shadow-lg">
+                <div className="bg-black border border-gray-700 text-white p-6 rounded-xl shadow-lg">
                   <div className="text-3xl font-bold mb-2">100%</div>
                   <div className="text-gray-300">Dedication</div>
                 </div>
@@ -183,14 +185,14 @@ const DevelopersTeam = () => {
       </div>
 
       {/* Founder Section */}
-      <div className="py-20 px-4 bg-gradient-to-b from-white to-gray-50">
+      <div className="py-20 px-4 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className={`text-center mb-16 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             <div className="flex items-center justify-center mb-6">
-              <div className="bg-black p-3 rounded-full mr-4">
+              <div className="bg-black p-3 border rounded-full mr-4">
                 <Award className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-black">Leadership</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Leadership</h2>
             </div>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Guided by wisdom and innovation, our founder leads with the Buddhist principle of right livelihood
@@ -238,7 +240,7 @@ const DevelopersTeam = () => {
       </div>
 
       {/* Team Members Section */}
-      <div id="team" className="py-20 px-4 bg-white">
+      <div id="team" className="py-20 px-4 bg-black">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className={`text-center mb-16 transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
@@ -246,7 +248,7 @@ const DevelopersTeam = () => {
               <div className="bg-black p-3 rounded-full mr-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-black">Development Team</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Development Team</h2>
             </div>
             <p className="text-gray-600 text-lg max-w-3xl mx-auto">
               Our skilled developers work in harmony, embodying the Buddhist values of collaboration, 
@@ -271,92 +273,7 @@ const DevelopersTeam = () => {
         </div>
       </div>
 
-      {/* Philosophy Section */}
-      {/* <div className="py-20 px-4 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-16 border border-gray-200">
-            <div className="text-center mb-12">
-              <div className="bg-black p-4 rounded-full inline-block mb-6">
-                <Heart className="w-12 h-12 text-white" />
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">Our Development Philosophy</h2>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center p-6 rounded-xl bg-gray-50 border border-gray-200">
-                <Eye className="w-12 h-12 text-black mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-black mb-3">Mindful Coding</h3>
-                <p className="text-gray-700">Writing clean, purposeful code with attention to detail and user experience</p>
-              </div>
-              
-              <div className="text-center p-6 rounded-xl bg-black text-white">
-                <Users className="w-12 h-12 text-white mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-3">Collaborative Spirit</h3>
-                <p className="text-gray-200">Working together harmoniously to achieve common goals and shared success</p>
-              </div>
-              
-              <div className="text-center p-6 rounded-xl bg-gray-50 border border-gray-200">
-                <Flower className="w-12 h-12 text-black mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-black mb-3">Continuous Growth</h3>
-                <p className="text-gray-700">Embracing learning and improvement in every project and interaction</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Recognition Section */}
-      {/* <div className="py-20 px-4 bg-black text-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="mb-12">
-            <div className="bg-white p-4 rounded-full inline-block mb-6">
-              <Award className="w-12 h-12 text-black" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Recognition & Achievements</h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Our dedication to excellence has been recognized by the Government of Bihar 
-              and reflected in our impactful projects
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm border border-white border-opacity-20">
-              <h3 className="text-2xl font-bold mb-4">Government Recognition</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Officially recognized startup by the Government of Bihar, 
-                validating our commitment to technological innovation and social impact.
-              </p>
-            </div>
-            <div className="bg-white bg-opacity-10 p-8 rounded-xl backdrop-blur-sm border border-white border-opacity-20">
-              <h3 className="text-2xl font-bold mb-4">Impactful Projects</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Successfully delivered ASPIRE and Samadhan Apps, 
-                transforming governance through user-centric design and robust technology.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Call to Action */}
-      {/* <div className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="bg-gray-50 rounded-3xl p-8 md:p-16 border border-gray-200 shadow-xl">
-            <Flower className="w-16 h-16 text-black mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
-              Join Our Journey
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Interested in working with us? We're always looking for passionate developers 
-              who share our values of mindful development and meaningful impact.
-            </p>
-            <button className="bg-black text-white px-8 py-4 rounded-xl hover:bg-gray-800 transition-all duration-300 font-medium text-lg shadow-lg hover:shadow-xl transform hover:scale-105">
-              Get In Touch
-            </button>
-          </div>
-        </div>
-      </div> */}
-
+    
       {/* Floating Scroll Indicator */}
       <div className="fixed bottom-8 right-8">
         <button 
@@ -384,6 +301,7 @@ const DevelopersTeam = () => {
           opacity: 0;
         }
       `}</style>
+      <Footer />
     </div>
   );
 };

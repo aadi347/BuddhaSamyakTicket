@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 // Slide data
 const allSlides = [
@@ -87,6 +88,7 @@ const  AllCollectionPage = () => {
         </div>
       </div>
     </div>
+    <Footer />
     </>
   );
 };

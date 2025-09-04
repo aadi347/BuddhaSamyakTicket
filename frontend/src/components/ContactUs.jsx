@@ -10,6 +10,7 @@ import {
   AlertCircle
 } from "lucide-react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -265,6 +266,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -101,12 +101,12 @@ function AboutMuseum() {
       <div className="bg-white text-black">
         
         {/* Stay Connected Section */}
-        <div className="py-20 px-6 lg:px-20">
+        <div className=" py-20 px-6 lg:px-20">
           <StayConnected />
         </div>
 
         {/* Grid Layout Content Blocks */}
-        <div className="py-20 px-6 lg:px-20">
+        <div className=" pb-10 px-6 lg:px-20">
           <div className="max-w-7xl mx-auto">
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
@@ -117,19 +117,21 @@ function AboutMuseum() {
             >
               
               {/* Block 1: Text (Left) - Historical Background */}
-              <div className="col-span-3 row-span-3 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center p-8 lg:p-12 border border-gray-100">
+              <div className="col-span-3 row-span-3 bg-white rounded-2xl shadow-sm hover:shadow-md px-8 transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center  border border-gray-100">
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
+                  <div className="py-10">
                   <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900 leading-tight">
                     {t("historical_background_title")}
                   </h2>
-                  <div className="w-16 h-1 bg-black mb-6"></div>
-                  <p className="text-xs lg:text-xs text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
+                  <div className="w-16 h-1 bg-black mb-6 rounded-full"></div>
+                  <p className="text-sm lg:text-sm text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
                     {t("historical_background_description")}
                   </p>
+                  </div>
                 </motion.div>
               </div>
 
@@ -159,7 +161,7 @@ function AboutMuseum() {
               </div>
 
               {/* Block 4: Text (Right) - Government Initiative */}
-              <div className="col-span-3 row-span-3 col-start-3 row-start-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center p-8 lg:p-12 border border-gray-100">
+              <div className="col-span-3 row-span-3 col-start-3 row-start-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center px-8  border border-gray-100">
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -168,15 +170,15 @@ function AboutMuseum() {
                   <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900 leading-tight">
                     {t("gov_initiative_title")}
                   </h2>
-                  <div className="w-16 h-1 bg-black mb-6"></div>
-                  <p className="text-xs lg:text-xs text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
+                  <div className="w-16 h-1 bg-black mb-6 rounded-full"></div>
+                  <p className="text-sm lg:text-sm text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
                     {t("gov_initiative_description")}
                   </p>
                 </motion.div>
               </div>
 
               {/* Block 5: Text (Left) - Significance */}
-              <div className="col-span-3 row-span-3 row-start-7 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center p-8 lg:p-12 border border-gray-100">
+              <div className="col-span-3 row-span-3 row-start-7 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center px-8  border border-gray-100">
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -185,8 +187,8 @@ function AboutMuseum() {
                   <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900 leading-tight">
                     {t("significance_title")}
                   </h2>
-                  <div className="w-16 h-1 bg-black mb-6"></div>
-                  <p className="text-xs lg:text-xs text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
+                  <div className="w-16 h-1 bg-black mb-6 rounded-full"></div>
+                  <p className="text-sm lg:text-sm text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
                     {t("significance_description")}
                   </p>
                 </motion.div>
