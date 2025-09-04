@@ -19,10 +19,10 @@ function AboutMuseum() {
       className="bg-gradient-to-r from-black to-gray-900 rounded-3xl p-6 md:p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-between shadow-lg border border-gray-800 max-w-7xl mx-auto"
     >
       <div className="text-center lg:text-left mb-6 lg:mb-0 flex-1">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-white">
+        <h2 className="text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold mb-4 text-white">
           {t("stay_connected_title")}
         </h2>
-        <p className="text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl">
+        <p className="text-gray-300 text-sm md:text-sm lg:text-sm leading-relaxed max-w-2xl">
           {t("follow_us_description")}
         </p>
       </div>
@@ -124,11 +124,11 @@ function AboutMuseum() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-gray-900 leading-tight">
+                  <h2 className="text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold mb-4 md:mb-6 text-gray-900 leading-tight">
                     {t("historical_background_title")}
                   </h2>
                   <div className="w-16 h-1 bg-black mb-4 md:mb-6 rounded-full"></div>
-                  <p className="text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-normal text-justify" style={{ whiteSpace: 'pre-line' }}>
+                  <p className="text-md md:text-md lg:text-md text-gray-700 leading-relaxed font-normal text-justify" style={{ whiteSpace: 'pre-line' }}>
                     {t("historical_background_description")}
                   </p>
                 </motion.div>
@@ -175,11 +175,11 @@ function AboutMuseum() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-gray-900 leading-tight">
+                  <h2 className="text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold mb-4 md:mb-6 text-gray-900 leading-tight">
                     {t("gov_initiative_title")}
                   </h2>
                   <div className="w-16 h-1 bg-black mb-4 md:mb-6 rounded-full"></div>
-                  <p className="text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-normal text-justify" style={{ whiteSpace: 'pre-line' }}>
+                  <p className="text-md md:text-md lg:text-md text-gray-700 leading-relaxed font-normal text-justify" style={{ whiteSpace: 'pre-line' }}>
                     {t("gov_initiative_description")}
                   </p>
                 </motion.div>
@@ -201,11 +201,11 @@ function AboutMuseum() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-gray-900 leading-tight">
+                  <h2 className="text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold mb-4 md:mb-6 text-gray-900 leading-tight">
                     {t("significance_title")}
                   </h2>
                   <div className="w-16 h-1 bg-black mb-4 md:mb-6 rounded-full"></div>
-                  <p className="text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-normal text-justify" style={{ whiteSpace: 'pre-line' }}>
+                  <p className="text-md md:text-md lg:text-md text-gray-700 leading-relaxed font-normal text-justify" style={{ whiteSpace: 'pre-line' }}>
                     {t("significance_description")}
                   </p>
                 </motion.div>
