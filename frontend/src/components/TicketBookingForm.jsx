@@ -5,6 +5,7 @@ import { FaMinus, FaPlus } from "react-icons/fa";
 import Ticket from "./Ticket";
 import TicketBookingDialog from "./TicketBookingDialog";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import { BiError } from "react-icons/bi";
 
 const steps = ["Personal Info", "Booking Details", "Confirm"];
@@ -437,6 +438,7 @@ const TicketBookingForm = () => {
           <TicketBookingDialog onClose={() => setShowDialog(false)} />
         )}
       </div>
+      <Footer />
     </>
   );
 };
