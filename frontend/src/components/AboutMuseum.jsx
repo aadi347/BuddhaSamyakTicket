@@ -16,18 +16,18 @@ function AboutMuseum() {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
-      className="bg-gradient-to-r from-black to-gray-900 rounded-3xl p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between shadow-lg border border-gray-800"
+      className="bg-gradient-to-r from-black to-gray-900 rounded-3xl p-6 md:p-8 lg:p-10 flex flex-col lg:flex-row items-center justify-between shadow-lg border border-gray-800 max-w-7xl mx-auto"
     >
-      <div className="text-center lg:text-left mb-8 lg:mb-0 flex-1">
-        <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-white">
+      <div className="text-center lg:text-left mb-6 lg:mb-0 flex-1">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-white">
           {t("stay_connected_title")}
         </h2>
-        <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
+        <p className="text-gray-300 text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl">
           {t("follow_us_description")}
         </p>
       </div>
       
-      <div className="flex gap-6 lg:gap-8 flex-shrink-0">
+      <div className="flex gap-4 md:gap-6 lg:gap-8 flex-shrink-0">
         {[
           { icon: Instagram, color: "hover:text-pink-500", label: "Instagram" },
           { icon: Twitter, color: "hover:text-blue-400", label: "Twitter" },
@@ -40,9 +40,9 @@ function AboutMuseum() {
             aria-label={label}
             whileHover={{ scale: 1.2, y: -5 }}
             whileTap={{ scale: 0.9 }}
-            className={`w-14 h-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white ${color} transition-all duration-300 hover:bg-white/20`}
+            className={`w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white ${color} transition-all duration-300 hover:bg-white/20`}
           >
-            <Icon className="w-6 h-6" />
+            <Icon className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" />
           </motion.a>
         ))}
       </div>
@@ -66,14 +66,14 @@ function AboutMuseum() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen px-4">
+        <div className="relative z-10 flex items-center justify-center min-h-screen px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
             className="text-center max-w-4xl"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-thin tracking-wider mb-8">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-thin tracking-wider mb-6 md:mb-8">
               ABOUT THE
               <span className="block font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
                 MUSEUM
@@ -83,13 +83,13 @@ function AboutMuseum() {
               initial={{ width: 0 }}
               animate={{ width: 200 }}
               transition={{ duration: 1, delay: 1.5 }}
-              className="h-1 bg-white mx-auto mb-8"
+              className="h-1 bg-white mx-auto mb-6 md:mb-8"
             />
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2 }}
-              className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed"
+              className="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-300 font-light leading-relaxed"
             >
               {t("explore_section_title")}
             </motion.p>
@@ -101,42 +101,41 @@ function AboutMuseum() {
       <div className="bg-white text-black">
         
         {/* Stay Connected Section */}
-        <div className=" py-20 px-6 lg:px-20">
+        <div className="py-16 md:py-20 px-4 md:px-6 lg:px-8">
           <StayConnected />
         </div>
 
-        {/* Grid Layout Content Blocks */}
-        <div className=" pb-10 px-6 lg:px-20">
-          <div className="max-w-7xl mx-auto">
+        {/* Content Blocks with Alternating Layout */}
+        <div className="pb-16 md:pb-20 px-4 md:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto space-y-12 md:space-y-16 lg:space-y-20">
+            
+            {/* Block 1: Text Left, Video Right */}
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="grid grid-cols-5 grid-rows-9 gap-6 h-[180vh]"
+              className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-stretch"
             >
-              
-              {/* Block 1: Text (Left) - Historical Background */}
-              <div className="col-span-3 row-span-3 bg-white rounded-2xl shadow-sm hover:shadow-md px-8 transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center  border border-gray-100">
+              {/* Text Block */}
+              <div className="lg:col-span-3 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] flex flex-col justify-center p-6 md:p-8 lg:p-10 border border-gray-100 min-h-[400px] lg:min-h-[500px]">
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="py-10">
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900 leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-gray-900 leading-tight">
                     {t("historical_background_title")}
                   </h2>
-                  <div className="w-16 h-1 bg-black mb-6 rounded-full"></div>
-                  <p className="text-sm lg:text-sm text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
+                  <div className="w-16 h-1 bg-black mb-4 md:mb-6 rounded-full"></div>
+                  <p className="text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-normal text-justify" style={{ whiteSpace: 'pre-line' }}>
                     {t("historical_background_description")}
                   </p>
-                  </div>
                 </motion.div>
               </div>
 
-              {/* Block 2: Video (Right) */}
-              <div className="col-span-2 row-span-3 col-start-4 bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] relative group">
+              {/* Video Block */}
+              <div className="lg:col-span-2 bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] relative group min-h-[300px] lg:min-h-[500px]">
                 <video
                   ref={videoRef}
                   autoPlay
@@ -149,9 +148,18 @@ function AboutMuseum() {
                 </video>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
               </div>
+            </motion.div>
 
-              {/* Block 3: Image (Left) */}
-              <div className="col-span-2 row-span-3 row-start-4 bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] relative group">
+            {/* Block 2: Image Left, Text Right */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-stretch"
+            >
+              {/* Image Block */}
+              <div className="lg:col-span-2 bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] relative group min-h-[300px] lg:min-h-[500px]">
                 <img
                   src="vc.jpeg"
                   alt="Government Initiative"
@@ -160,42 +168,51 @@ function AboutMuseum() {
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
               </div>
 
-              {/* Block 4: Text (Right) - Government Initiative */}
-              <div className="col-span-3 row-span-3 col-start-3 row-start-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center px-8  border border-gray-100">
+              {/* Text Block */}
+              <div className="lg:col-span-3 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] flex flex-col justify-center p-6 md:p-8 lg:p-10 border border-gray-100 min-h-[400px] lg:min-h-[500px]">
                 <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900 leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-gray-900 leading-tight">
                     {t("gov_initiative_title")}
                   </h2>
-                  <div className="w-16 h-1 bg-black mb-6 rounded-full"></div>
-                  <p className="text-sm lg:text-sm text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
+                  <div className="w-16 h-1 bg-black mb-4 md:mb-6 rounded-full"></div>
+                  <p className="text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-normal text-justify" style={{ whiteSpace: 'pre-line' }}>
                     {t("gov_initiative_description")}
                   </p>
                 </motion.div>
               </div>
+            </motion.div>
 
-              {/* Block 5: Text (Left) - Significance */}
-              <div className="col-span-3 row-span-3 row-start-7 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center px-8  border border-gray-100">
+            {/* Block 3: Text Left, Image Right */}
+            <motion.div 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-stretch"
+            >
+              {/* Text Block */}
+              <div className="lg:col-span-3 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] flex flex-col justify-center p-6 md:p-8 lg:p-10 border border-gray-100 min-h-[400px] lg:min-h-[500px]">
                 <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900 leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-gray-900 leading-tight">
                     {t("significance_title")}
                   </h2>
-                  <div className="w-16 h-1 bg-black mb-6 rounded-full"></div>
-                  <p className="text-sm lg:text-sm text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
+                  <div className="w-16 h-1 bg-black mb-4 md:mb-6 rounded-full"></div>
+                  <p className="text-lg md:text-xl lg:text-2xl text-gray-700 leading-relaxed font-normal text-justify" style={{ whiteSpace: 'pre-line' }}>
                     {t("significance_description")}
                   </p>
                 </motion.div>
               </div>
 
-              {/* Block 6: Image (Right) */}
-              <div className="col-span-2 row-span-3 col-start-4 row-start-7 bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] relative group">
+              {/* Image Block */}
+              <div className="lg:col-span-2 bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01] relative group min-h-[300px] lg:min-h-[500px]">
                 <img
                   src="gallery.jpeg"
                   alt="Cultural Significance"
@@ -203,11 +220,12 @@ function AboutMuseum() {
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
               </div>
-
             </motion.div>
+
           </div>
         </div>
       </div>
+      
       <Footer />
     </>
   );
