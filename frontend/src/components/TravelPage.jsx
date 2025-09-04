@@ -10,6 +10,8 @@ import {
     FaCheckCircle
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const TravelPage = () => {
     const [activeTab, setActiveTab] = useState("airplane");
@@ -105,6 +107,7 @@ const TravelPage = () => {
 
     return (
         <div className="min-h-screen bg-white text-black font-sans">
+            <Navbar />
             
             {/* Hero Section */}
             <section className="relative bg-black text-white overflow-hidden">
@@ -239,7 +242,7 @@ const TravelPage = () => {
                     </AnimatePresence>
                 </div>
             </section>
-
+            <Footer />
         </div>
     );
 };

@@ -9,6 +9,7 @@ import {
   Check,
   AlertCircle
 } from "lucide-react";
+import Navbar from "./Navbar";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -80,6 +81,7 @@ const ContactUs = () => {
 
   return (
     <div className="bg-black min-h-screen relative overflow-hidden">
+      <Navbar />
       
       {/* Background Elements */}
       <div className="absolute top-20 right-20 w-96 h-96 border border-gray-800 rounded-full opacity-20"></div>
@@ -113,7 +115,7 @@ const ContactUs = () => {
             {contactInfo.map((item, index) => (
               <div
                 key={item.title}
-                className="bg-gray-900 rounded-3xl p-6 border border-gray-800 hover:border-gray-600 transition-all duration-300"
+                className="bg-black rounded-3xl p-6 border border-gray-800 hover:border-gray-600 transition-all duration-300"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-white rounded-2xl">
@@ -139,7 +141,7 @@ const ContactUs = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-gray-900 rounded-3xl p-8 lg:p-10 border border-gray-800">
+          <div className="bg-black rounded-3xl p-8 lg:p-10 border border-gray-800">
             <h2 className="text-3xl font-bold text-white mb-8">Send us a Message</h2>
             
             {submitStatus === 'success' ? (
@@ -165,7 +167,7 @@ const ContactUs = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -179,7 +181,7 @@ const ContactUs = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -194,7 +196,7 @@ const ContactUs = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none"
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -208,7 +210,7 @@ const ContactUs = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none"
+                      className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none"
                       placeholder="What's this about?"
                     />
                   </div>
@@ -225,7 +227,7 @@ const ContactUs = () => {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className="w-full bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none resize-none"
+                    className="w-full bg-black border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:border-white focus:outline-none resize-none"
                     placeholder="Tell us how we can help you..."
                   />
                 </div>

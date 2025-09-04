@@ -33,7 +33,7 @@ const Calendar = () => {
       <div className="w-full max-w-6xl">
         
         {/* Main Calendar Card */}
-        <div className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-2xl">
+        <div className="bg-white border border-gray-100 rounded-3xl overflow-hidden">
           
           {/* Header Section */}
           <div className="bg-black text-white px-8 py-6">

@@ -3,6 +3,7 @@ import { Instagram, Twitter, Mail, PhoneCall, Play, Pause, Volume2, VolumeX } fr
 import { motion, useInView } from "framer-motion";
 import Navbar from "./Navbar";
 import { useTranslation } from 'react-i18next';
+import Footer from "./Footer";
 
 function AboutMuseum() {
   const videoRef = useRef(null);
@@ -10,29 +11,12 @@ function AboutMuseum() {
   const [isMuted, setIsMuted] = useState(true);
   const { t } = useTranslation();
 
-  const ContentBlock = ({ children, index }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-    return (
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 80 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 80 }}
-        transition={{ duration: 0.8, delay: index * 0.2 }}
-        className="flex flex-col gap-8"
-      >
-        {children}
-      </motion.div>
-    );
-  };
-
   const StayConnected = () => (
     <motion.div 
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6 }}
-      className="bg-gradient-to-r from-black to-gray-900 rounded-3xl p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between shadow-2xl border border-gray-800"
+      className="bg-gradient-to-r from-black to-gray-900 rounded-3xl p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between shadow-lg border border-gray-800"
     >
       <div className="text-center lg:text-left mb-8 lg:mb-0 flex-1">
         <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-white">
@@ -56,7 +40,7 @@ function AboutMuseum() {
             aria-label={label}
             whileHover={{ scale: 1.2, y: -5 }}
             whileTap={{ scale: 0.9 }}
-            className={`w-14 h-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white ${color} transition-all duration-300 hover:bg-white/20 hover:shadow-lg`}
+            className={`w-14 h-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white ${color} transition-all duration-300 hover:bg-white/20`}
           >
             <Icon className="w-6 h-6" />
           </motion.a>
@@ -121,134 +105,108 @@ function AboutMuseum() {
           <StayConnected />
         </div>
 
-        {/* Content Blocks */}
-        <div className="py-20 px-6 lg:px-20 space-y-20 max-w-6xl mx-auto">
-          
-          {/* Historical Background */}
-          <ContentBlock index={0}>
-            {/* Text Section */}
+        {/* Grid Layout Content Blocks */}
+        <div className="py-20 px-6 lg:px-20">
+          <div className="max-w-7xl mx-auto">
             <motion.div 
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-100"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="grid grid-cols-5 grid-rows-9 gap-6 h-[180vh]"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                  {t("historical_background_title")}
-                </h2>
-                <div className="w-20 h-1 bg-black mb-8"></div>
-                <p className="text-lg lg:text-xl xl:text-2xl text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
-                  {t("historical_background_description")}
-                </p>
-              </motion.div>
-            </motion.div>
-            
-            {/* Video Section */}
-            <div className="relative group">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              
+              {/* Block 1: Text (Left) - Historical Background */}
+              <div className="col-span-3 row-span-3 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center p-8 lg:p-12 border border-gray-100">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900 leading-tight">
+                    {t("historical_background_title")}
+                  </h2>
+                  <div className="w-16 h-1 bg-black mb-6"></div>
+                  <p className="text-xs lg:text-xs text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
+                    {t("historical_background_description")}
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Block 2: Video (Right) */}
+              <div className="col-span-2 row-span-3 col-start-4 bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] relative group">
                 <video
                   ref={videoRef}
                   autoPlay
                   loop
                   muted={isMuted}
                   playsInline
-                  className="w-full h-[400px] lg:h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover"
                 >
                   <source src="https://res.cloudinary.com/dnjmxt0kz/video/upload/v1754050153/sec4stupa_lap6sb.mov" type="video/mp4" />
                 </video>
-                
-                {/* Video Controls */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
-                
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
               </div>
-            </div>
-          </ContentBlock>
 
-          {/* Government Initiative */}
-          <ContentBlock index={1}>
-            {/* Text Section */}
-            <motion.div 
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-100"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                  {t("gov_initiative_title")}
-                </h2>
-                <div className="w-20 h-1 bg-black mb-8"></div>
-                <p className="text-lg lg:text-xl xl:text-2xl text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
-                  {t("gov_initiative_description")}
-                </p>
-              </motion.div>
-            </motion.div>
-            
-            {/* Image Section */}
-            <div className="relative group">
-              <motion.div
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.4 }}
-                className="relative rounded-3xl overflow-hidden shadow-2xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Block 3: Image (Left) */}
+              <div className="col-span-2 row-span-3 row-start-4 bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] relative group">
                 <img
                   src="vc.jpeg"
                   alt="Government Initiative"
-                  className="w-full h-[400px] lg:h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
-              </motion.div>
-            </div>
-          </ContentBlock>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+              </div>
 
-          {/* Significance */}
-          <ContentBlock index={2}>
-            {/* Text Section */}
-            <motion.div 
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-100"
-            >
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                  {t("significance_title")}
-                </h2>
-                <div className="w-20 h-1 bg-black mb-8"></div>
-                <p className="text-lg lg:text-xl xl:text-2xl text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
-                  {t("significance_description")}
-                </p>
-              </motion.div>
-            </motion.div>
-            
-            {/* Image Section */}
-            <div className="relative group">
-              <motion.div
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.4 }}
-                className="relative rounded-3xl overflow-hidden shadow-2xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-l from-purple-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Block 4: Text (Right) - Government Initiative */}
+              <div className="col-span-3 row-span-3 col-start-3 row-start-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center p-8 lg:p-12 border border-gray-100">
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900 leading-tight">
+                    {t("gov_initiative_title")}
+                  </h2>
+                  <div className="w-16 h-1 bg-black mb-6"></div>
+                  <p className="text-xs lg:text-xs text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
+                    {t("gov_initiative_description")}
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Block 5: Text (Left) - Significance */}
+              <div className="col-span-3 row-span-3 row-start-7 bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] flex flex-col justify-center p-8 lg:p-12 border border-gray-100">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-900 leading-tight">
+                    {t("significance_title")}
+                  </h2>
+                  <div className="w-16 h-1 bg-black mb-6"></div>
+                  <p className="text-xs lg:text-xs text-gray-700 leading-relaxed font-light" style={{ whiteSpace: 'pre-line' }}>
+                    {t("significance_description")}
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Block 6: Image (Right) */}
+              <div className="col-span-2 row-span-3 col-start-4 row-start-7 bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.02] relative group">
                 <img
                   src="gallery.jpeg"
                   alt="Cultural Significance"
-                  className="w-full h-[400px] lg:h-[600px] object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover"
                 />
-              </motion.div>
-            </div>
-          </ContentBlock>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300"></div>
+              </div>
+
+            </motion.div>
+          </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
