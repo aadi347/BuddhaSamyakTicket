@@ -40,7 +40,36 @@
   "visit_option_highlights_heading1": "探索博物馆亮点",
   "visit_option_highlights_desc1": "参观佛陀正见舍利塔，在禅修中心静坐，于安静的图书馆阅览好书。",
   "visit_option_amenities_heading1": "享受馆内设施",
-  "visit_option_amenities_desc1": "参观游客中心、宾馆或自助餐厅，尽享文体部门提供的全部设施。"
+  "visit_option_amenities_desc1": "参观游客中心、宾馆或自助餐厅，尽享文体部门提供的全部设施。",
+
+   "JoinUs": "加入我们",
+  "FreeEntry": "免费入场",
+  "MuseumName": "佛陀正见博物馆",
+  "MuseumLocation": "印度，比哈尔邦，吠舍离",
+  "MuseumPhone": "+91 98765 43210",
+  "OpeningHours": "开放时间:",
+  "DailyHours": "每日: 09:00–17:00",
+  "LastEntry": "最后入场: 16:30",
+
+  "BookTickets": "预订门票",
+
+  "Explore_footer": "探索",
+  "ExploreHome": "主页",
+  "ExploreAbout": "关于博物馆",
+  "ExploreExhibitions": "展览",
+  "ExploreCollections": "馆藏",
+  "ExploreGallery": "画廊",
+
+  "VisitSupport": "参观与支持",
+  "VisitReach": "如何到达",
+  "VisitContact": "联系我们",
+  "VisitTeam": "开发团队",
+  "VisitPolicy": "隐私政策",
+
+  "FooterPrivacy": "隐私政策",
+  "FooterTerms": "服务条款",
+
+  "Copyright": "©️ 2025 比哈尔遗产发展委员会. 保留所有权利."
 }
 
 

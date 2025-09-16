@@ -54,29 +54,31 @@ const Home = () => {
         <div className="absolute top-0 left-0 w-full h-full z-10" />
 
         {/* Left Info Panel */}
-        <div className="hidden lg:block absolute bottom-6 left-4 z-20 w-[380px] bg-white text-black px-6 py-8 transition duration-300 group hover:bg-black hover:text-white">
+       <div className="hidden lg:block absolute bottom-6 left-4 z-20 w-[380px] bg-white text-black  px-6 py-8 transition-all duration-300 group hover:bg-black hover:text-white">
   <h2
     style={{ fontFamily: '"Playfair Display", serif' }}
     className="text-xl font-bold"
   >
-    {t("Welcome")} <br />
-
+    {t("Welcome")}
   </h2>
+  
   <p
     style={{ fontFamily: '"Playfair Display", serif' }}
-    className="text-sm leading-relaxed mt-4"
+    className="text-sm leading-relaxed mt-4 mb-6"
   >
     {t("MuseumDescription")}
   </p>
+  
   <Link to="/about-museum">
     <button
       style={{ fontFamily: '"Playfair Display", serif' }}
-      className="mt-5 text-sm px-5 py-2 border border-black bg-black text-white transition group-hover:bg-white group-hover:text-black"
+      className="text-sm font-semibold px-5 py-2 border-2 border-black bg-black text-white transition-all duration-300 group-hover:bg-white group-hover:text-black"
     >
-      {t("Explore")}
+      {t("Explore")} →
     </button>
   </Link>
 </div>
+
 
 {/* Button Controls - Bottom Right */}
 <div className="absolute bottom-5 right-5 sm:right-10 md:right-15 z-30 flex items-end gap-4">

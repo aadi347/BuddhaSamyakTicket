@@ -66,7 +66,7 @@ const Footer = () => {
               <div>
                 <p className="text-base md:text-lg font-medium">{t("MuseumName")}</p>
                 <p className="text-gray-300 text-sm md:text-base">{t("MuseumLocation")}</p>
-                <p className="mt-2 font-semibold text-base md:text-lg">+91 98765 43210</p>
+                <p className="mt-2 font-semibold text-base md:text-lg">{t("MuseumPhone")}</p>
               </div>
               
               <div className="pt-4 border-t border-gray-800">
@@ -81,7 +81,7 @@ const Footer = () => {
                   to="/book-ticket"
                   className="inline-block bg-white text-black px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-colors duration-300"
                 >
-                  Book Tickets
+                  {t("BookTickets")}
                 </Link>
               </div>
             </div>
@@ -89,31 +89,31 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-xl md:text-2xl mb-4 md:mb-6">Explore</h4>
+            <h4 className="font-bold text-xl md:text-2xl mb-4 md:mb-6">{t("Explore_footer")}</h4>
             <ul className="space-y-3 text-gray-300">
               <li>
                 <Link to="/" className="text-sm md:text-base hover:text-white transition-colors duration-300">
-                  Home
+                  {t("ExploreHome")}
                 </Link>
               </li>
               <li>
                 <Link to="/about-museum" className="text-sm md:text-base hover:text-white transition-colors duration-300">
-                  About Museum
+                  {t("ExploreAbout")}
                 </Link>
               </li>
               <li>
                 <Link to="/exhibitions" className="text-sm md:text-base hover:text-white transition-colors duration-300">
-                  Exhibitions
+                  {t("ExploreExhibitions")}
                 </Link>
               </li>
               <li>
                 <Link to="/collection" className="text-sm md:text-base hover:text-white transition-colors duration-300">
-                  Collections
+                  {t("ExploreCollections")}
                 </Link>
               </li>
               <li>
                 <Link to="/gallery" className="text-sm md:text-base hover:text-white transition-colors duration-300">
-                  Gallery
+                  {t("ExploreGallery")}
                 </Link>
               </li>
             </ul>
@@ -121,26 +121,26 @@ const Footer = () => {
 
           {/* Visit & Support */}
           <div>
-            <h4 className="font-bold text-xl md:text-2xl mb-4 md:mb-6">Visit & Support</h4>
+            <h4 className="font-bold text-xl md:text-2xl mb-4 md:mb-6">{t("VisitSupport")}</h4>
             <ul className="space-y-3 text-gray-300">
               <li>
                 <Link to="/travel" className="text-sm md:text-base hover:text-white transition-colors duration-300">
-                  How to Reach
+                  {t("VisitReach")}
                 </Link>
               </li>
               <li>
                 <Link to="/contact-us" className="text-sm md:text-base hover:text-white transition-colors duration-300">
-                  Contact Us
+                  {t("VisitContact")}
                 </Link>
               </li>
               <li>
                 <Link to="/developers-team" className="text-sm md:text-base hover:text-white transition-colors duration-300">
-                  Development Team
+                  {t("VisitTeam")}
                 </Link>
               </li>
               <li>
                 <Link to="/policy" className="text-sm md:text-base hover:text-white transition-colors duration-300">
-                  Privacy Policy
+                  {t("VisitPolicy")}
                 </Link>
               </li>
             </ul>
@@ -156,11 +156,11 @@ const Footer = () => {
             
             <div className="flex gap-6 text-sm text-gray-400">
               <Link to="/policy" className="hover:text-white transition-colors duration-300">
-                Privacy Policy
+                {t("FooterPrivacy")}
               </Link>
               <span className="text-gray-600">•</span>
               <Link to="/contact-us" className="hover:text-white transition-colors duration-300">
-                Terms of Service
+                {t("FooterTerms")}
               </Link>
             </div>
           </div>

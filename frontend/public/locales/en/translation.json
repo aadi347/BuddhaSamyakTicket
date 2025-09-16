@@ -107,48 +107,34 @@
 
 
 
-
-  "JoinUs": "Join Us",
+"JoinUs": "Join Us",
   "FreeEntry": "Free Entry",
   "MuseumName": "Buddha Samyak Darshan Museum",
-  "MuseumAddress": "Vaishali, Bihar, India",
+  "MuseumLocation": "Vaishali, Bihar, India",
   "MuseumPhone": "+91 98765 43210",
-  "OpeningHoursLabel": "Opening Hours:",
-  "OpeningHours": "Daily: 09.00–05.00",
+  "OpeningHours": "Opening Hours:",
+  "DailyHours": "Daily: 09.00–05.00",
   "LastEntry": "Last Entry: 04.30",
 
-  "AboutHeading": "About Us",
-  "AboutGovernment": "Governance",
-  "AboutStory": "Our Story",
-  "AboutCareers": "Careers",
-  "AboutPress": "Press",
-  "AboutContact": "Contact Us",
+  "BookTickets": "Book Tickets",
 
-  "VisitHeading": "Visit",
-  "VisitMap": "Temple Map",
-  "VisitEvents": "Events",
-  "VisitAccessibility": "Accessibility",
-  "VisitFoodDrink": "Food & Drink",
-  "VisitAudioGuide": "Audio Guide",
+  "Explore_footer": "Explore",
+  "ExploreHome": "Home",
+  "ExploreAbout": "About Museum",
+  "ExploreExhibitions": "Exhibitions",
+  "ExploreCollections": "Collections",
+  "ExploreGallery": "Gallery",
 
-  "CommercialHeading": "Commercial",
-  "CommercialVenue": "Venue Hire",
-  "CommercialFilming": "Filming",
-  "CommercialLicensing": "Image Licensing",
-  "CommercialStore": "Souvenir Store",
-  "CommercialPartners": "Travel Partners",
+  "VisitSupport": "Visit & Support",
+  "VisitReach": "How to Reach",
+  "VisitContact": "Contact Us",
+  "VisitTeam": "Development Team",
+  "VisitPolicy": "Privacy Policy",
 
-  "ResourcesHeading": "Resources",
-  "ResourcesStudy": "Study Room",
-  "ResourcesLibrary": "Library Archives",
-  "ResourcesTeachings": "Teachings",
-  "ResourcesBlog": "Blog",
+  "FooterPrivacy": "Privacy Policy",
+  "FooterTerms": "Terms of Service",
 
   "Copyright": "©️ 2025 Bihar Heritage Development Committee. All rights reserved.",
-  "PrivacyPolicy": "Privacy Policy",
-  "Accessibility": "Accessibility",
-  "TermsOfUse": "Terms of Use",
-
 
 "ImgGridHeading": "A cultural glimpse of other museums in Bihar.",
 "ImgGridButton": "Learn More"

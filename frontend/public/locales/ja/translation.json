@@ -37,5 +37,35 @@
   "visit_option_highlights_heading1": "見どころを探検",
   "visit_option_highlights_desc1": "ブッダ・サマヤク・ストゥーパを鑑賞し、瞑想センターでくつろぎ、静かな図書館で本をお楽しみください。",
   "visit_option_amenities_heading1": "館内の設備を満喫",
-  "visit_option_amenities_desc1": "ビジターセンター、ゲストハウス、カフェテリアをご利用いただき、芸術文化省提供の全設備をお楽しみください。"
+  "visit_option_amenities_desc1": "ビジターセンター、ゲストハウス、カフェテリアをご利用いただき、芸術文化省提供の全設備をお楽しみください。",
+
+
+  "JoinUs": "参加する",
+  "FreeEntry": "入場無料",
+  "MuseumName": "ブッダ・サムヤク・ダルシャン博物館",
+  "MuseumLocation": "インド、ビハール州、ヴァイシャリ",
+  "MuseumPhone": "+91 98765 43210",
+  "OpeningHours": "開館時間:",
+  "DailyHours": "毎日: 09:00–17:00",
+  "LastEntry": "最終入場: 16:30",
+
+  "BookTickets": "チケット予約",
+
+  "Explore_footer": "探索",
+  "ExploreHome": "ホーム",
+  "ExploreAbout": "博物館について",
+  "ExploreExhibitions": "展示",
+  "ExploreCollections": "コレクション",
+  "ExploreGallery": "ギャラリー",
+
+  "VisitSupport": "訪問とサポート",
+  "VisitReach": "アクセス方法",
+  "VisitContact": "お問い合わせ",
+  "VisitTeam": "開発チーム",
+  "VisitPolicy": "プライバシーポリシー",
+
+  "FooterPrivacy": "プライバシーポリシー",
+  "FooterTerms": "利用規約",
+
+  "Copyright": "©️ 2025 ビハール遺産開発委員会. 無断転載を禁じます."
 }

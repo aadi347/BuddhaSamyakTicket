@@ -4,9 +4,7 @@ import dayjs from "dayjs";
 
 const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(dayjs());
-  const [selectedDate, setSelectedDate] = useState(null);
 
-  // Navigate months
   const handlePrevMonth = () => setCurrentMonth(currentMonth.subtract(1, "month"));
   const handleNextMonth = () => setCurrentMonth(currentMonth.add(1, "month"));
 
@@ -24,56 +22,52 @@ const Calendar = () => {
     calendarDays.push(dayjs(currentMonth).date(i));
   }
 
-  const handleDateSelect = (date) => {
-    setSelectedDate(date);
-  };
-
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center p-4 font-sans">
-      <div className="w-full max-w-6xl">
+    <div className="min-h-screen bg-white py-8 px-4">
+      <div className="max-w-4xl mx-auto">
         
-        {/* Main Calendar Card */}
-        <div className="bg-white border border-gray-100 rounded-3xl overflow-hidden">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-2xl font-bold text-black mb-2">Visit Calendar</h1>
+          <p className="text-gray-600">Plan your visit to Buddha Samyak Darshan Museum</p>
+        </div>
+
+        {/* Main Calendar */}
+        <div className="bg-white border border-gray-300 rounded-2xl overflow-hidden">
           
-          {/* Header Section */}
-          <div className="bg-black text-white px-8 py-6">
+          {/* Calendar Header */}
+          <div className="bg-black text-white px-6 py-4">
             <div className="flex items-center justify-between">
               <button
                 onClick={handlePrevMonth}
-                className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group"
+                className="w-8 h-8 rounded-lg border border-gray-500 hover:bg-white hover:text-black transition-all duration-200 flex items-center justify-center"
               >
-                <ChevronLeft className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <ChevronLeft className="w-4 h-4" />
               </button>
               
-              <div className="text-center">
-                <div className="flex items-center gap-3 justify-center mb-1">
-                  <CalendarIcon className="w-6 h-6" />
-                  <h1 className="text-3xl font-light tracking-wide">
-                    {currentMonth.format("MMMM YYYY")}
-                  </h1>
-                </div>
-                <p className="text-white/70 text-sm font-light">
-                  {today.format("dddd, MMMM D, YYYY")}
-                </p>
-              </div>
+              <h2 className="text-xl font-bold">
+                {currentMonth.format("MMMM YYYY")}
+              </h2>
               
               <button
                 onClick={handleNextMonth}
-                className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 group"
+                className="w-8 h-8 rounded-lg border border-gray-500 hover:bg-white hover:text-black transition-all duration-200 flex items-center justify-center"
               >
-                <ChevronRight className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <ChevronRight className="w-4 h-4" />
               </button>
             </div>
           </div>
 
           {/* Calendar Grid */}
-          <div className="p-8">
+          <div className="p-6">
             {/* Weekday Headers */}
-            <div className="grid grid-cols-7 gap-2 mb-6">
-              {daysOfWeek.map((day, i) => (
+            <div className="grid grid-cols-7 gap-1 mb-4">
+              {daysOfWeek.map((day, index) => (
                 <div
                   key={day}
-                  className="h-12 flex items-center justify-center text-sm font-medium text-gray-400 uppercase tracking-wider"
+                  className={`h-8 flex items-center justify-center text-xs font-medium
+                    ${index === 0 ? 'text-gray-400' : 'text-gray-600'}
+                  `}
                 >
                   {day}
                 </div>
@@ -81,41 +75,31 @@ const Calendar = () => {
             </div>
 
             {/* Calendar Days */}
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-7 gap-1">
               {calendarDays.map((date, index) => {
                 const isToday = date && date.isSame(today, "day");
-                const isSelected = date && selectedDate && date.isSame(selectedDate, "day");
                 const isSunday = date && date.day() === 0;
                 const isPastMonth = date && !date.isSame(currentMonth, "month");
+                const isPast = date && date.isBefore(today, "day");
 
                 return (
-                  <button
+                  <div
                     key={index}
-                    onClick={() => date && handleDateSelect(date)}
-                    disabled={!date || isPastMonth}
                     className={`
-                      h-14 rounded-2xl flex flex-col items-center border border-gray-200 justify-center text-sm font-medium
-                      transition-all duration-200 relative group
+                      h-10 rounded-lg border border-gray-200 flex items-center justify-center text-sm
                       ${!date ? "invisible" : ""}
-                      ${isPastMonth 
+                      ${isPastMonth || isPast
                         ? "text-gray-300 cursor-not-allowed" 
-                        : isToday 
-                          ? "bg-black text-white shadow-lg scale-105" 
-                          : isSelected
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-700 hover:bg-gray-50 hover:scale-105 hover:shadow-md"
+                        : isSunday
+                          ? "text-gray-300 bg-gray-50 cursor-not-allowed opacity-50"
+                          : isToday 
+                            ? "bg-black text-white border-black" 
+                            : "text-gray-700 hover:bg-gray-100 cursor-pointer"
                       }
                     `}
                   >
-                    {date && (
-                      <>
-                        <span className="text-base">{date.date()}</span>
-                        {isSunday && !isPastMonth && (
-                          <div className="absolute -bottom-1 w-1 h-1 bg-gray-400 rounded-full"></div>
-                        )}
-                      </>
-                    )}
-                  </button>
+                    {date && date.date()}
+                  </div>
                 );
               })}
             </div>
@@ -123,84 +107,68 @@ const Calendar = () => {
         </div>
 
         {/* Information Cards */}
-        <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
           
-          {/* Opening Hours Card */}
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                <Clock className="w-5 h-5 text-white" />
+          {/* Opening Hours */}
+          <div className="bg-white border border-gray-300 rounded-lg p-4">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                <Clock className="w-4 h-4 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">Opening Hours</h3>
+              <h3 className="font-semibold text-black">Opening Hours</h3>
             </div>
-            <div className="space-y-2">
-              <div className="flex justify-between items-center py-2 border-b border-gray-50">
-                <span className="text-gray-600 text-sm">Monday - Saturday</span>
-                <span className="font-medium text-gray-900">09:00 - 17:00</span>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span className="text-gray-600">Mon - Sat</span>
+                <span className="font-medium text-black">09:00 - 17:00</span>
               </div>
-              <div className="flex justify-between items-center py-2">
-                <span className="text-gray-600 text-sm">Sunday</span>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Sunday</span>
                 <span className="font-medium text-gray-400">Closed</span>
               </div>
             </div>
           </div>
 
-          {/* Ticket Counter Card */}
-          <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                <MapPin className="w-5 h-5 text-white" />
+          {/* Ticket Counter */}
+          <div className="bg-white border border-gray-300 rounded-lg p-4">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                <MapPin className="w-4 h-4 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">Ticket Counter</h3>
+              <h3 className="font-semibold text-black">Ticket Counter</h3>
             </div>
-            <div className="space-y-2">
-              <div className="flex justify-between items-center py-2 border-b border-gray-50">
-                <span className="text-gray-600 text-sm">Monday - Saturday</span>
-                <span className="font-medium text-gray-900">09:00 - 16:30</span>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span className="text-gray-600">Mon - Sat</span>
+                <span className="font-medium text-black">09:00 - 16:30</span>
               </div>
-              <div className="flex justify-between items-center py-2">
-                <span className="text-gray-600 text-sm">Sunday</span>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Sunday</span>
                 <span className="font-medium text-gray-400">Closed</span>
               </div>
             </div>
           </div>
 
-          {/* Special Tours Card */}
-          <div className="bg-black text-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <CalendarIcon className="w-5 h-5 text-black" />
+          {/* Special Notice */}
+          <div className="bg-black text-white rounded-lg p-4">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                <CalendarIcon className="w-4 h-4 text-black" />
               </div>
-              <h3 className="text-lg font-semibold">Special Tours</h3>
+              <h3 className="font-semibold">Notice</h3>
             </div>
-            <div className="space-y-2">
-              <div className="flex justify-between items-center py-2 border-b border-white/10">
-                <span className="text-white/70 text-sm">Wednesday & Friday</span>
-                <span className="font-medium">11:00 & 15:00</span>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span className="text-gray-300">Closed</span>
+                <span className="font-medium">Sundays</span>
               </div>
-              <div className="pt-2">
-                <span className="inline-block bg-white text-black text-xs font-medium px-3 py-1 rounded-full">
-                  Booking Required
-                </span>
+              <div className="flex justify-between">
+                <span className="text-gray-300">Last Entry</span>
+                <span className="font-medium">16:30</span>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Selected Date Info */}
-        {selectedDate && (
-          <div className="mt-6 bg-gray-50 border border-gray-100 rounded-2xl p-6">
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">
-              Selected Date: {selectedDate.format("dddd, MMMM D, YYYY")}
-            </h4>
-            <p className="text-gray-600">
-              {selectedDate.day() === 0 
-                ? "We are closed on Sundays. Please select another date."
-                : "We are open from 09:00 AM to 5:00 PM. Ticket counter closes at 4:30 PM."
-              }
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );

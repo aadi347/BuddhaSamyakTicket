@@ -37,5 +37,35 @@
   "visit_option_highlights_heading1": "박물관 하이라이트 탐방",
   "visit_option_highlights_desc1": "부처 사먁 스투파를 감상하고 명상 센터에서 휴식하며, 조용한 도서관에서 책을 읽어보세요.",
   "visit_option_amenities_heading1": "이용 편의시설",
-  "visit_option_amenities_desc1": "방문자 센터, 게스트 하우스, 카페테리아를 이용하시고 문화예술부에서 제공하는 모든 시설을 누려보세요."
+  "visit_option_amenities_desc1": "방문자 센터, 게스트 하우스, 카페테리아를 이용하시고 문화예술부에서 제공하는 모든 시설을 누려보세요.",
+
+
+   "JoinUs": "함께하기",
+  "FreeEntry": "무료 입장",
+  "MuseumName": "붓다 사먁 다르샨 박물관",
+  "MuseumLocation": "인도 비하르주 바이샬리",
+  "MuseumPhone": "+91 98765 43210",
+  "OpeningHours": "개관 시간:",
+  "DailyHours": "매일: 09:00–17:00",
+  "LastEntry": "마지막 입장: 16:30",
+
+  "BookTickets": "티켓 예매",
+
+  "Explore_footer": "탐색",
+  "ExploreHome": "홈",
+  "ExploreAbout": "박물관 소개",
+  "ExploreExhibitions": "전시",
+  "ExploreCollections": "소장품",
+  "ExploreGallery": "갤러리",
+
+  "VisitSupport": "방문 및 지원",
+  "VisitReach": "오시는 길",
+  "VisitContact": "문의하기",
+  "VisitTeam": "개발 팀",
+  "VisitPolicy": "개인정보 처리방침",
+
+  "FooterPrivacy": "개인정보 처리방침",
+  "FooterTerms": "이용 약관",
+
+  "Copyright": "©️ 2025 비하르 유산 개발 위원회. 모든 권리 보유."
 }

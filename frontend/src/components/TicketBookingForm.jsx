@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import DateSelector from "./DateSelector";
-import { FaMinus, FaPlus } from "react-icons/fa";
+import { FaMinus, FaPlus, FaUser, FaPhone, FaEnvelope, FaGlobe, FaUsers, FaChild } from "react-icons/fa";
 import Ticket from "./Ticket";
 import TicketBookingDialog from "./TicketBookingDialog";
 import Navbar from "./Navbar";
@@ -38,7 +38,6 @@ const TicketBookingForm = () => {
         !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)
       )
         errors.email = "Enter a valid email address.";
-      
     }
 
     if (step === 1) {
@@ -62,15 +61,13 @@ const TicketBookingForm = () => {
 
   const handleChange = (eOrType, op) => {
     if (typeof eOrType === "string") {
-      // Custom counter logic for adults/children
       setFormData((prev) => {
-        const currentValue = Number(prev[eOrType]) || 0; // Ensure it's a number
+        const currentValue = Number(prev[eOrType]) || 0;
         const updatedValue =
           op === "inc" ? currentValue + 1 : Math.max(0, currentValue - 1);
         return { ...prev, [eOrType]: updatedValue };
       });
     } else {
-      // Input field logic
       const { name, value } = eOrType.target;
       setFormData((prev) => ({
         ...prev,
@@ -82,7 +79,6 @@ const TicketBookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // submission logic
   };
 
   useEffect(() => {
@@ -92,348 +88,399 @@ const TicketBookingForm = () => {
   return (
     <>
       <Navbar />
-      <div className="bg-white p-6 max-w-xl mx-auto mt-10 rounded-xl ">
-        {/* Step Progress Bar */}
-        <div className="relative mb-8">
-          <div className="flex justify-between items-center">
-            {steps.map((label, i) => (
-              <div key={i} className="flex flex-col items-center w-full">
-                <div
-                  className={`z-10 w-10 h-10 flex items-center justify-center rounded-full font-bold text-white ${
-                    step >= i ? "bg-black" : "bg-gray-300"
-                  }`}
-                >
-                  {i + 1}
-                </div>
-                <span
-                  className={`text-xs mt-2 ${
-                    step >= i ? "text-black font-medium" : "text-gray-400"
-                  }`}
-                >
-                  {label}
-                </span>
-              </div>
-            ))}
+      <div className="min-h-screen bg-white py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          {/* Header Section */}
+          <div className="text-center mb-8">
+            <motion.h1 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-3xl md:text-4xl font-bold text-black mb-2"
+            >
+              Book Your Museum Visit
+            </motion.h1>
+            <p className="text-gray-600 text-lg">Experience art, culture and history with us</p>
           </div>
 
-          <div className="absolute top-5 left-[5%] w-[90%] h-1 bg-gray-300 z-0 rounded-full">
-            <motion.div
-              className="h-1 bg-black rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: `${(step / (steps.length - 1)) * 100}%` }}
-              transition={{ duration: 0.5 }}
-            />
-          </div>
+          {/* Form Container */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white rounded-2xl border border-gray-200 overflow-hidden"
+          >
+            {/* Step Progress Bar */}
+            <div className="bg-gradient-to-r from-gray-100 to-white px-8 py-6 border-b-2 border-black">
+              <div className="relative">
+                <div className="flex justify-between items-center">
+                  {steps.map((label, i) => (
+                    <div key={i} className="flex flex-col items-center flex-1">
+                      <div className="relative">
+                        <div
+                          className={`w-12 h-12 flex items-center justify-center rounded-full font-semibold text-sm transition-all duration-300 border-2 ${
+                            step >= i 
+                              ? "bg-black text-white border-black" 
+                              : "bg-white text-gray-500 border-gray-300"
+                          }`}
+                        >
+                          {i + 1}
+                        </div>
+                        {step >= i && (
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="absolute -top-1 -right-1 w-5 h-5 bg-black rounded-full flex items-center justify-center"
+                          >
+                            <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                          </motion.div>
+                        )}
+                      </div>
+                      <span
+                        className={`text-sm mt-3 font-medium transition-colors duration-300 ${
+                          step >= i ? "text-black" : "text-gray-400"
+                        }`}
+                      >
+                        {label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="absolute top-6 left-[8%] w-[84%] h-0.5 bg-gray-200 -z-10">
+                  <motion.div
+                    className="h-0.5 bg-black"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${(step / (steps.length - 1)) * 100}%` }}
+                    transition={{ duration: 0.5 }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Form Content */}
+            <div className="p-8">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Step 1: Personal Information */}
+                {step === 0 && (
+                  <motion.div 
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="space-y-6"
+                  >
+                    {/* Full Name */}
+                    <div>
+                      <label className="block text-sm font-semibold text-black mb-2">
+                        <FaUser className="inline mr-2 text-gray-600" />
+                        Full Name *
+                      </label>
+                      <input
+                        name="fullName"
+                        type="text"
+                        value={formData.fullName}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-0 focus:border-black transition-all duration-200 text-black placeholder-gray-400"
+                        placeholder="Enter your full name"
+                        required
+                      />
+                      {formErrors.fullName && (
+                        <motion.p 
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-red-200 text-sm mt-2 flex items-center gap-2"
+                        >
+                          <BiError className="text-base flex-shrink-0" />
+                          {formErrors.fullName}
+                        </motion.p>
+                      )}
+                    </div>
+
+                    {/* Phone */}
+                    <div>
+                      <label className="block text-sm font-semibold text-black mb-2">
+                        <FaPhone className="inline mr-2 text-gray-600" />
+                        Phone Number *
+                      </label>
+                      <input
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3.5 border-2 border-gray-300 rounded-xl focus:ring-0 focus:border-black transition-all duration-200 text-black placeholder-gray-400"
+                        placeholder="+91 1234567890"
+                        required
+                      />
+                      {formErrors.phone && (
+                        <motion.p 
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-red-200 text-sm mt-2 flex items-center gap-2"
+                        >
+                          <BiError className="text-base flex-shrink-0" />
+                          {formErrors.phone}
+                        </motion.p>
+                      )}
+                    </div>
+
+                    {/* Country and Email Row */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-semibold text-black mb-2">
+                          <FaGlobe className="inline mr-2 text-gray-600" />
+                          Country *
+                        </label>
+                        <input
+                          name="country"
+                          type="text"
+                          value={formData.country}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3.5 border-2 border-gray-300 rounded-xl focus:ring-0 focus:border-black transition-all duration-200 text-black placeholder-gray-400"
+                          placeholder="India"
+                          required
+                        />
+                        {formErrors.country && (
+                          <motion.p 
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-red-200 text-sm mt-2 flex items-center gap-2"
+                          >
+                            <BiError className="text-base flex-shrink-0" />
+                            {formErrors.country}
+                          </motion.p>
+                        )}
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold text-black mb-2">
+                          <FaEnvelope className="inline mr-2 text-gray-600" />
+                          Email Address *
+                        </label>
+                        <input
+                          name="email"
+                          type="email"
+                          value={formData.email}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3.5 border-2 border-gray-300 rounded-xl focus:ring-0 focus:border-black transition-all duration-200 text-black placeholder-gray-400"
+                          placeholder="example@mail.com"
+                          required
+                        />
+                        {formErrors.email && (
+                          <motion.p 
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-red-200 text-sm mt-2 flex items-center gap-2"
+                          >
+                            <BiError className="text-base flex-shrink-0" />
+                            {formErrors.email}
+                          </motion.p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Visitor Count */}
+                    <div className="bg-gray-50 rounded-xl p-6 border-2 border-gray-200">
+                      <h3 className="text-lg font-semibold text-black mb-4">Number of Visitors</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Adults Counter */}
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-3">
+                            <FaUsers className="inline mr-2 text-gray-600" />
+                            Adults
+                          </label>
+                          <div className="flex items-center bg-white border-2 border-gray-300 rounded-xl overflow-hidden">
+                            <button
+                              type="button"
+                              onClick={() => handleChange("adults", "dec")}
+                              className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
+                            >
+                              <FaMinus size={14} />
+                            </button>
+                            <div className="flex-1 px-4 py-3 text-center font-bold text-xl text-black bg-white">
+                              {formData.adults}
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => handleChange("adults", "inc")}
+                              className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
+                            >
+                              <FaPlus size={14} />
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Children Counter */}
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-3">
+                            <FaChild className="inline mr-2 text-gray-600" />
+                            Children
+                          </label>
+                          <div className="flex items-center bg-white border-2 border-gray-300 rounded-xl overflow-hidden">
+                            <button
+                              type="button"
+                              onClick={() => handleChange("children", "dec")}
+                              className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
+                            >
+                              <FaMinus size={14} />
+                            </button>
+                            <div className="flex-1 px-4 py-3 text-center font-bold text-xl text-black bg-white">
+                              {formData.children}
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => handleChange("children", "inc")}
+                              className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
+                            >
+                              <FaPlus size={14} />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Step 2: Booking Details */}
+                {step === 1 && (
+                  <motion.div 
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="space-y-6"
+                  >
+                    {/* Date Selection */}
+                    <div>
+                      <DateSelector
+                        value={formData.date}
+                        onChange={(date) =>
+                          setFormData((prev) => ({ ...prev, date }))
+                        }
+                      />
+                      {formErrors.date && (
+                        <motion.p 
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-red-200 text-sm mt-2 flex items-center gap-2"
+                        >
+                          <BiError className="text-base flex-shrink-0" />
+                          {formErrors.date}
+                        </motion.p>
+                      )}
+                    </div>
+
+                    {/* Time Slot Selection */}
+                    <div>
+                      <h3 className="text-lg font-semibold text-black mb-4">Choose Your Visit Time</h3>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        {[
+                          {
+                            id: "radio_1",
+                            label: "Morning Slot",
+                            value: "9:00 AM - 01:00 PM",
+                            icon: "🌅"
+                          },
+                          {
+                            id: "radio_2",
+                            label: "Afternoon Slot", 
+                            value: "01:00 PM - 05:00 PM",
+                            icon: "🌇"
+                          },
+                        ].map(({ id, label, value, icon }) => (
+                          <div key={id} className="relative">
+                            <input
+                              className="peer sr-only"
+                              id={id}
+                              type="radio"
+                              name="sessionType"
+                              value={value}
+                              checked={formData.sessionType === value}
+                              onChange={handleChange}
+                            />
+                            <label
+                              htmlFor={id}
+                              className="flex items-center justify-between w-full p-5 bg-white border-2 border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50 peer-checked:border-black peer-checked:bg-gray-50 transition-all duration-200"
+                            >
+                              <div className="flex items-center gap-3">
+                                <span className="text-2xl">{icon}</span>
+                                <div>
+                                  <span className="block font-semibold text-black">{label}</span>
+                                  <span className="block text-sm text-gray-600">{value}</span>
+                                </div>
+                              </div>
+                              <div className="w-5 h-5 border-2 border-gray-400 rounded-full peer-checked:border-black peer-checked:bg-black flex items-center justify-center">
+                                <div className="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100"></div>
+                              </div>
+                            </label>
+                          </div>
+                        ))}
+                      </div>
+                      {formErrors.sessionType && (
+                        <motion.p 
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-red-200 text-sm mt-2 flex items-center gap-2"
+                        >
+                          <BiError className="text-base flex-shrink-0" />
+                          {formErrors.sessionType}
+                        </motion.p>
+                      )}
+                    </div>
+                  </motion.div>
+                )}
+
+                {/* Step 3: Confirmation */}
+                {step === 2 && (
+                  <motion.div 
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                  >
+                    <Ticket formData={formData} />
+                  </motion.div>
+                )}
+
+                {/* Navigation Buttons */}
+                <div className="flex justify-between items-center pt-6 border-t-2 border-gray-200">
+                  {step > 0 ? (
+                    <button
+                      onClick={handleBack}
+                      type="button"
+                      className="flex items-center gap-2 px-6 py-3 text-black bg-white border-2 border-black hover:bg-black hover:text-white rounded-xl font-medium transition-all duration-200 focus:outline-none"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                      Back
+                    </button>
+                  ) : (
+                    <div />
+                  )}
+
+                  {step < 2 ? (
+                    <button
+                      onClick={handleNext}
+                      type="button"
+                      className="flex items-center gap-2 px-8 py-3 bg-black hover:bg-gray-800 text-white rounded-xl font-semibold transition-all duration-200 focus:outline-none"
+                    >
+                      Next
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => setShowDialog(true)}
+                      type="submit"
+                      className="px-8 py-3 bg-black hover:bg-gray-800 text-white rounded-xl font-semibold transition-all duration-200 focus:outline-none flex items-center gap-2"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Confirm Booking
+                    </button>
+                  )}
+                </div>
+              </form>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {step === 0 && (
-            <>
-              <div>
-                <label className="block text-sm font-medium">Full Name</label>
-                <input
-                  name="fullName"
-                  type="text"
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your name"
-                  required
-                />
-                {formErrors.fullName && (
-                  <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
-                    <BiError className="text-lg" />
-                    {formErrors.fullName}
-                  </p>
-                )}
-              </div>
-              <div>
-                <label className="block text-sm font-medium">
-                  Phone Number
-                </label>
-                <input
-                  name="phone"
-                  type="number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                  placeholder="+91 1234567890"
-                  required
-                />
-                {formErrors.phone && (
-                  <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
-                    <BiError className="text-lg" />
-                    {formErrors.phone}
-                  </p>
-                )}
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div>
-                  <label className="block text-sm font-medium">Country</label>
-                  <input
-                    name="country" // ✅ FIXED
-                    type="text"
-                    value={formData.country}
-                    onChange={handleChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                    placeholder="India"
-                    required
-                  />
-                  {formErrors.country && (
-                    <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
-                      <BiError className="text-lg" />
-                      {formErrors.country}
-                    </p>
-                  )}
-                </div>
-                <div>
-                  <label className="block text-sm font-medium">Email</label>
-                  <input
-                    name="email" // ✅ FIXED
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
-                    placeholder="example@mail.com"
-                    required
-                  />
-                  {formErrors.email && (
-                    <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
-                      <BiError className="text-lg" />
-                      {formErrors.email}
-                    </p>
-                  )}
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-                <div>
-                  <label className="block mb-1 text-sm font-semibold text-gray-700">
-                    Number of Adults
-                  </label>
-                  <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden shadow-sm">
-                    <button
-                      type="button"
-                      onClick={() => handleChange("adults", "dec")}
-                      className="px-3 py-4 bg-gray-700 hover:bg-gray-800 text-white"
-                    >
-                      <FaMinus size={12} />
-                    </button>
-                    <input
-                      type="number"
-                      readOnly
-                      className="w-full text-center px-4 py-2 focus:outline-none"
-                      value={formData.adults}
-                    />
-
-                    <button
-                      type="button"
-                      onClick={() => handleChange("adults", "inc")}
-                      className="px-3 py-4 bg-gray-700 hover:bg-gray-800 text-white"
-                    >
-                      <FaPlus size={12} />
-                    </button>
-                  </div>
-                  {formErrors.adults && (
-                    <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
-                      <BiError className="text-lg" />
-                      {formErrors.adults}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block mb-1 text-sm font-semibold text-gray-700">
-                    Number of Children
-                  </label>
-                  <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden shadow-sm">
-                    <button
-                      type="button"
-                      onClick={() => handleChange("children", "dec")}
-                      className="px-3 py-4 bg-gray-700 hover:bg-gray-800 text-white"
-                    >
-                      <FaMinus size={12} />
-                    </button>
-                    <input
-                      type="number"
-                      readOnly
-                      className="w-full text-center px-4 py-2 focus:outline-none"
-                      value={formData.children}
-                    />
-
-                    <button
-                      type="button"
-                      onClick={() => handleChange("children", "inc")}
-                      className="px-3 py-4 bg-gray-700 hover:bg-gray-800 text-white"
-                    >
-                      <FaPlus size={12} />
-                    </button>
-                  </div>
-                  {formErrors.children && (
-                    <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
-                      <BiError className="text-lg" />
-                      {formErrors.children}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </>
-          )}
-
-          {step === 1 && (
-            <>
-              <div>
-                <DateSelector
-                  value={formData.date} // format 'YYYY-MM-DD'
-                  onChange={(date) =>
-                    setFormData((prev) => ({
-                      ...prev,
-                      date, // string like '2025-07-20'
-                    }))
-                  }
-                />
-               {formErrors.date && (
-                    <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
-                      <BiError className="text-lg" />
-                      {formErrors.date}
-                    </p>
-                  )}
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 mt-6">
-                {[
-                  {
-                    id: "radio_1",
-                    label: "Slot 1",
-                    value: "9:00 AM - 01:00 AM",
-                  },
-                  {
-                    id: "radio_2",
-                    label: "Slot 2",
-                    value: "01:00 PM - 05:00 PM",
-                  },
-                ].map(({ id, label, value }) => (
-                  <div key={id} className="relative">
-                    <input
-                      className="peer hidden"
-                      id={id}
-                      type="radio"
-                      name="sessionType"
-                      value={value}
-                      checked={formData.sessionType === value}
-                      onChange={handleChange}
-                    />
-                    {formErrors.sessionType && (
-                    <p className="text-red-500 bg-red-50 py-1 pl-2 rounded border border-red-200 text-sm mt-1 flex items-center gap-1">
-                      <BiError className="text-lg" />
-                      {formErrors.sessionType}
-                    </p>
-                  )}
-                    <span className="absolute right-4 top-1/2 block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white peer-checked:border-black"></span>
-                    <label
-                      htmlFor={id}
-                      className="block h-full cursor-pointer rounded-lg p-4 border border-gray-200 drop-shadow-2xl peer-checked:bg-black peer-checked:text-white"
-                    >
-                      <span className="font-medium">{label}</span>
-                      <span className="block text-xs uppercase">{value}</span>
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-
-          {step === 2 && <Ticket formData={formData} />}
-
-          <div className="flex justify-between pt-4">
-            {step > 0 ? (
-              <div className="flex items-center justify-center">
-                <div className="relative group">
-                  <button
-                    onClick={handleBack}
-                    type="button"
-                    class="text-white bg-black hover:bg-black hover:scale-105 duration-300 ease-in-out focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="size-6"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M7.28 7.72a.75.75 0 0 1 0 1.06l-2.47 2.47H21a.75.75 0 0 1 0 1.5H4.81l2.47 2.47a.75.75 0 1 1-1.06 1.06l-3.75-3.75a.75.75 0 0 1 0-1.06l3.75-3.75a.75.75 0 0 1 1.06 0Z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                    Back
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div />
-            )}
-
-            {step < 2 ? (
-              <div className="flex items-center justify-center">
-                <div className="relative group">
-                  <button
-                    onClick={handleNext}
-                    type="button"
-                    class="text-white bg-black hover:bg-black hover:scale-105 duration-300 ease-in-out focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    Next
-                    <svg
-                      class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 14 10"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9"
-                      />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <div className="flex items-center justify-center">
-                <div className="relative group">
-                  <button
-                    onClick={() => setShowDialog(true)}
-                    type="submit"
-                    className="relative inline-block p-px font-semibold leading-6 text-white bg-neutral-900 shadow-2xl cursor-pointer rounded-2xl shadow-emerald-900 transition-all duration-300 ease-in-out hover:scale-105 active:scale-95 hover:shadow-emerald-600"
-                  >
-                    <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-500 via-cyan-500 to-sky-600 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-                    <span className="relative z-10 block px-6 py-3 rounded-2xl bg-neutral-950">
-                      <div className="relative z-10 flex items-center space-x-3">
-                        <span className="transition-all duration-500 group-hover:text-emerald-300">
-                          Confirm Booking
-                        </span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          class="size-6"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-        </form>
         {showDialog && (
           <TicketBookingDialog onClose={() => setShowDialog(false)} />
         )}
