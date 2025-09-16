@@ -19,7 +19,7 @@ import ExhibitionPage from "./components/ExhibitionPage";
 import AllCollectionPage from "./components/AllCollectionPage";
 import TravelPage from "./components/TravelPage"; 
 import ScrollToTop from "./components/ScrollToTop";
-import ExploreMore from "./pages/ExploreMore";
+import Gallery from "./pages/Gallery";
 import DevelopersTeam from "./pages/DevelopersTeam";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ContactUs from "./components/ContactUs";
@@ -54,7 +54,7 @@ const App = () => {
         <Route path="/exhibitions" element={<ExhibitionPage />} />
         <Route path="/collection" element={<AllCollectionPage />} />
         <Route path="/travel" element={<TravelPage />} />
-        <Route path="/exploreMore" element={<ExploreMore />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/developers-team" element={<DevelopersTeam />} />
         <Route path="/policy" element={<PrivacyPolicy />} />
         <Route path="/contact-us" element={<ContactUs />} />
