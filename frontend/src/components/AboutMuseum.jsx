@@ -40,7 +40,7 @@ function AboutMuseum() {
             aria-label={label}
             whileHover={{ scale: 1.2, y: -5 }}
             whileTap={{ scale: 0.9 }}
-            className={`w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white ${color} transition-all duration-300 hover:bg-white/20`}
+            className={`w-8 h-8 md:w-8 md:h-18 lg:w-8 lg:h-8 rounded-full flex items-center justify-center text-white ${color} transition-all duration-300 hover:bg-white/20`}
           >
             <Icon className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" />
           </motion.a>
