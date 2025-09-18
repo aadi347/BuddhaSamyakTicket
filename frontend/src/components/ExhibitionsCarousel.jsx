@@ -1,62 +1,41 @@
 import React from "react";
-import { FaClock, FaTicketAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import {
-  WiDaySunny,
-  WiHumidity,
-  WiStrongWind,
-  WiThermometer,
-} from "react-icons/wi";
+import { FaClock, FaTicketAlt, FaBell } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import WeatherInfo from "./WeatherInfo";
-import { FaBell } from "react-icons/fa6";
-import { MdAccessTimeFilled } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 
-
-const exhibitions = [
-  {
-    title: "हिरोशिगे",
-    subtitle: "खुले मार्ग का कलाकार",
-    description: "हिरोशिगे के प्रतिष्ठित दृश्यों के माध्यम से एडो कालीन जापान का अनुभव करें।",
-    date: "1 मई – 7 सितंबर 2025",
-    image: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/705435/1582576/main-image",
-  },
-  {
-    title: "प्राचीन भारत",
-    subtitle: "जीवित परंपराएँ",
-    description: "भारत की सतत सांस्कृतिक परंपराओं और पवित्र कला की खोज करें।",
-    date: "22 मई – 19 अक्टूबर 2025",
-    image: "https://collectionapi.metmuseum.org/api/collection/v1/iiif/38615/1331596/main-image",
-  },
-]
-
-
-
 const MuseumShowcase = () => {
-
   const { t } = useTranslation();
 
   const DepartmentLogo = () => (
-    <img
-      src="/DepartmentofArtandCultureLogo.jpeg" // Replace with your actual logo path or URL
+    <motion.img
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      src="/DepartmentofArtandCultureLogo.jpeg"
       alt="Department of Art and Culture Logo"
-      className="h-20 w-auto object-contain"
+      className="h-16 w-auto object-contain"
     />
   );
+
   return (
     <div className="bg-black text-white px-6 md:px-16 py-12 font-sans">
-      {/*const TopHeroSection*/}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-stretch gap-8 pb-10 border-b border-gray-700">
-        {/* Left Side: Logo above text on mobile, inline on desktop */}
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
-          <div>
-            <DepartmentLogo />
-          </div>
+      {/* Clean Top Hero Section */}
+      <motion.div 
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col md:flex-row justify-between items-start md:items-stretch gap-6 pb-8 border-b border-gray-700"
+      >
+        {/* Left Side: Logo and Content */}
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 flex-1">
+          <DepartmentLogo />
+          
           <div>
             <h1 className="text-2xl md:text-4xl font-semibold leading-tight text-white max-w-lg">
-             {t("art&culture")}
+              {t("art&culture")}
             </h1>
             <p className="text-sm md:text-base text-gray-400 mt-1">
               {t("art&culture_description")}
@@ -64,46 +43,71 @@ const MuseumShowcase = () => {
           </div>
         </div>
 
-        {/* Vertical Divider */}
-        <div className="hidden md:block w-px bg-gray-500 opacity-40 self-stretch" />
+        {/* Clean Vertical Divider */}
+        <div className="hidden md:block w-px bg-gray-600 self-stretch mx-6" />
 
-        {/* दाहिनी ओर: टिकट जानकारी बॉक्स */}
-        <div className="text-white rounded-lg shadow-lg p-5 w-full md:min-w-[320px] md:max-w-[350px]">
+        {/* Right Side: Clean Action Cards */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="w-full md:min-w-[280px] md:max-w-[300px] space-y-3"
+        >
+          {/* Clean Ticket Booking Card */}
           <Link to="/book-ticket" className="block">
-            <div className="flex items-center gap-3 group transition-transform hover:scale-[1.05] cursor-pointer border border-gray-500/30 rounded-lg p-4 bg-white/10 hover:bg-white/20">
-              <FaTicketAlt className="text-white text-2xl group-hover:rotate-[-10deg] transition-transform duration-300" />
-              <span className="font-semibold text-white">
-              {t("TicketBooking")}
-              </span>
-            </div>
+            <motion.div 
+              whileHover={{ y: -2 }}
+              className="group cursor-pointer border border-gray-600 rounded-lg p-4 bg-white/5 hover:bg-white/10 transition-all duration-300"
+            >
+              <div className="flex items-center gap-3">
+                <FaTicketAlt className="text-white text-lg group-hover:rotate-[-5deg] transition-transform duration-300" />
+                <span className="font-semibold text-white text-sm">
+                  {t("TicketBooking")}
+                </span>
+                <svg 
+                  className="w-4 h-4 text-gray-400 ml-auto group-hover:translate-x-1 transition-transform duration-300" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </motion.div>
           </Link>
 
-          <div className="mt-5 space-y-3 text-gray-700 font-medium text-sm md:text-base border border-gray-500/30 rounded-lg p-4 bg-white/10 hover:bg-white/20">
-            <div className="flex items-center gap-3">
-              <FaBell className="text-white text-lg animate-pulse" />
-              <span className="text-white text-xs">
-              {t("Notification")}
-              </span>
+          {/* Clean Info Cards */}
+          <div className="space-y-2">
+            <div className="border border-gray-600 rounded-lg p-3 bg-white/5">
+              <div className="flex items-center gap-3">
+                <FaBell className="text-white text-sm" />
+                <span className="text-white text-xs">
+                  {t("Notification")}
+                </span>
+              </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <FaClock className="text-white text-lg animate-spin" />
-              <span className="text-white text-xs">
-                {t("Time")}
-              </span>
+            <div className="border border-gray-600 rounded-lg p-3 bg-white/5">
+              <div className="flex items-center gap-3">
+                <FaClock className="text-white text-sm" />
+                <span className="text-white text-xs">
+                  {t("Time")}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="flex items-center gap-4 mt-8">
+        </motion.div>
+      </motion.div>
+
+      {/* Clean Weather Section */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        className="mt-6"
+      >
         <WeatherInfo />
-      </div>
-
-        {/* Exhibitions Section */}
-       
-
-        
-   
+      </motion.div>
     </div>
   );
 };

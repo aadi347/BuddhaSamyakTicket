@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { motion } from "framer-motion";
 import DateSelector from "./DateSelector";
 import { FaMinus, FaPlus, FaUser, FaPhone, FaEnvelope, FaGlobe, FaUsers, FaChild, FaClock, FaMapMarkerAlt, FaTicketAlt, FaStar, FaCamera, FaWifi, FaParking, FaRestroom } from "react-icons/fa";
@@ -7,6 +7,7 @@ import Ticket from "./Ticket";
 import TicketBookingDialog from "./TicketBookingDialog";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import CountrySelector from "./CountrySelector"; 
 
 const steps = ["Personal Info", "Booking Details", "Confirm"];
 
@@ -318,31 +319,11 @@ const TicketBookingForm = () => {
 
                         {/* Country and Email Row */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div>
-                            <label className="block text-sm font-semibold text-black mb-2">
-                              <FaGlobe className="inline mr-2 text-gray-600" />
-                              Country *
-                            </label>
-                            <input
-                              name="country"
-                              type="text"
-                              value={formData.country}
-                              onChange={handleChange}
-                              className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-0 focus:border-black transition-all duration-200 text-black placeholder-gray-400"
-                              placeholder="India"
-                              required
-                            />
-                            {formErrors.country && (
-                              <motion.p 
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-gray-300 text-sm mt-2 flex items-center gap-2"
-                              >
-                                <BiError className="text-base flex-shrink-0" />
-                                {formErrors.country}
-                              </motion.p>
-                            )}
-                          </div>
+                        <CountrySelector
+  value={formData.country}
+  onChange={(country) => setFormData(prev => ({ ...prev, country }))}
+  error={formErrors.country}
+/>
                           <div>
                             <label className="block text-sm font-semibold text-black mb-2">
                               <FaEnvelope className="inline mr-2 text-gray-600" />
