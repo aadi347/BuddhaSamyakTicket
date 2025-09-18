@@ -69,7 +69,26 @@
   "FooterPrivacy": "隐私政策",
   "FooterTerms": "服务条款",
 
-  "Copyright": "©️ 2025 比哈尔遗产发展委员会. 保留所有权利."
+  "Copyright": "©️ 2025 比哈尔遗产发展委员会. 保留所有权利.",
+
+
+    "Welcome": "欢迎来到佛陀正觉观博物馆",
+    "MuseumDescription": "通过精神展览和数字叙事，探索佛陀的和平遗产。",
+    "Explore": "探索更多",
+
+
+    "art&culture": "比哈尔邦艺术、文化和青年部",
+    "art&culture_description": "来自比哈尔邦艺术和文化部的诚挚问候。加入我们，一同踏上探索印度辉煌文化遗产的丰富旅程。",
+    "TicketBooking": "免费入场 – 在线预订",
+    "Notification": "博物馆的在线订票即将开始。",
+    "Time": "参观时间：上午9:00 – 下午5:00",
+
+    "WeatherHeading": "获取佛陀正觉观的最新天气更新",
+    "WeatherDescription": "佛陀正觉观博物馆位于毗舍离——一个以其丰富的文化遗产和多样的气候模式而闻名的地区。请查看当前天气，以便轻松舒适地规划您的参观。不论是在温暖的阳光下，还是在柔和的微风中，都能体验到自然与文化的美丽融合。",
+
+    "TravelPlanHeading": "规划您的参观",
+    "TravelPlanDescription": "享受特别活动、无限制参观展览和会员专属休息区，并在博物馆商店、咖啡馆及其他服务中享受专属折扣。",
+    "TravelPlanButton": "立即探索"
 }
 
 
