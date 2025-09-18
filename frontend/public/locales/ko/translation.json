@@ -86,5 +86,23 @@
 
     "TravelPlanHeading": "방문 계획하기",
     "TravelPlanDescription": "특별 행사에 참여하고 전시회를 무제한으로 관람하며, 회원 전용 라운지를 이용하세요. 또한 박물관 상점, 카페 및 기타 서비스에서 독점 할인을 누리실 수 있습니다.",
-    "TravelPlanButton": "지금 탐험하기"
+    "TravelPlanButton": "지금 탐험하기",
+
+    "VisitBannerHeading": "붓다 삼약 달샨 박물관 가는 길",
+    "VisitBannerDescription": "여기에 어떻게 오는지 궁금하신가요? 클릭하여 붓다 삼약 달샨 박물관으로 가는 최적의 경로를 확인하고 편리하게 여행을 계획하세요!",
+    "VisitBannerButton": "길 찾기",
+
+    "ExploreCollectionHeading": "소장품 탐험",
+    "ExploreCollectionViewAll": "모두 보기 →",
+    "Slides": [
+      { "title": "좌상 불상 - 사르나트", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZYBl8_WD_mWUjAXWlTHwyRmyF8lknHcGhw&s" },
+      { "title": "보살 관세음 (아발로키테슈바라)", "image": "https://cdn.britannica.com/57/133057-050-AC74BBA2/Avalokiteshvara-bodhisattva-compassion-Mount-Jiuhua-China-province.jpg" },
+      { "title": "아마라바티 대탑 패널", "image": "https://tricycle.org/wp-content/uploads/2025/06/Amaravati_Stupa_relief_at_Museum%E2%80%94-Amaravati-Maha-Stupa-relief-at-Museum-in-Chennai-India-scaled.jpg" },
+      { "title": "부처 탄생 - 간다라 양식", "image": "https://www.shutterstock.com/image-photo/osaka-japan-december-4-2023-260nw-2401947087.jpg" },
+      { "title": "불두 - 마투라", "image": "https://images.metmuseum.org/CRDImages/as/original/DP267831.jpg" },
+      { "title": "부처님의 초전법륜 - 사르나트", "image": "https://images.metmuseum.org/CRDImages/as/original/4%20DP314867r4_61A.jpg" }
+    ],
+
+    "ImgGridHeading": "비하르의 다른 박물관에서의 문화적 단편",
+    "ImgGridButton": "더 알아보기"
 }

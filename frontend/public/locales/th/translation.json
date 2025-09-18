@@ -89,5 +89,23 @@
 
     "TravelPlanHeading": "วางแผนการเยี่ยมชมของคุณ",
     "TravelPlanDescription": "เพลิดเพลินกับกิจกรรมพิเศษ เข้าถึงนิทรรศการได้ไม่จำกัด เข้าสู่เลานจ์สำหรับสมาชิกเท่านั้น และรับส่วนลดพิเศษที่ร้านค้า คาเฟ่ และบริการอื่น ๆ ของพิพิธภัณฑ์",
-    "TravelPlanButton": "สำรวจตอนนี้"
+    "TravelPlanButton": "สำรวจตอนนี้",
+
+    "VisitBannerHeading": "วิธีการเดินทางไปยังพิพิธภัณฑ์พุทธสัมยัคทัศน์",
+    "VisitBannerDescription": "สงสัยว่าจะมาที่นี่ได้อย่างไร? คลิกเพื่อค้นหาเส้นทางที่ดีที่สุดไปยังพิพิธภัณฑ์พุทธสัมยัคทัศน์ และวางแผนการเดินทางของคุณอย่างสะดวกสบาย!",
+    "VisitBannerButton": "ขอเส้นทาง",
+
+    "ExploreCollectionHeading": "สำรวจคอลเลกชัน",
+    "ExploreCollectionViewAll": "ดูทั้งหมด →",
+    "Slides": [
+      { "title": "พระพุทธเจ้านั่ง - สารนาถ", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZYBl8_WD_mWUjAXWlTHwyRmyF8lknHcGhw&s" },
+      { "title": "พระโพธิสัตว์อวโลกิเตศวร", "image": "https://cdn.britannica.com/57/133057-050-AC74BBA2/Avalokiteshvara-bodhisattva-compassion-Mount-Jiuhua-China-province.jpg" },
+      { "title": "แผงสถูปอมราวตี", "image": "https://tricycle.org/wp-content/uploads/2025/06/Amaravati_Stupa_relief_at_Museum%E2%80%94-Amaravati-Maha-Stupa-relief-at-Museum-in-Chennai-India-scaled.jpg" },
+      { "title": "ประสูติของพระพุทธเจ้า - ศิลปะคันธาระ", "image": "https://www.shutterstock.com/image-photo/osaka-japan-december-4-2023-260nw-2401947087.jpg" },
+      { "title": "เศียรพระพุทธเจ้า - มถุรา", "image": "https://images.metmuseum.org/CRDImages/as/original/DP267831.jpg" },
+      { "title": "ปฐมเทศนา - สารนาถ", "image": "https://images.metmuseum.org/CRDImages/as/original/4%20DP314867r4_61A.jpg" }
+    ],
+
+    "ImgGridHeading": "แง่มุมทางวัฒนธรรมของพิพิธภัณฑ์อื่น ๆ ในพิหาร",
+    "ImgGridButton": "เรียนรู้เพิ่มเติม"
 }

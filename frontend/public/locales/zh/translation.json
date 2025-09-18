@@ -88,7 +88,25 @@
 
     "TravelPlanHeading": "规划您的参观",
     "TravelPlanDescription": "享受特别活动、无限制参观展览和会员专属休息区，并在博物馆商店、咖啡馆及其他服务中享受专属折扣。",
-    "TravelPlanButton": "立即探索"
+    "TravelPlanButton": "立即探索",
+
+    "VisitBannerHeading": "如何前往佛陀正觉观博物馆",
+    "VisitBannerDescription": "想知道如何到达这里吗？点击查看前往佛陀正觉观博物馆的最佳路线，轻松规划您的行程！",
+    "VisitBannerButton": "获取路线",
+
+    "ExploreCollectionHeading": "探索馆藏",
+    "ExploreCollectionViewAll": "查看全部 →",
+    "Slides": [
+      { "title": "坐佛 - 鹿野苑", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZYBl8_WD_mWUjAXWlTHwyRmyF8lknHcGhw&s" },
+      { "title": "观世音菩萨", "image": "https://cdn.britannica.com/57/133057-050-AC74BBA2/Avalokiteshvara-bodhisattva-compassion-Mount-Jiuhua-China-province.jpg" },
+      { "title": "阿摩罗伐底佛塔浮雕", "image": "https://tricycle.org/wp-content/uploads/2025/06/Amaravati_Stupa_relief_at_Museum%E2%80%94-Amaravati-Maha-Stupa-relief-at-Museum-in-Chennai-India-scaled.jpg" },
+      { "title": "佛陀诞生 - 犍陀罗风格", "image": "https://www.shutterstock.com/image-photo/osaka-japan-december-4-2023-260nw-2401947087.jpg" },
+      { "title": "佛头像 - 摩偷罗", "image": "https://images.metmuseum.org/CRDImages/as/original/DP267831.jpg" },
+      { "title": "佛陀初转法轮 - 鹿野苑", "image": "https://images.metmuseum.org/CRDImages/as/original/4%20DP314867r4_61A.jpg" }
+    ],
+
+    "ImgGridHeading": "比哈尔邦其他博物馆的文化掠影",
+    "ImgGridButton": "了解更多"
 }
 
 

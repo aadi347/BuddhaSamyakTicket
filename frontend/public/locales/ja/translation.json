@@ -87,5 +87,23 @@
 
     "TravelPlanHeading": "ご訪問の計画",
     "TravelPlanDescription": "特別イベントを楽しみ、展示会や会員専用ラウンジへの無制限アクセス、さらにミュージアムショップやカフェ、その他のサービスでの限定割引をご利用ください。",
-    "TravelPlanButton": "今すぐ探検"
+    "TravelPlanButton": "今すぐ探検",
+
+    "VisitBannerHeading": "仏陀三昧観博物館への行き方",
+    "VisitBannerDescription": "ここへの行き方に迷っていますか？クリックして仏陀三昧観博物館への最適なルートを見つけ、快適に旅を計画しましょう！",
+    "VisitBannerButton": "行き方を見る",
+
+    "ExploreCollectionHeading": "コレクションを探検",
+    "ExploreCollectionViewAll": "すべて見る →",
+    "Slides": [
+      { "title": "座像仏陀 - サールナート", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZYBl8_WD_mWUjAXWlTHwyRmyF8lknHcGhw&s" },
+      { "title": "菩薩観音（アヴァローキテーシュヴァラ）", "image": "https://cdn.britannica.com/57/133057-050-AC74BBA2/Avalokiteshvara-bodhisattva-compassion-Mount-Jiuhua-China-province.jpg" },
+      { "title": "アマラーヴァティー大塔パネル", "image": "https://tricycle.org/wp-content/uploads/2025/06/Amaravati_Stupa_relief_at_Museum%E2%80%94-Amaravati-Maha-Stupa-relief-at-Museum-in-Chennai-India-scaled.jpg" },
+      { "title": "仏陀の誕生 - ガンダーラ様式", "image": "https://www.shutterstock.com/image-photo/osaka-japan-december-4-2023-260nw-2401947087.jpg" },
+      { "title": "仏頭 - マトゥラー", "image": "https://images.metmuseum.org/CRDImages/as/original/DP267831.jpg" },
+      { "title": "仏陀の初転法輪 - サールナート", "image": "https://images.metmuseum.org/CRDImages/as/original/4%20DP314867r4_61A.jpg" }
+    ],
+
+    "ImgGridHeading": "ビハール州の他の博物館の文化的な一端",
+    "ImgGridButton": "もっと詳しく"
 }
