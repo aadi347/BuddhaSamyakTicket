@@ -277,6 +277,28 @@
   "shortestRoute": "좋은 도로 상태의 가장 짧은 경로",
   "scenicRoute": "시골 비하르를 통과하는 경치 좋은 경로",
   "freeParkingMuseum": "박물관 무료 주차",
-  "directAccess": "직접 접근"
+  "directAccess": "직접 접근",
+
+
+  "privacyPolicy": "개인정보 보호정책",
+  "effectiveDate": "시행일: 2025년 9월 19일",
+  "lastUpdated": "최종 업데이트: 2025년 9월 19일",
+  "whoWeAre": "우리는 누구인가",
+  "whatWeCollect": "수집하는 정보",
+  "howWeCollect": "수집 방법",
+  "whyWeUse": "데이터 사용 목적",
+  "legalBases": "처리의 법적 근거",
+  "communications": "통신 및 마케팅",
+  "sharingInfo": "정보 공유",
+  "internationalTransfers": "국제 전송",
+  "dataRetention": "데이터 보관",
+  "securityMeasures": "보안 조치",
+  "yourRights": "귀하의 권리",
+  "cookiesTracking": "쿠키 및 추적",
+  "childrensData": "아동 데이터",
+  "dataAccuracy": "데이터 정확성",
+  "thirdPartyLinks": "제3자 링크",
+  "changesToPolicy": "정책 변경",
+  "contact": "연락처"
 
 }

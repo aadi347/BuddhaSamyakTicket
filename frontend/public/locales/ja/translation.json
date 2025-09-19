@@ -277,5 +277,27 @@
   "shortestRoute": "良好な道路状況の最短ルート",
   "scenicRoute": "農村ビハールを通る風景の良いルート",
   "freeParkingMuseum": "博物館無料駐車場",
-  "directAccess": "直接アクセス"
+  "directAccess": "直接アクセス",
+
+
+  "privacyPolicy": "プライバシーポリシー",
+  "effectiveDate": "発効日：2025年9月19日",
+  "lastUpdated": "最終更新：2025年9月19日",
+  "whoWeAre": "私たちについて",
+  "whatWeCollect": "収集する情報",
+  "howWeCollect": "収集方法",
+  "whyWeUse": "データ使用目的",
+  "legalBases": "処理の法的根拠",
+  "communications": "通信とマーケティング",
+  "sharingInfo": "情報の共有",
+  "internationalTransfers": "国際転送",
+  "dataRetention": "データ保持",
+  "securityMeasures": "セキュリティ対策",
+  "yourRights": "あなたの権利",
+  "cookiesTracking": "クッキーと追跡",
+  "childrensData": "児童データ",
+  "dataAccuracy": "データの正確性",
+  "thirdPartyLinks": "第三者リンク",
+  "changesToPolicy": "ポリシーの変更",
+  "contact": "連絡先"
 }

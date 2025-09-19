@@ -280,5 +280,27 @@
   "shortestRoute": "เส้นทางสั้นที่สุดด้วยสภาพถนนดี",
   "scenicRoute": "เส้นทางงดงามผ่านชนบทบิฮาร์",
   "freeParkingMuseum": "จอดรถฟรีที่พิพิธภัณฑ์",
-  "directAccess": "เข้าถึงโดยตรง"
+  "directAccess": "เข้าถึงโดยตรง",
+
+
+  "privacyPolicy": "นโยบายความเป็นส่วนตัว",
+  "effectiveDate": "วันที่มีผลบังคับใช้: 19/09/2025",
+  "lastUpdated": "อัปเดตล่าสุด: 19/09/2025",
+  "whoWeAre": "เราคือใคร",
+  "whatWeCollect": "ข้อมูลที่เราเก็บรวบรวม",
+  "howWeCollect": "วิธีการเก็บรวบรวม",
+  "whyWeUse": "วัตถุประสงค์การใช้ข้อมูล",
+  "legalBases": "ฐานทางกฎหมายสำหรับการประมวลผล",
+  "communications": "การสื่อสารและการตลาด",
+  "sharingInfo": "การแบ่งปันข้อมูล",
+  "internationalTransfers": "การถ่ายโอนข้ามชาติ",
+  "dataRetention": "การเก็บรักษาข้อมูล",
+  "securityMeasures": "มาตรการความปลอดภัย",
+  "yourRights": "สิทธิของคุณ",
+  "cookiesTracking": "คุกกี้และการติดตาม",
+  "childrensData": "ข้อมูลเด็ก",
+  "dataAccuracy": "ความถูกต้องของข้อมูล",
+  "thirdPartyLinks": "ลิงก์บุคคลที่สาม",
+  "changesToPolicy": "การเปลี่ยนแปลงนโยบาย",
+  "contact": "ติดต่อ"
 }

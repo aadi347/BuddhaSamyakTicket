@@ -69,7 +69,7 @@ const Home = () => {
     {t("MuseumDescription")}
   </p>
   
-  <Link to="/about-museum">
+  <Link to="/gallery">
     <button
       style={{ fontFamily: '"Playfair Display", serif' }}
       className="text-sm font-semibold px-5 py-2 border-2 border-black bg-black text-white transition-all duration-300 group-hover:bg-white group-hover:text-black"

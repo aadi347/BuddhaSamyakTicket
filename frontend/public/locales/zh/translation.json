@@ -280,7 +280,29 @@
   "shortestRoute": "道路状况良好的最短路线",
   "scenicRoute": "穿越比哈尔乡村的风景路线",
   "freeParkingMuseum": "博物馆免费停车",
-  "directAccess": "直接到达"
+  "directAccess": "直接到达",
+
+
+  "privacyPolicy": "隐私政策",
+  "effectiveDate": "生效日期：2025年9月19日",
+  "lastUpdated": "最后更新：2025年9月19日",
+  "whoWeAre": "我们是谁",
+  "whatWeCollect": "我们收集的信息",
+  "howWeCollect": "收集方式",
+  "whyWeUse": "数据使用目的",
+  "legalBases": "处理的法律依据",
+  "communications": "通信和营销",
+  "sharingInfo": "信息共享",
+  "internationalTransfers": "国际传输",
+  "dataRetention": "数据保留",
+  "securityMeasures": "安全措施",
+  "yourRights": "您的权利",
+  "cookiesTracking": "Cookie和跟踪",
+  "childrensData": "儿童数据",
+  "dataAccuracy": "数据准确性",
+  "thirdPartyLinks": "第三方链接",
+  "changesToPolicy": "政策变更",
+  "contact": "联系方式"
 }
 
 
