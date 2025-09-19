@@ -82,7 +82,7 @@ const DevelopersTeam = () => {
         {
             name: "Nishant Shekhar",
             role: t("founderRole"),
-            image: "https://media.licdn.com/dms/image/v2/D4D03AQFUD3EMJW-SMQ/profile-displayphoto-shrink_800_800/B4DZR_Z.U3HkAg-/0/1737304303571?e=1756944000&v=beta&t=bFiTipJE7Rq-2OMORmJH9IAqylsUMKxXHT0PZiPWZb0",
+            image: "https://res.cloudinary.com/dgra109xv/image/upload/v1758271292/nishant_psukr0.jpg",
             show: true,
             linkedin: "https://www.linkedin.com/in/nishantshekhar28/",
             technologies: "React, Node.js, Prisma, AWS",
@@ -93,35 +93,29 @@ const DevelopersTeam = () => {
         {
             name: "Aditya Kumar",
             role: t("reactDeveloper"),
-            image: "https://media.licdn.com/dms/image/v2/D5603AQEk-OM0mDJnkQ/profile-displayphoto-shrink_800_800/B56ZZojkV5GQAg-/0/1745510877242?e=1756944000&v=beta&t=4ZABLuHS9BhvbqxDV24SkvoF582YsTDpaHZBbjipRVk",
+            image: "https://res.cloudinary.com/dgra109xv/image/upload/v1758271291/adit_s8ojuk.jpg",
             linkedin: "https://www.linkedin.com/in/aditya-kumar-780709320/",
-            technologies: "React.js, Tailwind CSS",
-        },
-        {
-            name: "Abhishek Anand",
-            role: t("reactDeveloper"),
-            image: "https://media.licdn.com/dms/image/v2/D4D03AQHgdEA3WVAhNQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1692214950711?e=1756944000&v=beta&t=cA1mD5SfL621lRJfiQfERfctlZ5Oe-vlEd4kboUpsfc",
-            linkedin: "https://www.linkedin.com/in/abhishek-anand-094799251/",
             technologies: "React.js, Tailwind CSS",
         },
         {
             name: "Manish Kumar",
             role: t("frontendDeveloper"),
-            image: "https://media.licdn.com/dms/image/v2/D5603AQExFwrFWBhafA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1702654018781?e=1756944000&v=beta&t=C_ZBWisy8caZQWdpNPGSStPCOA8G9d2_YFV34UDfTvA",
+            image: "https://res.cloudinary.com/dgra109xv/image/upload/v1758271293/manish_ifhf4t.jpg",
             linkedin: "https://www.linkedin.com/in/manish-kumar-b158b4252/",
             technologies: "React.js, Tailwind CSS",
         },
         {
-            name: "Pranav Kumar",
-            role: t("frontendDeveloper"),
-            image: "https://thumbs.dreamstime.com/b/generative-ai-young-smiling-man-avatar-man-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-d-vector-people-279560903.jpg",
-            linkedin: "https://www.linkedin.com/in/pranav-kumar-27723a295/",
+            name: "Abhishek Anand",
+            role: t("reactDeveloper"),
+            image: "https://res.cloudinary.com/dgra109xv/image/upload/v1758271292/anand_bktdar.jpg",
+            linkedin: "https://www.linkedin.com/in/abhishek-anand-094799251/",
             technologies: "React.js, Tailwind CSS",
         },
+
         {
             name: "Abhinav Kumar",
             role: t("artificialIntelligence"),
-            image: "https://media.licdn.com/dms/image/v2/D4D03AQGAsH23Z7DMdw/profile-displayphoto-shrink_800_800/B4DZRoT6LpHkAg-/0/1736916838539?e=1756944000&v=beta&t=b67RXeIbI1mCwMWmwnJQJsFnjVFpzkT7yzJamN_umTk",
+            image: "https://res.cloudinary.com/dgra109xv/image/upload/v1758271292/abhinav_ovihtm.jpg",
             linkedin: "https://www.linkedin.com/in/abhinab-kumar-546753279/",
             technologies: "Python, LLMs",
         }
@@ -239,7 +233,7 @@ const DevelopersTeam = () => {
                     </div>
 
                     {/* Compact Team Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {teamhead.map((member, index) => (
                             <PersonProfileCard
                                 key={index}
