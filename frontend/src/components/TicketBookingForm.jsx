@@ -303,9 +303,25 @@ const TicketBookingForm = () => {
                                                         name="phone"
                                                         type="tel"
                                                         value={formData.phone}
-                                                        onChange={handleChange}
+                                                        onChange={(e) => {
+                                                            // Only allow digits and limit to 10 characters
+                                                            const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                                                            handleChange({
+                                                                target: {
+                                                                    name: 'phone',
+                                                                    value: value
+                                                                }
+                                                            });
+                                                        }}
+                                                        onKeyPress={(e) => {
+                                                            // Prevent non-numeric input
+                                                            if (!/[0-9]/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete' && e.key !== 'Tab') {
+                                                                e.preventDefault();
+                                                            }
+                                                        }}
                                                         className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-0 focus:border-black transition-all duration-200 text-black placeholder-gray-400"
                                                         placeholder={t("phoneNumberPlaceholder")}
+                                                        maxLength={10}
                                                         required
                                                     />
                                                     {formErrors.phone && (
@@ -451,7 +467,7 @@ const TicketBookingForm = () => {
                                                             {
                                                                 id: "radio_1",
                                                                 label: t("morningSlot"),
-                                                                value: "9:00 AM - 01:00 PM",
+                                                                value: "10:00 AM - 01:00 PM",
                                                                 icon: "🌅"
                                                             },
                                                             {
