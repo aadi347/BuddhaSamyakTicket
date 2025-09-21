@@ -2,13 +2,15 @@ import React, { useState, useEffect} from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from 'react-i18next';
 import DateSelector from "./DateSelector";
-import { FaMinus, FaPlus, FaUser, FaPhone, FaEnvelope, FaGlobe, FaUsers, FaChild, FaClock, FaMapMarkerAlt, FaTicketAlt, FaStar, FaCamera, FaWifi, FaParking, FaRestroom } from "react-icons/fa";
+import { Upload, Minus, Plus, User, Phone, Mail, Globe, Users, Baby, Clock, MapPin, Star, Camera, Wifi, Car, Building, Sun, Sunset } from "lucide-react";
 import { BiError, BiInfoCircle } from "react-icons/bi";
 import Ticket from "./Ticket";
 import TicketBookingDialog from "./TicketBookingDialog";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CountrySelector from "./CountrySelector";
+import { FaTicket } from "react-icons/fa6";
+
 
 const TicketBookingForm = () => {
     const { t } = useTranslation();
@@ -27,21 +29,96 @@ const TicketBookingForm = () => {
         children: "0",
         country: "",
         email: "",
+        ticketType: "individual", // individual or group
+        isStudent: false,
+        preIntentLetter: null,
+        groupSize: "1"
     });
+
+    // Check if user is a foreign national (not from India)
+    const isForeignNational = () => {
+        return formData.country && formData.country.toLowerCase() !== 'india';
+    };
+
+    // Enhanced ticket price calculation logic
+    const calculateTicketPrice = () => {
+        const adults = parseInt(formData.adults) || 0;
+        const children = parseInt(formData.children) || 0;
+        const isForeign = isForeignNational();
+
+        let totalPrice = 0;
+
+        // For now, all tickets are free as requested
+        if (formData.ticketType === "group") {
+            // Group tickets are free for now
+            totalPrice = 0;
+        } else {
+            // Individual tickets are free for now
+            totalPrice = 0;
+        }
+
+        // Student group tickets with pre-intent letter are always free
+        if (formData.isStudent && formData.preIntentLetter && formData.ticketType === "group") {
+            totalPrice = 0;
+        }
+
+        return totalPrice;
+    };
+
+    // Get ticket type display information
+    const getTicketTypeInfo = () => {
+        if (formData.ticketType === "group") {
+            return {
+                type: "Group Ticket",
+                maxPersons: 250,
+                price: 0 // Free for now
+            };
+        } else {
+            const adults = parseInt(formData.adults) || 0;
+            const children = parseInt(formData.children) || 0;
+            const isForeign = isForeignNational();
+
+            return {
+                type: "Individual Tickets",
+                adults: adults,
+                children: children,
+                isForeign: isForeign,
+                price: 0 // Free for now
+            };
+        }
+    };
 
     const validateStep = () => {
         const errors = {};
 
         if (step === 0) {
             if (!formData.fullName.trim()) errors.fullName = t("fullNameRequiredError");
-            if (!formData.phone.trim() || !/^\d{10,}$/.test(formData.phone))
-                errors.phone = t("phoneNumberError");
+            // Phone is now optional - removed validation
             if (!formData.country.trim()) errors.country = t("countryRequiredError");
+            // Email is now mandatory
             if (
                 !formData.email.trim() ||
                 !/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(formData.email)
             )
                 errors.email = t("emailRequiredError");
+
+            // Validate ticket type specific fields
+            if (formData.ticketType === "group") {
+                const groupSize = parseInt(formData.groupSize) || 0;
+                if (groupSize < 1 || groupSize > 250) {
+                    errors.groupSize = "Group size must be between 1 and 250 people";
+                }
+                // If student group, pre-intent letter is required for free tickets
+                if (formData.isStudent && !formData.preIntentLetter) {
+                    errors.preIntentLetter = "Pre-intent letter is required for student group tickets";
+                }
+            } else {
+                // For individual tickets, at least one person must be selected
+                const totalPersons = (parseInt(formData.adults) || 0) + (parseInt(formData.children) || 0);
+                if (totalPersons < 1) {
+                    errors.visitors = "Please select at least one visitor";
+                }
+            }
         }
 
         if (step === 1) {
@@ -76,7 +153,18 @@ const TicketBookingForm = () => {
             setFormData((prev) => ({
                 ...prev,
                 [name]:
-                    name === "adults" || name === "children" ? Number(value) : value,
+                    name === "adults" || name === "children" || name === "groupSize"
+                        ? Number(value) : value,
+            }));
+        }
+    };
+
+    const handleFileUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setFormData(prev => ({
+                ...prev,
+                preIntentLetter: file
             }));
         }
     };
@@ -119,7 +207,7 @@ const TicketBookingForm = () => {
                             >
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                                        <FaClock className="w-5 h-5 text-gray-700" />
+                                        <Clock className="w-5 h-5 text-gray-700" />
                                     </div>
                                     <h3 className="font-semibold text-black">{t("openingHours")}</h3>
                                 </div>
@@ -135,7 +223,7 @@ const TicketBookingForm = () => {
                                 </div>
                             </motion.div>
 
-                            {/* Ticket Prices */}
+                            {/* Updated Ticket Prices Widget */}
                             <motion.div
                                 initial={{ opacity: 0, x: -20 }}
                                 animate={{ opacity: 1, x: 0 }}
@@ -144,23 +232,44 @@ const TicketBookingForm = () => {
                             >
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                                        <FaTicketAlt className="w-5 h-5 text-gray-700" />
+                                        <FaTicket />
+
                                     </div>
                                     <h3 className="font-semibold text-black">{t("ticketPrices")}</h3>
                                 </div>
                                 <div className="space-y-3 text-sm">
+                                    {/* Current Status Banner */}
+                                    <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
+                                        <div className="flex items-center gap-2">
+                                            <Star className="w-4 h-4 text-green-600" />
+                                            <span className="text-green-600 font-semibold">FREE ENTRY</span>
+                                        </div>
+                                        <p className="text-green-700 text-xs mt-1">All tickets are currently free!</p>
+                                    </div>
+
+                                    {/* Regular Pricing (for reference) */}
+                                    <div className="text-xs text-gray-500 mb-2">Regular Pricing (Currently Free):</div>
                                     <div className="flex justify-between">
-                                        <span className="text-gray-600">{t("adult")}</span>
-                                        <span className="font-medium text-black">₹100</span>
+                                        <span className="text-gray-600">Adults (13+ years)</span>
+                                        <span className="font-medium text-gray-500 line-through">₹50</span>
                                     </div>
                                     <div className="flex justify-between border-t border-gray-200 pt-3">
-                                        <span className="text-gray-600">{t("child512")}</span>
-                                        <span className="font-medium text-black">₹50</span>
+                                        <span className="text-gray-600">Children (5-12 years)</span>
+                                        <span className="font-medium text-gray-500 line-through">₹25</span>
                                     </div>
                                     <div className="flex justify-between border-t border-gray-200 pt-3">
-                                        <span className="text-gray-600">{t("student")}</span>
-                                        <span className="font-medium text-black">₹75</span>
+                                        <span className="text-gray-600">Foreign Nationals</span>
+                                        <span className="font-medium text-gray-500 line-through">₹250</span>
                                     </div>
+                                    <div className="flex justify-between border-t border-gray-200 pt-3">
+                                        <span className="text-gray-600">Group Ticket (up to 250)</span>
+                                        <span className="font-medium text-green-600">FREE</span>
+                                    </div>
+                                    <div className="flex justify-between border-t border-gray-200 pt-3">
+                                        <span className="text-gray-600">Student Groups*</span>
+                                        <span className="font-medium text-green-600">FREE</span>
+                                    </div>
+                                    <p className="text-xs text-gray-500 mt-2">*With pre-intent letter</p>
                                 </div>
                             </motion.div>
 
@@ -179,19 +288,19 @@ const TicketBookingForm = () => {
                                 </div>
                                 <div className="grid grid-cols-2 gap-3 text-sm">
                                     <div className="flex items-center gap-2 text-gray-600">
-                                        <FaWifi className="w-3 h-3" />
+                                        <Wifi className="w-3 h-3" />
                                         <span>{t("freeWifi")}</span>
                                     </div>
                                     <div className="flex items-center gap-2 text-gray-600">
-                                        <FaParking className="w-3 h-3" />
+                                        <Car className="w-3 h-3" />
                                         <span>{t("parking")}</span>
                                     </div>
                                     <div className="flex items-center gap-2 text-gray-600">
-                                        <FaRestroom className="w-3 h-3" />
+                                        <Building className="w-3 h-3" />
                                         <span>{t("restrooms")}</span>
                                     </div>
                                     <div className="flex items-center gap-2 text-gray-600">
-                                        <FaCamera className="w-3 h-3" />
+                                        <Camera className="w-3 h-3" />
                                         <span>{t("photoZone")}</span>
                                     </div>
                                 </div>
@@ -269,7 +378,7 @@ const TicketBookingForm = () => {
                                                 {/* Full Name */}
                                                 <div>
                                                     <label className="block text-sm font-semibold text-black mb-2">
-                                                        <FaUser className="inline mr-2 text-gray-600" />
+                                                        <User className="inline mr-2 w-4 h-4 text-gray-600" />
                                                         {t("fullNameRequired")}
                                                     </label>
                                                     <input
@@ -293,11 +402,11 @@ const TicketBookingForm = () => {
                                                     )}
                                                 </div>
 
-                                                {/* Phone */}
+                                                {/* Phone (now optional) */}
                                                 <div>
                                                     <label className="block text-sm font-semibold text-black mb-2">
-                                                        <FaPhone className="inline mr-2 text-gray-600" />
-                                                        {t("phoneNumberRequired")}
+                                                        <Phone className="inline mr-2 w-4 h-4 text-gray-600" />
+                                                        Phone Number (Optional)
                                                     </label>
                                                     <input
                                                         name="phone"
@@ -322,18 +431,7 @@ const TicketBookingForm = () => {
                                                         className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-0 focus:border-black transition-all duration-200 text-black placeholder-gray-400"
                                                         placeholder={t("phoneNumberPlaceholder")}
                                                         maxLength={10}
-                                                        required
                                                     />
-                                                    {formErrors.phone && (
-                                                        <motion.p
-                                                            initial={{ opacity: 0, y: -10 }}
-                                                            animate={{ opacity: 1, y: 0 }}
-                                                            className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-gray-300 text-sm mt-2 flex items-center gap-2"
-                                                        >
-                                                            <BiError className="text-base flex-shrink-0" />
-                                                            {formErrors.phone}
-                                                        </motion.p>
-                                                    )}
                                                 </div>
 
                                                 {/* Country and Email Row */}
@@ -345,8 +443,8 @@ const TicketBookingForm = () => {
                                                     />
                                                     <div>
                                                         <label className="block text-sm font-semibold text-black mb-2">
-                                                            <FaEnvelope className="inline mr-2 text-gray-600" />
-                                                            {t("emailAddressRequired")}
+                                                            <Mail className="inline mr-2 w-4 h-4 text-gray-600" />
+                                                            Email Address (Required)
                                                         </label>
                                                         <input
                                                             name="email"
@@ -370,65 +468,231 @@ const TicketBookingForm = () => {
                                                     </div>
                                                 </div>
 
-                                                {/* Visitor Count */}
+                                                {/* Foreign National Detection Alert */}
+                                                {isForeignNational() && (
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: -10 }}
+                                                        animate={{ opacity: 1, y: 0 }}
+                                                        className="bg-blue-50 border border-blue-200 rounded-lg p-4"
+                                                    >
+                                                        <div className="flex items-center gap-2">
+                                                            <Globe className="w-5 h-5 text-blue-600" />
+                                                            <span className="text-blue-800 font-semibold">Foreign National Detected</span>
+                                                        </div>
+                                                        <p className="text-blue-700 text-sm mt-1">
+                                                            You will be charged as a Foreign National. Regular price: ₹250 per person (Currently FREE)
+                                                        </p>
+                                                    </motion.div>
+                                                )}
+
+                                                {/* Ticket Type Selection */}
                                                 <div className="bg-gray-50 rounded-xl p-6 border border-gray-300">
-                                                    <h3 className="text-lg font-semibold text-black mb-4">{t("numberOfVisitors")}</h3>
-                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                                        {/* Adults Counter */}
-                                                        <div>
-                                                            <label className="block text-sm font-semibold text-gray-700 mb-3">
-                                                                <FaUsers className="inline mr-2 text-gray-600" />
-                                                                {t("adults")}
-                                                            </label>
-                                                            <div className="flex items-center bg-white border border-gray-300 rounded-xl overflow-hidden">
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={() => handleChange("adults", "dec")}
-                                                                    className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
-                                                                >
-                                                                    <FaMinus size={14} />
-                                                                </button>
-                                                                <div className="flex-1 px-4 py-3 text-center font-bold text-xl text-black bg-white">
-                                                                    {formData.adults}
+                                                    <h3 className="text-lg font-semibold text-black mb-4">Ticket Type</h3>
+                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                        <div className="relative">
+                                                            <input
+                                                                className="peer sr-only"
+                                                                id="individual"
+                                                                type="radio"
+                                                                name="ticketType"
+                                                                value="individual"
+                                                                checked={formData.ticketType === "individual"}
+                                                                onChange={handleChange}
+                                                            />
+                                                            <label
+                                                                htmlFor="individual"
+                                                                className="flex items-center justify-between w-full p-4 bg-white border border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50 peer-checked:border-black peer-checked:bg-gray-50 transition-all duration-200"
+                                                            >
+                                                                <div className="flex items-center gap-3">
+                                                                    <User className="w-5 h-5 text-gray-600" />
+                                                                    <div>
+                                                                        <span className="block font-semibold text-black">Individual Tickets</span>
+                                                                        <span className="block text-sm text-gray-600">For individual visitors</span>
+                                                                    </div>
                                                                 </div>
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={() => handleChange("adults", "inc")}
-                                                                    className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
-                                                                >
-                                                                    <FaPlus size={14} />
-                                                                </button>
-                                                            </div>
+                                                            </label>
                                                         </div>
 
-                                                        {/* Children Counter */}
-                                                        <div>
-                                                            <label className="block text-sm font-semibold text-gray-700 mb-3">
-                                                                <FaChild className="inline mr-2 text-gray-600" />
-                                                                {t("children")}
-                                                            </label>
-                                                            <div className="flex items-center bg-white border border-gray-300 rounded-xl overflow-hidden">
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={() => handleChange("children", "dec")}
-                                                                    className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
-                                                                >
-                                                                    <FaMinus size={14} />
-                                                                </button>
-                                                                <div className="flex-1 px-4 py-3 text-center font-bold text-xl text-black bg-white">
-                                                                    {formData.children}
+                                                        <div className="relative">
+                                                            <input
+                                                                className="peer sr-only"
+                                                                id="group"
+                                                                type="radio"
+                                                                name="ticketType"
+                                                                value="group"
+                                                                checked={formData.ticketType === "group"}
+                                                                onChange={handleChange}
+                                                            />
+                                                            <label
+                                                                htmlFor="group"
+                                                                className="flex items-center justify-between w-full p-4 bg-white border border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50 peer-checked:border-black peer-checked:bg-gray-50 transition-all duration-200"
+                                                            >
+                                                                <div className="flex items-center gap-3">
+                                                                    <Users className="w-5 h-5 text-gray-600" />
+                                                                    <div>
+                                                                        <span className="block font-semibold text-black">Group Ticket</span>
+                                                                        <span className="block text-sm text-gray-600">Up to 250 people</span>
+                                                                    </div>
                                                                 </div>
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={() => handleChange("children", "inc")}
-                                                                    className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
-                                                                >
-                                                                    <FaPlus size={14} />
-                                                                </button>
-                                                            </div>
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                {/* Individual Ticket Visitor Count */}
+                                                {formData.ticketType === "individual" && (
+                                                    <div className="bg-gray-50 rounded-xl p-6 border border-gray-300">
+                                                        <h3 className="text-lg font-semibold text-black mb-4">{t("numberOfVisitors")}</h3>
+                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                                            {/* Adults Counter */}
+                                                            <div>
+                                                                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                                                                    <Users className="inline mr-2 w-4 h-4 text-gray-600" />
+                                                                    {isForeignNational() ? "Adults (Foreign Nationals)" : "Adults (13+ years)"}
+                                                                </label>
+                                                                <div className="flex items-center bg-white border border-gray-300 rounded-xl overflow-hidden">
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => handleChange("adults", "dec")}
+                                                                        className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
+                                                                    >
+                                                                        <Minus size={14} />
+                                                                    </button>
+                                                                    <div className="flex-1 px-4 py-3 text-center font-bold text-xl text-black bg-white">
+                                                                        {formData.adults}
+                                                                    </div>
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => handleChange("adults", "inc")}
+                                                                        className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
+                                                                    >
+                                                                        <Plus size={14} />
+                                                                    </button>
+                                                                </div>
+                                                                {isForeignNational() && (
+                                                                    <p className="text-xs text-blue-600 mt-1">Foreign National rate applies</p>
+                                                                )}
+                                                            </div>
+
+                                                            {/* Children Counter */}
+                                                            <div>
+                                                                <label className="block text-sm font-semibold text-gray-700 mb-3">
+                                                                    <Baby className="inline mr-2 w-4 h-4 text-gray-600" />
+                                                                    {isForeignNational() ? "Children (Foreign Nationals)" : "Children (5-12 years)"}
+                                                                </label>
+                                                                <div className="flex items-center bg-white border border-gray-300 rounded-xl overflow-hidden">
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => handleChange("children", "dec")}
+                                                                        className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
+                                                                    >
+                                                                        <Minus size={14} />
+                                                                    </button>
+                                                                    <div className="flex-1 px-4 py-3 text-center font-bold text-xl text-black bg-white">
+                                                                        {formData.children}
+                                                                    </div>
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => handleChange("children", "inc")}
+                                                                        className="w-12 h-12 bg-gray-800 hover:bg-black text-white transition-colors duration-200 focus:outline-none flex items-center justify-center"
+                                                                    >
+                                                                        <Plus size={14} />
+                                                                    </button>
+                                                                </div>
+                                                                {isForeignNational() && (
+                                                                    <p className="text-xs text-blue-600 mt-1">Foreign National rate applies</p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                        {formErrors.visitors && (
+                                                            <motion.p
+                                                                initial={{ opacity: 0, y: -10 }}
+                                                                animate={{ opacity: 1, y: 0 }}
+                                                                className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-gray-300 text-sm mt-2 flex items-center gap-2"
+                                                            >
+                                                                <BiError className="text-base flex-shrink-0" />
+                                                                {formErrors.visitors}
+                                                            </motion.p>
+                                                        )}
+                                                    </div>
+                                                )}
+
+                                                {/* Group Ticket Configuration */}
+                                                {formData.ticketType === "group" && (
+                                                    <div className="bg-gray-50 rounded-xl p-6 border border-gray-300">
+                                                        <h3 className="text-lg font-semibold text-black mb-4">Group Details</h3>
+
+                                                        {/* Group Size */}
+                                                        <div className="mb-4">
+                                                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                                                <Users className="inline mr-2 w-4 h-4 text-gray-600" />
+                                                                Group Size (Max 250 people)
+                                                            </label>
+                                                            <input
+                                                                name="groupSize"
+                                                                type="number"
+                                                                min="1"
+                                                                max="250"
+                                                                value={formData.groupSize}
+                                                                onChange={handleChange}
+                                                                className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-0 focus:border-black transition-all duration-200 text-black placeholder-gray-400"
+                                                                placeholder="Enter group size"
+                                                            />
+                                                            {formErrors.groupSize && (
+                                                                <motion.p
+                                                                    initial={{ opacity: 0, y: -10 }}
+                                                                    animate={{ opacity: 1, y: 0 }}
+                                                                    className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-gray-300 text-sm mt-2 flex items-center gap-2"
+                                                                >
+                                                                    <BiError className="text-base flex-shrink-0" />
+                                                                    {formErrors.groupSize}
+                                                                </motion.p>
+                                                            )}
+                                                        </div>
+
+                                                        {/* Student Group Checkbox */}
+                                                        <div className="mb-4">
+                                                            <label className="flex items-center gap-3 cursor-pointer">
+                                                                <input
+                                                                    type="checkbox"
+                                                                    checked={formData.isStudent}
+                                                                    onChange={(e) => setFormData(prev => ({ ...prev, isStudent: e.target.checked }))}
+                                                                    className="w-4 h-4 text-black border-gray-300 rounded focus:ring-black"
+                                                                />
+                                                                <span className="text-sm font-medium text-gray-700">This is a student group</span>
+                                                            </label>
+                                                        </div>
+
+                                                        {/* Pre-intent Letter Upload for Student Groups */}
+                                                        {formData.isStudent && (
+                                                            <div>
+                                                                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                                                    <Upload className="inline mr-2 w-4 h-4 text-gray-600" />
+                                                                    Pre-Intent Letter (Required for free student group tickets)
+                                                                </label>
+                                                                <input
+                                                                    type="file"
+                                                                    onChange={handleFileUpload}
+                                                                    accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                                                                    className="w-full px-4 py-3.5 border border-gray-300 rounded-xl focus:ring-0 focus:border-black transition-all duration-200 text-black bg-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:bg-gray-100 file:text-gray-700 hover:file:bg-gray-200"
+                                                                />
+                                                                {formData.preIntentLetter && (
+                                                                    <p className="text-sm text-green-600 mt-2">✓ File uploaded: {formData.preIntentLetter.name}</p>
+                                                                )}
+                                                                {formErrors.preIntentLetter && (
+                                                                    <motion.p
+                                                                        initial={{ opacity: 0, y: -10 }}
+                                                                        animate={{ opacity: 1, y: 0 }}
+                                                                        className="text-red-600 bg-red-50 py-2 px-3 rounded-lg border border-gray-300 text-sm mt-2 flex items-center gap-2"
+                                                                    >
+                                                                        <BiError className="text-base flex-shrink-0" />
+                                                                        {formErrors.preIntentLetter}
+                                                                    </motion.p>
+                                                                )}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
                                             </motion.div>
                                         )}
 
@@ -468,15 +732,15 @@ const TicketBookingForm = () => {
                                                                 id: "radio_1",
                                                                 label: t("morningSlot"),
                                                                 value: "10:00 AM - 01:00 PM",
-                                                                icon: "🌅"
+                                                                icon: Sun
                                                             },
                                                             {
                                                                 id: "radio_2",
                                                                 label: t("afternoonSlot"),
                                                                 value: "01:00 PM - 05:00 PM",
-                                                                icon: "🌇"
+                                                                icon: Sunset
                                                             },
-                                                        ].map(({ id, label, value, icon }) => (
+                                                        ].map(({ id, label, value, icon: IconComponent }) => (
                                                             <div key={id} className="relative">
                                                                 <input
                                                                     className="peer sr-only"
@@ -492,7 +756,7 @@ const TicketBookingForm = () => {
                                                                     className="flex items-center justify-between w-full p-5 bg-white border border-gray-300 rounded-xl cursor-pointer hover:bg-gray-50 peer-checked:border-black peer-checked:bg-gray-50 transition-all duration-200"
                                                                 >
                                                                     <div className="flex items-center gap-3">
-                                                                        <span className="text-2xl">{icon}</span>
+                                                                        <IconComponent className="w-6 h-6 text-orange-500" />
                                                                         <div>
                                                                             <span className="block font-semibold text-black">{label}</span>
                                                                             <span className="block text-sm text-gray-600">{value}</span>
@@ -577,7 +841,65 @@ const TicketBookingForm = () => {
 
                         {/* Right Sidebar */}
                         <div className="lg:col-span-3 space-y-6">
+                            {/* Current Booking Summary */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                className="bg-white rounded-xl border border-gray-300 p-6"
+                            >
+                                <h3 className="font-semibold text-black mb-4">Booking Summary</h3>
+                                <div className="space-y-3 text-sm">
+                                    {/* Nationality Status */}
+                                    <div className="flex justify-between">
+                                        <span className="text-gray-600">Visitor Type:</span>
+                                        <span className={`font-medium ${isForeignNational() ? 'text-blue-600' : 'text-black'}`}>
+                                            {isForeignNational() ? 'Foreign National' : 'Domestic'}
+                                        </span>
+                                    </div>
 
+                                    {formData.ticketType === "group" ? (
+                                        <>
+                                            <div className="flex justify-between">
+                                                <span className="text-gray-600">Ticket Type:</span>
+                                                <span className="font-medium text-black">Group Ticket</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <span className="text-gray-600">Group Size:</span>
+                                                <span className="font-medium text-black">{formData.groupSize} people</span>
+                                            </div>
+                                            {formData.isStudent && (
+                                                <div className="flex justify-between">
+                                                    <span className="text-gray-600">Student Group:</span>
+                                                    <span className="font-medium text-green-600">Yes</span>
+                                                </div>
+                                            )}
+                                        </>
+                                    ) : (
+                                        <>
+                                            <div className="flex justify-between">
+                                                <span className="text-gray-600">Adults:</span>
+                                                <span className="font-medium text-black">{formData.adults}</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <span className="text-gray-600">Children:</span>
+                                                <span className="font-medium text-black">{formData.children}</span>
+                                            </div>
+                                            {isForeignNational() && (
+                                                <div className="flex justify-between">
+                                                    <span className="text-gray-600">Rate Applied:</span>
+                                                    <span className="font-medium text-blue-600">Foreign National</span>
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
+                                    <div className="border-t border-gray-200 pt-3">
+                                        <div className="flex justify-between">
+                                            <span className="text-gray-600">Total Price:</span>
+                                            <span className="font-bold text-green-600 text-lg">FREE</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
