@@ -163,7 +163,6 @@ const PrivacyPolicy = () => {
                                     title="Booking Information"
                                     items={[
                                         t("date"),
-                                        t("sessionType"),
                                         t("adults_privacy"),
                                         t("children_privacy")
                                     ]}

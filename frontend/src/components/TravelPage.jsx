@@ -5,9 +5,9 @@ import {
     FaTrain,
     FaMapMarkerAlt,
     FaClock,
-    FaMoneyBillWave,
     FaInfoCircle,
-    FaDirections
+    FaDirections,
+    FaRoute
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from 'react-i18next';
@@ -23,16 +23,14 @@ const TravelPage = () => {
             title: t("byAir"),
             icon: <FaPlane className="w-5 h-5" />,
             mainHub: "Patna Airport (PAT)",
-            distance: "55 km",
-            duration: "1 hour",
-            costRange: "₹800-1200 (taxi)",
+            distance: "55 km from museum",
+            duration: "1 hour to museum",
             description: t("airDescription"),
             routes: [
                 {
                     from: t("newDelhi"),
                     duration: "2h 15m",
                     frequency: t("daily"),
-                    cost: "₹4,500-9,000",
                     airlines: "IndiGo, Air India, SpiceJet",
                     bookingTip: t("multipleDailyFlights")
                 },
@@ -40,7 +38,6 @@ const TravelPage = () => {
                     from: t("kolkata"),
                     duration: "1h 30m",
                     frequency: t("daily"),
-                    cost: "₹3,800-7,000",
                     airlines: "IndiGo, SpiceJet",
                     bookingTip: t("earlyMorningCheaper")
                 },
@@ -48,71 +45,46 @@ const TravelPage = () => {
                     from: t("mumbai"),
                     duration: "2h 45m",
                     frequency: t("daily"),
-                    cost: "₹5,500-12,000",
                     airlines: "Air India, IndiGo",
                     bookingTip: t("connectViaDelhi")
                 }
             ],
             alternateHub: {
                 name: "Gaya Airport (GAY)",
-                distance: "25 km",
-                duration: "30 min",
+                distance: "25 km from museum",
+                duration: "30 min to museum",
                 note: "Limited flights but closer to museum"
-            },
-            localTransport: [
-                { option: t("prepaidTaxi"), cost: "₹1000-1200", time: "1 hour", note: t("fromPatnaAirport") },
-                { option: t("privateCab"), cost: "₹800-1000", time: "1 hour", note: t("olaUberAvailable") },
-                { option: t("airportBusLocal"), cost: "₹200-300", time: "2 hours", note: t("budgetOptionTransfers") }
-            ],
-            tips: [
-                t("patnaAirportTip"),
-                t("prebookTaxiTip"),
-                t("gayaAirportTip")
-            ]
+            }
         },
         train: {
             title: t("byTrain"),
             icon: <FaTrain className="w-5 h-5" />,
-            mainHub: "Vaishali Railway Station",
-            distance: "12 km",
-            duration: "25 min",
-            costRange: "₹150-250 (auto/taxi)",
+            mainHub: "Patna • Muzaffarpur • Hajipur",
+            distance: "Patna: 65 km • Muzaffarpur: 35 km • Hajipur: 45 km",
+            duration: "1-2 hours to museum",
             description: t("trainDescription"),
             routes: [
                 {
                     from: t("patna"),
-                    duration: "1.5-2 hours",
+                    duration: "65 km from museum",
                     frequency: t("multipleDaiy"),
-                    cost: "₹50-200",
-                    airlines: "Passenger, MEMU trains",
+                    airlines: "Major railway junction - well connected",
                     bookingTip: t("frequentLocalTrains")
                 },
                 {
-                    from: t("newDelhi"),
-                    duration: "12-15 hours",
+                    from: t("muzaffarpur"),
+                    duration: "35 km from museum",
                     frequency: t("daily"),
-                    cost: "₹500-3500",
-                    airlines: "Connect via Patna Junction",
-                    bookingTip: t("takeMainLineTrain")
+                    airlines: "Direct trains from major cities",
+                    bookingTip: "Closest major railway station"
                 },
                 {
-                    from: t("kolkata"),
-                    duration: "10-12 hours",
+                    from: "Hajipur",
+                    duration: "45 km from museum",
                     frequency: t("daily"),
-                    cost: "₹400-2500",
-                    airlines: "Connect via Patna Junction",
-                    bookingTip: t("directTrainsPatna")
+                    airlines: "Good connectivity to eastern states",
+                    bookingTip: "Alternative route via this junction"
                 }
-            ],
-            localTransport: [
-                { option: t("autoRickshaw"), cost: "₹120-180", time: "25 min", note: t("sharedAutosAvailable") },
-                { option: t("taxiCab"), cost: "₹200-250", time: "20 min", note: t("moreComfortableOption") },
-                { option: t("localBus"), cost: "₹30-50", time: "35 min", note: t("budgetFriendly") }
-            ],
-            tips: [
-                t("vaishaliStationTip"),
-                t("keepTicketsSafeTip"),
-                t("localTrainsCrowdedTip")
             ]
         },
         car: {
@@ -120,44 +92,30 @@ const TravelPage = () => {
             icon: <FaCar className="w-5 h-5" />,
             mainHub: "NH 77 & SH 54",
             distance: t("directAccess"),
-            duration: "Varies",
-            costRange: "Fuel + Tolls",
+            duration: "Varies by starting point",
             description: t("roadDescription"),
             routes: [
                 {
                     from: t("patna"),
                     duration: "1.5-2 hours",
-                    frequency: "65 km",
-                    cost: "₹600-900",
-                    airlines: "Via NH 77",
+                    frequency: "65 km via NH 77",
+                    airlines: "Well-maintained highway",
                     bookingTip: t("wellMaintainedHighway")
                 },
                 {
                     from: t("muzaffarpur"),
                     duration: "45-60 minutes",
-                    frequency: "35 km",
-                    cost: "₹300-500",
-                    airlines: "Via SH 54",
+                    frequency: "35 km via SH 54",
+                    airlines: "Shortest road route",
                     bookingTip: t("shortestRoute")
                 },
                 {
-                    from: t("darbhanga"),
-                    duration: "2-2.5 hours",
-                    frequency: "80 km",
-                    cost: "₹800-1200",
-                    airlines: "Via SH 56 & NH 77",
-                    bookingTip: t("scenicRoute")
+                    from: "Hajipur",
+                    duration: "1-1.5 hours",
+                    frequency: "45 km via connecting roads",
+                    airlines: "Good road connectivity",
+                    bookingTip: "Alternative road route"
                 }
-            ],
-            localTransport: [
-                { option: t("ownVehicle"), cost: t("fuelOnly"), time: t("directAccess"), note: t("freeParkingMuseum") },
-                { option: t("rentalCar"), cost: "₹2500-4000/day", time: t("directAccess"), note: t("withoutDriver") },
-                { option: t("taxiRoundTrip"), cost: "₹10-15/km", time: t("directAccess"), note: t("negotiateFullDay") }
-            ],
-            tips: [
-                t("gpsRecommendedTip"),
-                t("carryEmergencyKitTip"),
-                t("fuelStationsAvailableTip")
             ]
         }
     };
@@ -168,7 +126,7 @@ const TravelPage = () => {
         <div className="min-h-screen bg-black text-white">
             <Navbar />
 
-            {/* Compact Header Section */}
+            {/* Header Section */}
             <section className="bg-black py-12">
                 <div className="max-w-5xl mx-auto px-6 text-center">
                     <motion.div
@@ -190,7 +148,7 @@ const TravelPage = () => {
                 </div>
             </section>
 
-            {/* Compact Transport Mode Selection */}
+            {/* Transport Mode Selection */}
             <section className="py-8 bg-gray-900">
                 <div className="max-w-4xl mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -223,7 +181,7 @@ const TravelPage = () => {
                 </div>
             </section>
 
-            {/* Compact Detailed Information */}
+            {/* Journey Flow */}
             <section className="py-12">
                 <div className="max-w-5xl mx-auto px-6">
                     <AnimatePresence mode="wait">
@@ -234,73 +192,80 @@ const TravelPage = () => {
                             exit={{ opacity: 0, y: -15 }}
                             transition={{ duration: 0.3 }}
                         >
-                            {/* Compact Overview */}
+                            {/* Journey Overview */}
                             <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl p-6 mb-8">
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                                    <div className="bg-gray-800/50 rounded-lg p-3">
-                                        <FaMapMarkerAlt className="w-5 h-5 mx-auto mb-2 text-gray-400" />
-                                        <h4 className="font-medium text-sm mb-1 text-white">{t("mainHub")}</h4>
-                                        <p className="text-xs text-gray-300">{currentTravel.mainHub}</p>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                                    <div className="bg-gray-800/50 rounded-lg p-4">
+                                        <FaMapMarkerAlt className="w-6 h-6 mx-auto mb-3 text-gray-400" />
+                                        <h4 className="font-medium text-sm mb-2 text-white">{t("mainHub")}</h4>
+                                        <p className="text-sm text-gray-300">{currentTravel.mainHub}</p>
                                     </div>
-                                    <div className="bg-gray-800/50 rounded-lg p-3">
-                                        <FaDirections className="w-5 h-5 mx-auto mb-2 text-gray-400" />
-                                        <h4 className="font-medium text-sm mb-1 text-white">{t("distance")}</h4>
-                                        <p className="text-xs text-gray-300">{currentTravel.distance}</p>
+                                    <div className="bg-gray-800/50 rounded-lg p-4">
+                                        <FaDirections className="w-6 h-6 mx-auto mb-3 text-gray-400" />
+                                        <h4 className="font-medium text-sm mb-2 text-white">{t("distance")}</h4>
+                                        <p className="text-sm text-gray-300">{currentTravel.distance}</p>
                                     </div>
-                                    <div className="bg-gray-800/50 rounded-lg p-3">
-                                        <FaClock className="w-5 h-5 mx-auto mb-2 text-gray-400" />
-                                        <h4 className="font-medium text-sm mb-1 text-white">{t("travelTime")}</h4>
-                                        <p className="text-xs text-gray-300">{currentTravel.duration}</p>
-                                    </div>
-                                    <div className="bg-gray-800/50 rounded-lg p-3">
-                                        <FaMoneyBillWave className="w-5 h-5 mx-auto mb-2 text-gray-400" />
-                                        <h4 className="font-medium text-sm mb-1 text-white">{t("localCost")}</h4>
-                                        <p className="text-xs text-gray-300">{currentTravel.costRange}</p>
+                                    <div className="bg-gray-800/50 rounded-lg p-4">
+                                        <FaClock className="w-6 h-6 mx-auto mb-3 text-gray-400" />
+                                        <h4 className="font-medium text-sm mb-2 text-white">{t("travelTime")}</h4>
+                                        <p className="text-sm text-gray-300">{currentTravel.duration}</p>
                                     </div>
                                 </div>
 
                                 {/* Alternate Hub for Air Travel */}
                                 {activeTab === 'airplane' && currentTravel.alternateHub && (
-                                    <div className="mt-4 p-3 bg-gray-700/50 backdrop-blur-sm rounded-lg border border-gray-600">
-                                        <h4 className="font-medium mb-1 text-white text-sm">{t("alternativeAirport")}</h4>
-                                        <p className="text-xs text-gray-300">
+                                    <div className="mt-6 p-4 bg-gray-700/50 backdrop-blur-sm rounded-lg border border-gray-600">
+                                        <h4 className="font-medium mb-2 text-white flex items-center gap-2">
+                                            <FaRoute className="w-4 h-4" />
+                                            {t("alternativeAirport")}
+                                        </h4>
+                                        <p className="text-sm text-gray-300">
                                             <strong>{currentTravel.alternateHub.name}</strong> - {currentTravel.alternateHub.distance} ({currentTravel.alternateHub.duration})<br />
-                                            <em>{currentTravel.alternateHub.note}</em>
+                                            <em className="text-gray-400">{currentTravel.alternateHub.note}</em>
                                         </p>
                                     </div>
                                 )}
                             </div>
 
-                            {/* Compact Routes */}
+                            {/* Your Journey Routes */}
                             <div className="mb-8">
-                                <h2 className="text-2xl font-medium mb-6 text-center text-white">{t("popularRoutes")}</h2>
-                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                                <h2 className="text-2xl font-medium mb-6 text-center text-white flex items-center justify-center gap-3">
+                                    <FaRoute className="w-6 h-6 text-gray-400" />
+                                    Your Journey Routes
+                                </h2>
+                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                                     {currentTravel.routes.map((route, index) => (
-                                        <div key={route.from} className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl p-4 hover:border-gray-600 transition-all duration-300">
-                                            <div className="flex justify-between items-start mb-3">
-                                                <h3 className="text-lg font-medium text-white">{route.from}</h3>
-                                                <span className="text-lg font-bold text-gray-300">{route.cost}</span>
+                                        <div key={route.from} className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl p-6 hover:border-gray-600 transition-all duration-300">
+                                            <div className="text-center mb-4">
+                                                <h3 className="text-xl font-medium text-white mb-2">{route.from}</h3>
+                                                <div className="w-12 h-0.5 bg-gray-600 mx-auto"></div>
                                             </div>
 
-                                            <div className="space-y-2 mb-3 text-sm">
-                                                <div className="flex justify-between">
-                                                    <span className="text-gray-400">{t("duration")}:</span>
-                                                    <span className="text-gray-300">{route.duration}</span>
+                                            <div className="space-y-3 mb-4 text-sm">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-gray-400 flex items-center gap-2">
+                                                        <FaClock className="w-3 h-3" />
+                                                        {t("duration")}:
+                                                    </span>
+                                                    <span className="text-gray-300 font-medium">{route.duration}</span>
                                                 </div>
-                                                <div className="flex justify-between">
-                                                    <span className="text-gray-400">{t("frequency")}:</span>
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-gray-400 flex items-center gap-2">
+                                                        <FaDirections className="w-3 h-3" />
+                                                        {t("frequency")}:
+                                                    </span>
                                                     <span className="text-gray-300">{route.frequency}</span>
                                                 </div>
-                                                <div className="flex justify-between">
-                                                    <span className="text-gray-400">{t("options")}:</span>
-                                                    <span className="text-gray-300 text-xs text-right">{route.airlines}</span>
+                                                <div className="pt-2 border-t border-gray-600">
+                                                    <span className="text-gray-400 text-xs">{t("options")}:</span>
+                                                    <p className="text-gray-300 text-sm mt-1">{route.airlines}</p>
                                                 </div>
                                             </div>
 
-                                            <div className="bg-gray-700/50 rounded-lg p-2 border border-gray-600">
+                                            <div className="bg-gray-700/50 rounded-lg p-3 border border-gray-600">
                                                 <div className="flex items-start gap-2">
-                                                    <FaInfoCircle className="w-3 h-3 text-gray-400 mt-0.5 flex-shrink-0" />
-                                                    <p className="text-xs text-gray-300">{route.bookingTip}</p>
+                                                    <FaInfoCircle className="w-4 h-4 text-gray-400 mt-0.5 flex-shrink-0" />
+                                                    <p className="text-sm text-gray-300">{route.bookingTip}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -308,45 +273,20 @@ const TravelPage = () => {
                                 </div>
                             </div>
 
-                            {/* Compact Local Transportation */}
-                            <div className="mb-8">
-                                <h2 className="text-2xl font-medium mb-6 text-center text-white">{t("localTransportation")}</h2>
-                                <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden">
-                                    <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-700">
-                                        {currentTravel.localTransport.map((transport, index) => (
-                                            <div key={index} className="p-4">
-                                                <h4 className="font-medium text-white mb-2">{transport.option}</h4>
-                                                <div className="space-y-1 mb-2 text-sm">
-                                                    <div className="flex justify-between">
-                                                        <span className="text-gray-400">{t("cost")}:</span>
-                                                        <span className="text-gray-300">{transport.cost}</span>
-                                                    </div>
-                                                    <div className="flex justify-between">
-                                                        <span className="text-gray-400">{t("time")}:</span>
-                                                        <span className="text-gray-300">{transport.time}</span>
-                                                    </div>
-                                                </div>
-                                                <p className="text-xs text-gray-400">{transport.note}</p>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Compact Travel Tips */}
+                            {/* Next Steps */}
                             <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl p-6">
                                 <h2 className="text-xl font-medium mb-4 flex items-center gap-3 text-white">
-                                    <FaInfoCircle className="text-gray-400" />
-                                    {t("travelTips")}
+                                    <FaDirections className="text-gray-400" />
+                                    Next: Reach the Museum
                                 </h2>
-                                <ul className="space-y-2">
-                                    {currentTravel.tips.map((tip, index) => (
-                                        <li key={index} className="flex items-start gap-3">
-                                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
-                                            <span className="text-sm text-gray-300">{tip}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                                <p className="text-gray-300 mb-4">
+                                    Once you arrive at your chosen hub, you'll need ground transportation to reach Buddha Samyak Darshan Museum in Vaishali.
+                                </p>
+                                <div className="bg-gray-700/30 rounded-lg p-4">
+                                    <p className="text-sm text-gray-400">
+                                        Local transportation options are available from all major hubs including auto-rickshaws, taxis, and buses to complete your journey to the museum.
+                                    </p>
+                                </div>
                             </div>
 
                         </motion.div>

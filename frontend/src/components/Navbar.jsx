@@ -81,10 +81,10 @@ const Navbar = () => {
               <div className="flex flex-col justify-center h-full font-serif leading-none">
                 <h1 className="text-lg md:text-3xl font-light">
                   <span className="text-xl md:text-5xl font-semibold">
-                    बुद्ध सम्यक
+                    बुद्ध सम्यक दर्शन
                   </span>
                   <span className="text-sm md:text-2xl block pl-10">
-                    दर्शन संग्रहालय
+                     संग्रहालय-सह-स्मृति स्तूप, वैशाली
                   </span>
                 </h1>
               </div>
@@ -273,6 +273,22 @@ const Navbar = () => {
                 </Link>
               </li>
             </div>
+
+              <Link to="/">
+                  <li
+                      className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
+                      onClick={() => {
+                          const el = document.getElementById("exhibitions");
+                          if (el) {
+                              el.scrollIntoView({ behavior: "smooth" });
+                              setMenuOpen(false);
+                          }
+                      }}
+                  >
+                      {t("Home_navbar")}
+                  </li>
+              </Link>
+
             <Link to="/">
               <li
                 className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
@@ -287,6 +303,8 @@ const Navbar = () => {
                 {t("VisitPlanner")}
               </li>
             </Link>
+
+
 
             <Link to="/">
               <li

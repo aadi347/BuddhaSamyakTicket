@@ -37,8 +37,15 @@ const Calendar = () => {
     setSelectedDate(date);
   };
 
+    const openMap = () => {
+        window.open(
+            "https://www.google.com/maps/place/Buddha+Samyak+Darshan+Museum+%26+Stupa/@25.9942639,85.1175337,959m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39ed391d4d1060ad:0x60961d6b8f33c717!8m2!3d25.9942639!4d85.1201086!16s%2Fg%2F11rbrwj7s7?entry=ttu",
+            "_blank"
+        );
+    };
+
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
+    <div className="min-h-screen  py-12 px-4">
       <div className="max-w-6xl mx-auto">
         
         {/* Header Section */}
@@ -97,7 +104,7 @@ const Calendar = () => {
                 <div className="grid grid-cols-7 gap-2">
                   {calendarDays.map((date, index) => {
                     const isToday = date && date.isSame(today, "day");
-                    const isSunday = date && date.day() === 0;
+                    const isSunday = date && date.day() === 1;
                     const isPastMonth = date && !date.isSame(currentMonth, "month");
                     const isPast = date && date.isBefore(today, "day");
                     const isSelected = selectedDate && date && date.isSame(selectedDate, "day");
@@ -150,28 +157,6 @@ const Calendar = () => {
           <div className="space-y-6">
             
             {/* Ticket Information */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
-                  <Ticket className="w-5 h-5 text-white" />
-                </div>
-                <h3 className="font-medium text-black text-lg">Ticket Prices</h3>
-              </div>
-              <div className="space-y-3">
-                <div className="flex justify-between items-center py-2">
-                  <span className="text-gray-600">Adult</span>
-                  <span className="font-medium text-black">₹100</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-t border-gray-100">
-                  <span className="text-gray-600">Student</span>
-                  <span className="font-medium text-black">₹50</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-t border-gray-100">
-                  <span className="text-gray-600">Child (5-12)</span>
-                  <span className="font-medium text-black">₹30</span>
-                </div>
-              </div>
-            </div>
 
             {/* Opening Hours */}
             <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
@@ -194,28 +179,7 @@ const Calendar = () => {
             </div>
 
             {/* Visitor Guidelines */}
-            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center border border-gray-200">
-                  <Info className="w-5 h-5 text-gray-700" />
-                </div>
-                <h3 className="font-medium text-black text-lg">Important Info</h3>
-              </div>
-              <div className="space-y-3 text-sm">
-                <div className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Last entry at 16:30</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Photography allowed without flash</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Audio guides available in 3 languages</span>
-                </div>
-              </div>
-            </div>
+
 
             {/* Contact Info */}
             <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
@@ -230,7 +194,9 @@ const Calendar = () => {
                 Near Central Park<br />
                 Exhibition Road, City Center
               </p>
-              <button className="mt-4 w-full bg-black text-white py-2.5 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-medium text-sm">
+              <button
+                  onClick={openMap}
+                  className="mt-4 w-full bg-black text-white py-2.5 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-medium text-sm">
                 Get Directions
               </button>
             </div>
