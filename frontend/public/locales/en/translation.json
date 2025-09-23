@@ -104,10 +104,6 @@
 
 
 
-
-
-
-
   "JoinUs": "Join Us",
   "FreeEntry": "Free Entry",
   "MuseumName": "Buddha Samyak Darshan Museum",
@@ -130,6 +126,7 @@
   "VisitReach": "How to Reach",
   "VisitContact": "Contact Us",
   "VisitTeam": "Development Team",
+  "Leadership&Contributors": "Leadership & Contributors",
   "VisitPolicy": "Privacy Policy",
 
   "FooterPrivacy": "Privacy Policy",
@@ -241,8 +238,6 @@
   "reactDeveloper": "React Developer",
   "frontendDeveloper": "Frontend Developer",
   "artificialIntelligence": "Artificial Intelligence",
-
-
 
   "howToReach": "How to Reach",
   "buddhaMuseumLocation": "Buddha Samyak Darshan Museum",

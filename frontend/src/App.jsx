@@ -23,6 +23,7 @@ import Gallery from "./pages/Gallery";
 import DevelopersTeam from "./pages/DevelopersTeam";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ContactUs from "./components/ContactUs";
+import LeadershipContributors from "./pages/Leadership&Contributors.jsx"
 
 const MainPage = () => (
   <ParallaxLayout>
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/developers-team" element={<DevelopersTeam />} />
         <Route path="/policy" element={<PrivacyPolicy />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/LeadershipContributors" element={<LeadershipContributors />} />
       </Routes>
     </>
   );

@@ -125,7 +125,7 @@ function ImgGrid() {
             whileHover={{ y: -2 }}
           >
             <Link 
-              to="/exploreMore" 
+              to="/about-museum"
               className="inline-block bg-white text-black py-3.5 px-8 font-medium text-lg rounded-xl border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 group"
             >
               <span className="flex items-center gap-2">

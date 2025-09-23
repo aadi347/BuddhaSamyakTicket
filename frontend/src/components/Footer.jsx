@@ -7,6 +7,7 @@ import {
   FaYoutube,
   FaTwitter,
 } from "react-icons/fa";
+import LeadershipContributors from "../pages/Leadership&Contributors.jsx";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -130,10 +131,16 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/developers-team" className="text-sm md:text-base hover:text-white transition-colors duration-300">
-                  {t("VisitTeam")}
+                <Link to="/LeadershipContributors" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                  {t("Leadership&Contributors")}
                 </Link>
               </li>
+                <li>
+                    <Link to="/Leadership&Contributors" className="text-sm md:text-base hover:text-white transition-colors duration-300">
+                        {t("VisitTeam")}
+                    </Link>
+                </li>
+
               <li>
                 <Link to="/policy" className="text-sm md:text-base hover:text-white transition-colors duration-300">
                   {t("VisitPolicy")}

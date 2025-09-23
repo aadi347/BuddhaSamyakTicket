@@ -4,9 +4,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import LanguageDropdown from "./LanguageDropdown";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { IoMdLogIn } from "react-icons/io";
 import useSearch from "../hooks/useSearch";
-import SearchResults from "./SearchResults";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -97,58 +95,6 @@ const Navbar = () => {
               <LanguageDropdown />
             </div>
 
-            {/* Search Button/Input */}
-            {/* <div className="relative" ref={searchRef}>
-              {searchOpen ? (
-                <form
-                  onSubmit={handleSearchSubmit}
-                  className="flex items-center"
-                >
-                  <div className="relative">
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      onFocus={() => setSearchOpen(true)}
-                      placeholder={t("Search")}
-                      className="bg-gray-800 text-white px-4 py-2 pr-10 rounded-lg w-48 md:w-64 border border-gray-600 focus:border-gray-400 focus:outline-none transition-colors"
-                      autoFocus
-                    />
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSearchOpen(false);
-                        clearSearch();
-                      }}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
-                    >
-                      <FaTimes className="text-sm" />
-                    </button>
-                  </div>
-                </form>
-              ) : (
-                <button
-                  className="hidden md:flex items-center gap-1 hover:text-white transition-colors"
-                  onClick={() => setSearchOpen(true)}
-                >
-                  <FaMagnifyingGlass />
-                  {t("Search")}
-                </button>
-              )} */}
-
-              {/* Search Results - Desktop Only */}
-              {/* <div className="hidden md:block">
-                <SearchResults
-                  searchQuery={searchQuery}
-                  searchResults={searchResults}
-                  isSearching={isSearching}
-                  onClear={clearSearch}
-                  onResultClick={handleResultClick}
-                  isVisible={searchOpen && (searchQuery.trim() || hasResults)}
-                />
-              </div>
-            </div> */}
-
             <div className="hidden md:block">
               <Link to="/book-ticket">
                 <button
@@ -187,65 +133,7 @@ const Navbar = () => {
           } bg-black mt-4 md:mt-0`}
         >
           <ul className="flex flex-col md:flex-row justify-end md:gap-10 gap-4 font-semibold text-md px-4 md:px-0 pb-4 md:pb-0">
-            {/* Mobile-only search and language dropdown */}
-            <li className="md:hidden relative" ref={mobileSearchRef}>
-              {mobileSearchOpen ? (
-                <form
-                  onSubmit={handleSearchSubmit}
-                  className="flex items-center pt-2"
-                >
-                  <div className="relative w-full">
-                    <input
-                      type="text"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      onFocus={() => setMobileSearchOpen(true)}
-                      placeholder={t("Search")}
-                      className="bg-gray-800 text-white px-4 py-2 pr-10 rounded-lg w-full border border-gray-600 focus:border-gray-400 focus:outline-none transition-colors"
-                      autoFocus
-                    />
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setMobileSearchOpen(false);
-                        clearSearch();
-                      }}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white transition-colors"
-                    >
-                      <FaTimes className="text-sm" />
-                    </button>
-                  </div>
-                </form>
-              ) : (
-                <button
-                  className="flex items-center gap-2 hover:text-white transition-colors w-full text-left pt-2"
-                  onClick={() => setMobileSearchOpen(true)}
-                >
-                  <FaMagnifyingGlass />
-                  {t("Search")}
-                </button>
-              )}
 
-              {/* Mobile Search Results */}
-              {mobileSearchOpen && (
-                <div className="relative">
-                  <SearchResults
-                    searchQuery={searchQuery}
-                    searchResults={searchResults}
-                    isSearching={isSearching}
-                    onClear={() => {
-                      clearSearch();
-                      setMobileSearchOpen(false);
-                    }}
-                    onResultClick={handleResultClick}
-                    isVisible={
-                      mobileSearchOpen && (searchQuery.trim() || hasResults)
-                    }
-                    isMobile={true}
-                  />
-                </div>
-              )}
-            </li>
             <div className="flex items-center gap-2 w-full md:hidden">
               <li className="md:hidden">
                 <LanguageDropdown />
@@ -305,35 +193,14 @@ const Navbar = () => {
             </Link>
 
 
-
-            <Link to="/">
-              <li
-                className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
-                onClick={() => {
-                  const el = document.getElementById("exhibitions");
-                  if (el) {
-                    el.scrollIntoView({ behavior: "smooth" });
-                    setMenuOpen(false);
-                  }
-                }}
-              >
-                {t("Exhibitions")}
-              </li>
-            </Link>
-
-            <Link to="/">
+            <Link to="/gallery">
             <li
               className="hover:underline underline-offset-8 hover:decoration-white cursor-pointer"
-              onClick={() => {
-                const el = document.getElementById("collection");
-                if (el) {
-                  el.scrollIntoView({ behavior: "smooth" });
-                  setMenuOpen(false);
-                }
-              }}
+
             >
               {t("Gallery")}
             </li>
+
             </Link>
             <Link to="/about-museum">
               <li
