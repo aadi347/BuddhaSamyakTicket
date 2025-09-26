@@ -9,7 +9,7 @@ const Render1 = ({ activePanel }) => {
     switch (activePanel) {
       case 'Dashboard':
         return <Dashboard />;
-      case 'Staff':
+      case 'Home':
         return <TicketController />;
       default:
         return <div className="p-6 text-black">No content available</div>;

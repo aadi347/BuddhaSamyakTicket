@@ -113,7 +113,7 @@ const Login = () => {
                                     <Clock size={20} className="text-gray-300 mt-1 flex-shrink-0" />
                                     <div>
                                         <h3 className="font-semibold text-lg mb-1">Visiting Hours</h3>
-                                        <p className="text-gray-200 text-sm opacity-90">9:00 AM - 5:00 PM | Monday Closed</p>
+                                        <p className="text-gray-200 text-sm opacity-90">10:00 AM - 5:00 PM | Monday Closed</p>
                                     </div>
                                 </div>
                             </div>

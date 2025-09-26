@@ -168,38 +168,41 @@ const Calendar = () => {
               </div>
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-2">
-                  <span className="text-gray-600">Monday - Saturday</span>
-                  <span className="font-medium text-black">09:00 - 17:00</span>
+                  <span className="font-medium text-black">10:00 AM - 5:00 PM</span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-t border-gray-100">
-                  <span className="text-gray-400">Sunday</span>
+                  <span className="text-gray-400">Monday</span>
                   <span className="font-medium text-gray-400">Closed</span>
                 </div>
               </div>
             </div>
 
-            {/* Visitor Guidelines */}
-
-
             {/* Contact Info */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-gray-700" />
-                </div>
-                <h3 className="font-medium text-black text-lg">Location</h3>
+
+              <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                  <div className="flex items-center gap-3 mb-4">
+                      <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
+                          <MapPin className="w-5 h-5 text-gray-700" />
+                      </div>
+                      <h3 className="font-medium text-black text-lg">Location</h3>
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                      <span className="block font-medium text-base">बुद्ध सम्यक दर्शन</span>
+
+      संग्रहालय-सह-स्मृति स्तूप, वैशाली
+
+                  </p>
+                  <a
+                      href="https://www.google.com/maps/place/Buddha+Samyak+Darshan+Museum+%26+Stupa/@25.9942687,85.1175337,784m/data=!3m2!1e3!4b1!4m6!3m5!1s0x39ed391d4d1060ad:0x60961d6b8f33c717!8m2!3d25.9942639!4d85.1201086!16s%2Fg%2F11rbrwj7s7?entry=ttu&g_ep=EgoyMDI1MDkyMy4wIKXMDSoASAFQAw%3D%3D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 w-full inline-block text-center bg-black text-white py-2.5 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-medium text-sm"
+                  >
+                      Get Directions
+                  </a>
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Buddha Samyak Darshan Museum<br />
-                Near Central Park<br />
-                Exhibition Road, City Center
-              </p>
-              <button
-                  onClick={openMap}
-                  className="mt-4 w-full bg-black text-white py-2.5 px-4 rounded-lg hover:bg-gray-800 transition-colors duration-200 font-medium text-sm">
-                Get Directions
-              </button>
-            </div>
+
+
           </div>
         </div>
       </div>

@@ -13,8 +13,8 @@ const AdminLeftBar = ({ changePanel }) => {
     const [hoveredItem, setHoveredItem] = useState(null);
 
     const menuItems = [
+        { label: "Home", icon: UserCircle },
         { label: "Dashboard", icon: LayoutDashboard },
-        { label: "Staff", icon: UserCircle },
     ];
 
     const handleMenuClick = (label) => {

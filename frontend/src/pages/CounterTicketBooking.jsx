@@ -553,20 +553,20 @@ const CounterTicketBooking = () => {
         );
     }
 
-    // Show form
+
     return (
         <div className="min-h-screen bg-gray-50">
             <Navbar />
             <div className="max-w-2xl mx-auto p-4">
 
-                {/* Header */}
+
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                     className="text-center mb-8"
                 >
-                    {/* Museum Logo */}
+
                     <div className="flex justify-center mb-4">
                         <img
                             src="https://buddhasamyak.bihar.gov.in/buddha3.png"
@@ -688,7 +688,7 @@ const CounterTicketBooking = () => {
                 >
                     <h4 className="text-sm font-medium text-gray-800 mb-2">Important Information:</h4>
                     <ul className="text-xs text-gray-600 space-y-1">
-                        <li>• Slot 1: 9:00 AM - 1:00 PM | Slot 2: 1:00 PM - 6:00 PM</li>
+                        <li>• Timing: 10 am - 5pm</li>
                         <li>• Please carry a valid ID proof for verification</li>
                         <li>• Tickets are non-transferable and non-refundable</li>
                     </ul>
