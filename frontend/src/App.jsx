@@ -24,6 +24,7 @@ import DevelopersTeam from "./pages/DevelopersTeam";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import ContactUs from "./components/ContactUs";
 import LeadershipContributors from "./pages/Leadership&Contributors.jsx"
+import CounterTicketBooking from "./pages/CounterTicketBooking.jsx"
 
 const MainPage = () => (
   <ParallaxLayout>
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="/policy" element={<PrivacyPolicy />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/LeadershipContributors" element={<LeadershipContributors />} />
+        <Route path="CounterTicketBooking" element={<CounterTicketBooking />} />
       </Routes>
     </>
   );
