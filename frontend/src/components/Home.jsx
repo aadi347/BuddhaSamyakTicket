@@ -54,30 +54,7 @@ const Home = () => {
         <div className="absolute top-0 left-0 w-full h-full z-10" />
 
         {/* Left Info Panel */}
-       <div className="hidden lg:block absolute bottom-6 left-4 z-20 w-[380px] bg-white text-black  px-6 py-8 transition-all duration-300 group hover:bg-black hover:text-white">
-  <h2
-    style={{ fontFamily: '"Playfair Display", serif' }}
-    className="text-xl font-bold"
-  >
-    {t("Welcome")}
-  </h2>
-  
-  <p
-    style={{ fontFamily: '"Playfair Display", serif' }}
-    className="text-sm leading-relaxed mt-4 mb-6"
-  >
-    {t("MuseumDescription")}
-  </p>
-  
-  <Link to="/gallery">
-    <button
-      style={{ fontFamily: '"Playfair Display", serif' }}
-      className="text-sm font-semibold px-5 py-2 border-2 border-black bg-black text-white transition-all duration-300 group-hover:bg-white group-hover:text-black"
-    >
-      {t("Explore")} →
-    </button>
-  </Link>
-</div>
+
 
 
 {/* Button Controls - Bottom Right */}

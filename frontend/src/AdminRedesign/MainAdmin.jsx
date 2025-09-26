@@ -17,7 +17,7 @@ const MainAdmin = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen flex-col bg-gray-100">
+    <div className="flex h-screen w-screen flex-col bg-gray-500">
       <div className="w-full">
         <AdminTopNavbar toggleSidebar={toggleSidebar} />
       </div>

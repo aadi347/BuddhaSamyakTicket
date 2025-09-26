@@ -1,5 +1,6 @@
 import React from 'react';
 import Dashboard from './Dashboard';
+import TicketController from './TicketController';
 import Staff from './Staff';
 import Employees from './Employees';
 
@@ -9,13 +10,7 @@ const Render1 = ({ activePanel }) => {
       case 'Dashboard':
         return <Dashboard />;
       case 'Staff':
-        return <Staff />;
-      case 'Employees':
-        return <Employees />;
-      case 'Startup List':
-        return <div className="p-6 text-black">Startup List Content</div>;
-      case 'Seed Fund Module':
-        return <div className="p-6 text-black">Seed Fund Module Content</div>;
+        return <TicketController />;
       default:
         return <div className="p-6 text-black">No content available</div>;
     }

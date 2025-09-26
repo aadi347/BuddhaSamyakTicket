@@ -1,80 +1,60 @@
 import React, { useState } from "react";
-
-import { LogOut } from 'lucide-react'; // Logout icon (already there as SVG, but now optional)
-import { Pencil } from 'lucide-react'; // ✏️ Edit icon from Lucide
-
-
+import { LogOut, User, Calendar } from 'lucide-react';
 
 const AdminTopNavbar = () => {
+    const today = new Date().toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+    });
 
- 
-  const today = new Date().toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  });
+    const handleLogout = () => {
+        console.log("User logged out");
+    };
 
-  const handleLogout = () => {
-    console.log("User logged out");
-  };
+    return (
+        <div className="h-14 flex items-center justify-between px-5 text-white w-full bg-gradient-to-r from-black via-gray-900 to-black border-b border-gray-700/30 relative overflow-hidden">
+            {/* Subtle background elements */}
+            <div className="absolute inset-0 opacity-3">
+                <div className="absolute top-2 left-10 w-16 h-16 bg-white rounded-full blur-xl animate-pulse"></div>
+                <div className="absolute top-2 right-20 w-12 h-12 bg-gray-400 rounded-full blur-lg animate-pulse delay-1000"></div>
+            </div>
 
- 
+            {/* Welcome Section */}
+            <div className="relative z-10">
+                <h2 className="text-lg font-semibold text-white tracking-tight">Welcome, Admin</h2>
+            </div>
 
-  return (
-    <div className="h-16 flex items-center justify-between px-6 text-white w-full bg-black">
-      <h2 className="text-xl font-semibold text-white">Welcome! Admin</h2>
+            <div className="flex items-center space-x-4 relative z-10">
+                {/* Date Display */}
+                <div className="flex items-center gap-2 bg-white/8 backdrop-blur-sm border border-white/15 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-white/10">
+                    <Calendar size={14} className="text-gray-300" />
+                    <span className="text-sm text-gray-200 font-medium">{today}</span>
+                </div>
 
-      <div className="flex items-center space-x-6 ">
-        {/* EDIT DATA BUTTON */}
-        {/* <button
-         
-          className="flex items-center  gap-2 bg-white/10 backdrop-blur-md border border-white/30 px-4 py-3 rounded-full text-sm text-gray-200 hover:text-purple-400 transition"
-        >
-          <Pencil size={16} className="text-gray-200" />
-          <span>Edit Data</span>
-        </button> */}
+                {/* Profile Section */}
+                <div className="flex items-center gap-3 bg-white/8 backdrop-blur-sm border border-white/15 py-1.5 px-3 rounded-lg transition-all duration-200 hover:bg-white/10 group">
+                    <div className="relative">
+                        <img
+                            src="https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg?semt=ais_hybrid&w=740"
+                            alt="user"
+                            className="w-8 h-8 rounded-md shadow-sm border border-white/20"
+                        />
+                        <div className="absolute -inset-0.5 bg-gradient-to-br from-white to-gray-300 rounded-md blur opacity-0 group-hover:opacity-20 transition-opacity duration-200"></div>
+                    </div>
+                    <div className="flex flex-col">
+                        <span className="text-sm font-medium text-gray-200">Mukesh Kumar</span>
+                        <p className="text-xs text-gray-400 -mt-0.5">Administrator</p>
+                    </div>
+                </div>
 
 
+            </div>
 
-        {/* TIMESTAMP */}
-        <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 px-4 py-3 rounded-full">
-          <span className="text-sm text-gray-200">{today}</span>
+            {/* Decorative gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10 pointer-events-none"></div>
         </div>
-
-        {/* NOTIFICATION
-        <button className="relative bg-white/10 backdrop-blur-md border border-white/30 rounded-full p-2">
-          <FaBell className="w-8 h-8 text-gray-50 hover:text-purple-500" />
-          <span className="absolute top-0 right-0 w-2 h-2 bg-purple-500 rounded-full"></span>
-        </button> */}
-
-        {/* PROFILE */}
-        <div className="flex items-center gap-3 border bg-white/10 backdrop-blur-md border-white/30 py-1 px-3 rounded-full ">
-          <img
-            src="https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg?semt=ais_hybrid&w=740"
-            alt="user"
-            className="w-10 h-10 rounded-full shadow-md"
-          />
-          <div className="flex flex-col">
-            <span className="text-sm font-medium text-gray-200">Mukesh Kumar</span>
-            <p className="text-xs text-gray-400 -mt-1">Admin</p>
-          </div>
-        </div>
-
-        {/* LOGOUT BUTTON */}
-        <button
-          className="group flex items-center justify-start w-11 h-11 bg-white rounded-full cursor-pointer relative overflow-hidden transition-all duration-200 shadow-lg hover:w-32 hover:rounded-full active:translate-x-1 active:translate-y-1"
-          onClick={handleLogout}
-        >
-          <div className="flex items-center justify-center w-full transition-all duration-300 group-hover:justify-start group-hover:px-3">
-            <LogOut size={16} className="text-black" />
-          </div>
-          <div className="absolute right-5 transform translate-x-full opacity-0 text-black text-lg font-semibold transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-            Logout
-          </div>
-        </button>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default AdminTopNavbar;
