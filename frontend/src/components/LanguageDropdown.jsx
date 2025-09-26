@@ -106,7 +106,7 @@ const LanguageDropdown = () => {
                 whileHover="hover"
                 whileTap="tap"
                 onClick={() => setOpen(!open)}
-                className="relative bg-white/20 backdrop-blur-md px-4 py-3 rounded-full text-xs text-white font-medium shadow-lg border border-white/20 cursor-pointer hover:bg-white/30 transition-all duration-200"
+                className="relative bg-black/70 backdrop-blur-md px-4 py-3 rounded-full text-xs text-white font-medium shadow-lg border border-white/20 cursor-pointer hover:bg-white/30 transition-all duration-200"
                 style={{ fontFamily: '"Playfair Display", serif' }}
             >
                 <div className="flex items-center gap-1.5">
@@ -140,7 +140,7 @@ const LanguageDropdown = () => {
                             initial="hidden"
                             animate="visible"
                             exit="hidden"
-                            className="absolute top-10 left-0 z-30 w-44 bg-white/10 backdrop-blur-xl rounded-lg shadow-2xl border border-white/20 overflow-hidden"
+                            className="absolute top-10 left-0 z-30 w-44 bg-black/70 backdrop-blur-xl rounded-lg shadow-2xl border border-white/20 overflow-hidden"
                         >
                             <div className="py-1">
                                 {languages.map((lang) => (
